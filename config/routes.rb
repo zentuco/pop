@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :projects, only: [:create, :update, :destroy, :show]
   get 'dashboard', to: 'users#dashboard'
   get 'topup', to: 'pages#deals'
-  get 'becomeadesigner', to: 'pages#designerlanding'
+  get 'become-designer', to: 'pages#designerlanding'
 end
 
