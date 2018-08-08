@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_112254) do
+ActiveRecord::Schema.define(version: 2018_08_08_132918) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,28 @@ ActiveRecord::Schema.define(version: 2018_08_08_112254) do
     t.index ["category_id"], name: "index_designs_on_category_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "status", default: 0, null: false
+    t.integer "amount", null: false
+    t.integer "tokens", null: false
+    t.bigint "wallet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wallet_id"], name: "index_orders_on_wallet_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.bigint "request_id"
+    t.bigint "user_id"
+    t.integer "status", default: 0, null: false
+    t.integer "accepted_price", null: false
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_projects_on_request_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "design_id"
@@ -84,10 +106,22 @@ ActiveRecord::Schema.define(version: 2018_08_08_112254) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wallets", force: :cascade do |t|
+    t.integer "tokens"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wallets_on_user_id"
+  end
+
   add_foreign_key "attachments", "designs"
   add_foreign_key "contributions", "requests"
   add_foreign_key "contributions", "users"
   add_foreign_key "designs", "categories"
+  add_foreign_key "orders", "wallets"
+  add_foreign_key "projects", "requests"
+  add_foreign_key "projects", "users"
   add_foreign_key "requests", "designs"
   add_foreign_key "requests", "users"
+  add_foreign_key "wallets", "users"
 end
