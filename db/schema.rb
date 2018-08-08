@@ -10,12 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_084034) do
+ActiveRecord::Schema.define(version: 2018_08_08_112254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attachments", force: :cascade do |t|
+    t.bigint "design_id"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["design_id"], name: "index_attachments_on_design_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contributions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "request_id"
+    t.integer "tokens"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["request_id"], name: "index_contributions_on_request_id"
+    t.index ["user_id"], name: "index_contributions_on_user_id"
+  end
+
+  create_table "designs", force: :cascade do |t|
+    t.text "description"
+    t.string "name"
+    t.integer "likes"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_designs_on_category_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "design_id"
+    t.integer "type"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["design_id"], name: "index_requests_on_design_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false
+    t.boolean "designer", default: false
+    t.string "username", default: "", null: false
+    t.string "printer"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "photo"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -32,4 +84,10 @@ ActiveRecord::Schema.define(version: 2018_08_08_084034) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attachments", "designs"
+  add_foreign_key "contributions", "requests"
+  add_foreign_key "contributions", "users"
+  add_foreign_key "designs", "categories"
+  add_foreign_key "requests", "designs"
+  add_foreign_key "requests", "users"
 end
