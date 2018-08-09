@@ -1,30 +1,41 @@
 <h1>Project: <%= @project.request.design.name %></h1>
 
 <div class="container">
-  <div>
-    <%= image_tag @project.user.photo, class: "avatar" %>
-  </div>
-  <div class="class-image">
-    <% if @project.file %>
-      <%= image_tag @project.file %>
-    <% else %>
-      <img src="http://www.toezonefootwear.com/ToezoneIndonesia/protected/resources/assets/images/600px-No_image_available.png" alt="no_upload" style:>
-      <%= @project.status %>
-    <% end %>
-  </div>
-
-  <%= link_to "See original design", design_path(@project.request.design.id) %>
-
-  <div >
-    <h4>Request description</h4>
-  <%= @project.request.description %>
-    <div>
-      <% @project.request.contributions.each do |contribution| %>
-        <%= image_tag contribution.user.photo, class: "avatar small" %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div>
+        <% if @project.file %>
+          <%= image_tag @project.file, class: "project-file" %>
+        <% else %>
+          <img src="http://www.toezonefootwear.com/ToezoneIndonesia/protected/resources/assets/images/300px-No_image_available.png" alt="no_upload" style: width 100% >
+          <%= @project.status %>
+        <% end %>
+      </div>
+      <% if @project.request.kind == :improve %>
+        <%= link_to "See original design", design_path(@project.request.design.id), class: "button" %>
       <% end %>
     </div>
-    <div>
-      <p>Pool amount: <%= @project.accepted_price %></p>
+
+    <div class="col-xs-12 col-sm-6">
+      <div>
+        <div>
+          <p>Designer for this projet is:</p>
+          <%= image_tag @project.user.photo, class: "avatar large" %>
+          <%= @project.user.full_name %>
+        </div>
+        <div>
+          <h4>Request description:</h4>
+          <%= @project.request.description %>
+        </div>
+      </div>
+      <p><strong>Pool amount: <%= @project.accepted_price %></strong></p>
     </div>
+  </div>
+
+  <div class="row">
+    <p>This projet was made possible thanks to:</p>
+    <% @project.request.contributions.each do |contribution| %>
+      <%= image_tag contribution.user.photo, class: "avatar" %>
+    <% end %>
   </div>
 </div>
