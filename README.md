@@ -1,1 +1,1 @@
-Pool of Printables is a crowdfunding platform for high quality 3D printing designs
+Pool of Printables is the new platform for crowdfunding high printable quality 3D designs, boosting the 3D printing community to enable a more sustainable consumption model. -- More info in www.thepoolofprintables.com --
