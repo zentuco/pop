@@ -1,10 +1,10 @@
 <h1>Project: <%= @project.request.design.name %></h1>
 
 <div class="container">
-  <div class="avatar">
-    <%= image_tag @project.user.photo %>
-  </div>
   <div>
+    <%= image_tag @project.user.photo, class: "avatar" %>
+  </div>
+  <div class="class-image">
     <% if @project.file %>
       <%= image_tag @project.file %>
     <% else %>
@@ -16,10 +16,11 @@
   <%= link_to "See original design", design_path(@project.request.design.id) %>
 
   <div >
+    <h4>Request description</h4>
   <%= @project.request.description %>
-    <div class="avatar small">
+    <div>
       <% @project.request.contributions.each do |contibution| %>
-        <%= image_tag contribution.user.photo %>
+        <%= image_tag contribution.user.photo, class: "avatar small" %>
       <% end %>
     </div>
     <div>
