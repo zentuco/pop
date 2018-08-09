@@ -5,28 +5,43 @@
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s all ease-in-out;
-  padding: 0.6rem;
+  padding: 0.8rem;
   text-transform: none;
   margin: 0 0.75rem 0 .5rem;
-  background-color: #06D6A9;
-  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px #171F24;
+  background-color: $pop-green;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-black;
   color: #fcfcfc;
 }
 
 .button:hover {
-  background-color: #171F24;
-  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px #06D6A9;
+  background-color: $pop-black;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-green;
 }
 
 .button-red {
 
-  background-color: #EE5F5B;
-  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px #171F24;
+  background-color: $pop-red;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-black;
 }
 
 .button-red:hover {
   color: #fcfcfc;
-  background-color: #EE5F5B;
-  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 4px 4px 0px 0px #171F24;
+  background-color: $pop-red;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 4px 4px 0px 0px $pop-black;
   transition: 0.1s all ease-in-out;
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: none;
+}
+
+.transparent-button:hover {
+  color: $pop-green;
+  border: none;
+}
+
+.transparent-button:focus,.transparent-button:active {
+   outline: none !important;
+   box-shadow: none;
 }
