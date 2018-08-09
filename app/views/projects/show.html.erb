@@ -19,7 +19,7 @@
     <h4>Request description</h4>
   <%= @project.request.description %>
     <div>
-      <% @project.request.contributions.each do |contibution| %>
+      <% @project.request.contributions.each do |contribution| %>
         <%= image_tag contribution.user.photo, class: "avatar small" %>
       <% end %>
     </div>

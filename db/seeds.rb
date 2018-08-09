@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Wallet.destroy_all
+Project.destroy_all
+Request.destroy_all
+User.destroy_all
 User.create(designer: true, username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado", photo: "http://kitt.lewagon.com/placeholder/users/zentuco",)
-user = User.new(admin: true, username: "vananreed", email: "pool2@printables.io", password: "reedvan", printer: "HUGE", first_name: "Reed", last_name: "Van Anrooy", photo: "http://kitt.lewagon.com/placeholder/users/vananreed",)
-user.save!
+User.create(admin: true, username: "vananreed", email: "pool2@printables.io", password: "reedvan", printer: "HUGE", first_name: "Reed", last_name: "Van Anrooy", photo: "http://kitt.lewagon.com/placeholder/users/vananreed",)
 User.create(username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell", photo: "http://kitt.lewagon.com/placeholder/users/lancekrp",)
 User.create(username: "jamesthebrit", email: "pool4@printables.io", password: "jamesrevan", printer: "has lazer beams", first_name: "James", last_name: "Revan", photo: "http://kitt.lewagon.com/placeholder/users/jamesrevan",)
 
@@ -56,4 +59,17 @@ end
   project.user = User.all.sample
   project.request = Request.all.sample
   project.save!
+end
+
+100.times do
+  contribution = Contribution.new(
+    tokens: rand(1000)
+  )
+  contribution.request = Request.all.sample
+  contribution.user = User.all.sample
+  contribution.save!
+end
+
+User.all.each do |user|
+  user.wallet = Wallet.create
 end

@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_132918) do
   create_table "designs", force: :cascade do |t|
     t.text "description"
     t.string "name"
-    t.integer "likes"
+    t.integer "likes", default: 0
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_132918) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.integer "tokens"
+    t.integer "tokens", default: 200
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
