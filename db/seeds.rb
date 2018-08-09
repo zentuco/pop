@@ -49,3 +49,10 @@ end
   request.user = User.all.sample
   request.save!
 end
+
+5.times do
+  project = Project.new(accepted_price: rand(1000), file: files.sample)
+  project.user = User.all.sample
+  project.request = Request.all.sample
+  project.save!
+end
