@@ -1,7 +1,29 @@
-<h1>Projects show page</h1>
+<h1>Project: <%= @project.request.design.name %></h1>
 
 <div class="container">
+  <div class="avatar">
+    <%= image_tag @project.user.photo %>
+  </div>
   <div>
-    <%= @project.request.design.id %>
+    <% if @project.file %>
+      <%= image_tag @project.file %>
+    <% else %>
+      <img src="http://www.toezonefootwear.com/ToezoneIndonesia/protected/resources/assets/images/600px-No_image_available.png" alt="no_upload" style:>
+      <%= @project.status %>
+    <% end %>
+  </div>
+
+  <%= link_to "See original design", design_path(@project.request.design.id) %>
+
+  <div >
+  <%= @project.request.description %>
+    <div class="avatar small">
+      <% @project.request.contributions.each do |contibution| %>
+        <%= image_tag contribution.user.photo %>
+      <% end %>
+    </div>
+    <div>
+      <p>Pool amount: <%= @project.accepted_price %></p>
+    </div>
   </div>
 </div>
