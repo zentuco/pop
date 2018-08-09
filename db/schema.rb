@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_132918) do
   create_table "requests", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "design_id"
-    t.integer "type"
+    t.integer "kind", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
