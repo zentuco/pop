@@ -9,4 +9,12 @@ class Request < ApplicationRecord
   validates :design, presence: true
 
   enum kind: [:original, :improve]
+
+  def total_tokens
+    tokens_sum = 0
+    self.contributions.each do |contribution|
+      tokens_sum += contribution.tokens
+    end
+    tokens_sum
+  end
 end
