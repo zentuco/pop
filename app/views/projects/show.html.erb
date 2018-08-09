@@ -18,7 +18,7 @@
   <div >
   <%= @project.request.description %>
     <div class="avatar small">
-      <% @project.request.contributions.each do |contibution| %>
+      <% @project.request.contributions.each do |contribution| %>
         <%= image_tag contribution.user.photo %>
       <% end %>
     </div>
