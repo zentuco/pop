@@ -1,2 +1,29 @@
-<h1>Designs#show</h1>
-<p>Find me in app/views/designs/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="design-details">
+        <h1><%= @design.name %></h1>
+        <% @design.attachments.each do |file| %>
+        <%= image_tag file.file %>
+        <% end %>
+        <p><%= @design.description %></p>
+        <p><i class="fas fa-heart"></i> <%= @design.likes %></p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="requests">
+        <% @design.requests.each do |request| %>
+        <div class="request">
+          <div class="request-kind"><%= request.kind %></div>
+          <div class="request-description"><%= request.description %></div>
+          <div class="contributions">
+            <span><%= request.contributions.size %> contributions</span>
+            <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
+          </div>
+          <a href="#"class="button">Contribute</a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
