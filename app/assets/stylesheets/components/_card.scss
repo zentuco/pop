@@ -1,11 +1,10 @@
 .card-wrapper {
   background-color: #FFF;
   border-bottom: 1px solid #F6F6F6;
-  width: 70%;
 }
 
 .card-container {
-  padding: 10px;
+  padding: 20px;
 }
 
 .card-header {
@@ -75,14 +74,6 @@
   font-size: 15px;
 }
 
-.card-pool i:hover {
-  color: #06D6A9;
-}
-
-.card-contributors i:hover {
-  color: #06D6A9;
-}
-
-.card-share:hover {
-  color: #06D6A9;
+.hovered:hover {
+  color: $pop-green;
 }
