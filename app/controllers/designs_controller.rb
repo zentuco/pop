@@ -5,7 +5,11 @@ class DesignsController < ApplicationController
   before_action :set_design, only: [:show, :update, :edit, :destroy]
 
   def index
-    @designs = Design.all
+    if params[:designname].present?
+      @designs = Design.where("name ILIKE ? OR description ILIKE ? ", "%#{params[:designname]}%", "%#{params[:designname]}%")
+    else
+      @designs = Design.all
+    end
   end
 
   def show
