@@ -9,6 +9,7 @@ class DesignsController < ApplicationController
   end
 
   def show
+    @contribution = Contribution.new
   end
 
   def new

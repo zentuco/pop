@@ -1,9 +1,12 @@
 .requests {
   margin: 20px;
+  border-radius: 5px;
+  background-color: $light-gray;
 }
 
 .request {
-  background-color: $purple-gray;
+  font-size: 16px;
+
   margin: 10px;
 }
 
