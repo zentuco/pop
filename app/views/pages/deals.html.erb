@@ -1,5 +1,57 @@
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'token_amount', @token.amount %>
-  <%= hidden_field_tag 'token_sku', @token.sku %>
-  <%= submit_tag 'Purchase', class: 'button' %>
-<% end %>
+<div class="deals-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="deal-card">
+          <% @token = Token.new(amount: 50, sku: "50") %>
+          <div class="deal-tokens">
+            <%= @token.amount %> tokens
+            <div><i class="fas fa-coins"></i></div>
+          </div>
+          <div class="deal-price">
+            $10
+          </div>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'token_amount', @token.amount %>
+          <%= hidden_field_tag 'token_sku', @token.sku %>
+          <%= submit_tag 'Purchase', class: 'button' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="deal-card">
+          <% @token = Token.new(amount: 500, sku: "500") %>
+          <div class="deal-tokens">
+            <%= @token.amount %> tokens
+            <div><i class="fas fa-coins"></i></div>
+          </div>
+          <div class="deal-price">
+            $90
+          </div>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'token_amount', @token.amount %>
+          <%= hidden_field_tag 'token_sku', @token.sku %>
+          <%= submit_tag 'Purchase', class: 'button' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="deal-card">
+          <% @token = Token.new(amount: 5000, sku: "5000") %>
+          <div class="deal-tokens">
+            <%= @token.amount %> tokens
+            <div><i class="fas fa-coins"></i></div>
+          </div>
+          <div class="deal-price">
+            $700
+          </div>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'token_amount', @token.amount %>
+          <%= hidden_field_tag 'token_sku', @token.sku %>
+          <%= submit_tag 'Purchase', class: 'button' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
