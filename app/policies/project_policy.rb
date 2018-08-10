@@ -1,12 +1,8 @@
-class DesignPolicy < ApplicationPolicy
+class ProjectPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
-  end
-
-  def index?
-    true
   end
 
   def show?
@@ -14,19 +10,11 @@ class DesignPolicy < ApplicationPolicy
   end
 
   def create?
-    true
-  end
-
-  def new?
-    create?
+    user.admin? || user.designer?
   end
 
   def update?
-    user.admin?
-  end
-
-  def edit?
-    update?
+    user.admin? || user.designer?
   end
 
   def destroy?
