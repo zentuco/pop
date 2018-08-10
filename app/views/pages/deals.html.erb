@@ -1,1 +1,5 @@
-deals.html.erb
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'token_amount', @token.amount %>
+  <%= hidden_field_tag 'token_sku', @token.sku %>
+  <%= submit_tag 'Purchase', class: 'button' %>
+<% end %>

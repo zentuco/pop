@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def deals
+    @token = Token.new(amount: 1, sku: "token")
   end
 
   def designerlanding
