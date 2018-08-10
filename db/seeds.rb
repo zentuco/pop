@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Wallet.destroy_all
 Project.destroy_all
+Contribution.destroy_all
 Request.destroy_all
 User.destroy_all
 User.create(designer: true, username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado", photo: "http://kitt.lewagon.com/placeholder/users/zentuco",)
@@ -37,11 +38,12 @@ end
   design.category = Category.all.sample
   design.save!
 end
-
-files.each do |file|
-  attachment = Attachment.new(file: file)
-  attachment.design = Design.all.sample
-  attachment.save!
+20.times do
+  files.each do |file|
+    attachment = Attachment.new(file: file)
+    attachment.design = Design.all.sample
+    attachment.save!
+  end
 end
 
 20.times do
