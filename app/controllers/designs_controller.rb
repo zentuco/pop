@@ -7,6 +7,12 @@ class DesignsController < ApplicationController
   def index
     @designs = policy_scope(Design).order(created_at: :desc)
     authorize @designs
+
+    if params[:designname].present?
+      @designs = Design.where("name ILIKE ? OR description ILIKE ? ", "%#{params[:designname]}%", "%#{params[:designname]}%")
+    else
+      @designs = Design.all
+    end
   end
 
   def show
