@@ -1,23 +1,25 @@
 <div class="card-wrapper">
   <div class="card-container">
-    <div class="card-header">
-      <span class="card-avatar">
-        <!-- design or request users avatar -->
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/vananreed", class: "avatar small" %>
-      </span>
-      <span class="card-name">
-        <!-- user-name -->
-        zentuco
-      </span>
-      <span class="card-category">
-        <!-- design/request category -->
-        in Models
-      </span>
-      <span class="card-timespan">
-        <!-- • date_created - date now -->
-        • 13 days ago
-      </span>
-    </div>
+    <% if design.requests.present? %>
+      <div class="card-header">
+        <span class="card-avatar">
+          <!-- design or request users avatar -->
+            <%= image_tag design.requests.first.user.photo, class: "avatar small" %>
+        </span>
+        <span class="card-name">
+          <!-- user-name -->
+          <%= design.requests.first.user.username %>
+        </span>
+        <span class="card-category">
+          <!-- design/request category -->
+          <%= design.category.name %>
+        </span>
+        <span class="card-timespan">
+          <!-- • date_created - date now -->
+          <%= design.requests.first.created_time_ago %>
+        </span>
+      </div>
+    <% end %>
     <div class="card-body">
       <div>
         <!-- design image -->
@@ -26,11 +28,13 @@
       <div class="card-details">
         <div class="card-title">
           <!-- Title of Design or Request (new or change) -->
-          <h2>Renewal of fantastic PIKACHU with the power of CAD and stuff</h2>
+          <h2><%= design.name %></h2>
         </div>
         <div class="card-description">
           <!-- small description of design or request || We can use truncate method in ruby to put [...] after description -->
-          bigger ears for my pikachu, enabling better printing.
+          <div class="card-description-text">
+            <%= design.description %>
+          </div>
         </div>
         <div class="card-footer"> <!-- only if request? -->
           <div class="card-pool">
@@ -50,5 +54,6 @@
         </div>
       </div>
     </div>
+    <hr>
   </div>
 </div>

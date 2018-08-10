@@ -1,16 +1,30 @@
 <div class="container-fluid marginized">
-  <div class="index-container">
-    <div class="index-categories">
-      flkjdgfrg
-    </div>
-    <div class="cards-container">
-      <div class="index-searchbar">
-        <%= render "shared/searchbar" %>
+  <div class="row">
+    <div class="col-md-2 hidden-sm index-grid-padding">
+      <div class="index-categories">
+        <% Category.all.each do |category| %>
+          <ul class="category-list-index">
+            <li>
+              <%= link_to category.name.capitalize %>
+            </li>
+          </ul>
+        <% end %>
       </div>
-      <%= render 'shared/card' %>
     </div>
-    <div class="index-faqs">
-      dsjgfbvf
+    <div class="col-sm-12 col-md-8 index-grid-padding">
+      <div class="cards-container">
+        <div class="index-searchbar">
+          <%= render "shared/searchbar" %>
+        </div>
+        <% @designs.each do |design|  %>
+          <%= render 'shared/card', design: design %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-2 hidden-sm index-grid-padding">
+      <div class="index-faqs">
+        dsjgfbvf
+      </div>
     </div>
   </div>
 </div>
