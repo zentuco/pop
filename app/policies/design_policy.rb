@@ -22,7 +22,7 @@ class DesignPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    user && user.admin?
   end
 
   def edit?
@@ -30,6 +30,6 @@ class DesignPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin?
+    user && user.admin?
   end
 end
