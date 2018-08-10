@@ -44,12 +44,12 @@
           <div class="card-pool">
             <!-- Agretated amount of rewards -->
               <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-                <i class="fas fa-money-bill-wave"></i> 238.35€ <i class="fas fa-caret-down"></i>
+                <i class="fas fa-money-bill-wave"></i><%= design.requests.first.total_tokens/5 %> € <i class="fas fa-caret-down"></i>
               </button>
           </div>
           <div class="card-contributors">
             <!-- number of contributors -->
-            <span class="hovered"><i class="fas fa-users"></i> 35</span>
+            <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size %></span>
           </div>
           <div class="card-share">
             <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
