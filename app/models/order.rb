@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :wallet
-  validates :tokens, presence: true
-  validates :amount, presence: true
+  monetize :amount_cents
 
-  enum :status [:pending, :paid]
+  enum status: [:pending, :paid]
 end
