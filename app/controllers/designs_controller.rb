@@ -27,12 +27,12 @@ class DesignsController < ApplicationController
 
   def create
     @design = Design.new(design_params)
+    authorize @design
     if @design.save!
       redirect_to @design
     else
       render 'new'
     end
-    authorize @design
   end
 
   def edit
@@ -41,17 +41,18 @@ class DesignsController < ApplicationController
 
   def update
     @design.update(design_params)
+    authorize @design
     if @design.save!
       redirect_to @design
     else
       render 'edit'
     end
-    authorize @design
   end
 
   def destroy
-    @design.destroy
     authorize @design
+    @design.destroy
+
   end
 
   private
