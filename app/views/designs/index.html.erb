@@ -18,7 +18,14 @@
         </div>
         <% @designs.each do |design|  %>
           <%= render 'shared/card', design: design %>
+          <% if policy(design).edit? %>
+            <%= link_to "Update", edit_design_path(design), class: "button" %>
+          <% end %>
+          <% if policy(design).destroy? %>
+            <%= link_to "Delete", design_path(design), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
+          <% end %>
         <% end %>
+
       </div>
     </div>
     <div class="col-md-2 hidden-sm index-grid-padding">
@@ -30,3 +37,7 @@
 </div>
 
 <%= render 'shared/modal' %>
+
+<% if policy(Design).create? %>
+  <%= link_to "New design", new_design_path %>
+<% end %>

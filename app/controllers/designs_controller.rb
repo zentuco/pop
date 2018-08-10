@@ -5,15 +5,18 @@ class DesignsController < ApplicationController
   before_action :set_design, only: [:show, :update, :edit, :destroy]
 
   def index
-    @designs = Design.all
+    @designs = policy_scope(Design).order(created_at: :desc)
+    authorize @designs
   end
 
   def show
     @contribution = Contribution.new
+    authorize @design
   end
 
   def new
     @design = Design.new
+    authorize @design
   end
 
   def create
@@ -23,9 +26,11 @@ class DesignsController < ApplicationController
     else
       render 'new'
     end
+    authorize @design
   end
 
   def edit
+    authorize @design
   end
 
   def update
@@ -35,10 +40,12 @@ class DesignsController < ApplicationController
     else
       render 'edit'
     end
+    authorize @design
   end
 
   def destroy
     @design.destroy
+    authorize @design
   end
 
   private
