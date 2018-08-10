@@ -5,7 +5,6 @@ class ContributionsController < ApplicationController
     @contribution = Contribution.new(contribution_params)
     @contribution.request = @request
     @contribution.user = current_user
-    byebug
     if @contribution.save!
       redirect_to dashboard_path
     else
