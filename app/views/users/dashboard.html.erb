@@ -1,14 +1,35 @@
-<h1>Order History</h1>
-<ol>
-<% @orders.each do |order| %>
-<li>
-  <ul>
-    <li>Order ID: <%= order.id %></li>
-    <li>Status: <%= order.state %></li>
-    <li>Item: <%= order.token_sku %> Tokens</li>
-    <li>Amount: <%= humanized_money_with_symbol(order.amount) %></li>
-  </ul>
-</li>
-<% end %>
-</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-lg-6">
+      <div class="projects">
+        <h2>Your Projects</h2>
+        <% @projects.each do |project| %>
+        <%= project.request.description %>
+        <%= project.status %>
+        <%= render 'shared/card', design: project.request.design %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-6 col-lg-6">
+      <div class="contributions">
+        <h3>Your Contributions</h3>
+        <% @contributions.first(4).each do |contribution| %>
+        <div>Amount: <%= contribution.tokens %></div>
+        <%= render 'shared/card', design: contribution.request.design %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
+  <div class="orders">
+    <h1>Billing History</h1>
+    <% @orders.each do |order| %>
+    <div class="order">
+      <div>Order ID: <%= order.id %></div>
+      <div>Status: <%= order.state %></div>
+      <div>Item: <%= order.token_sku %> Tokens</div>
+      <div>Amount: <%= humanized_money_with_symbol(order.amount) %></div>
+    </div>
+    <% end %>
+  </div>
+</div>
