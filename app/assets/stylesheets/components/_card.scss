@@ -49,6 +49,15 @@
   overflow: hidden;
 }
 
+.card-details-header {
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
 .card-title {
 
   h2 {
