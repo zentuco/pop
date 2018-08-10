@@ -5,6 +5,9 @@ class DesignsController < ApplicationController
   before_action :set_design, only: [:show, :update, :edit, :destroy]
 
   def index
+    @designs = policy_scope(Design).order(created_at: :desc)
+    authorize @designs
+
     if params[:designname].present?
       @designs = Design.where("name ILIKE ? OR description ILIKE ? ", "%#{params[:designname]}%", "%#{params[:designname]}%")
     else
@@ -14,14 +17,17 @@ class DesignsController < ApplicationController
 
   def show
     @contribution = Contribution.new
+    authorize @design
   end
 
   def new
     @design = Design.new
+    authorize @design
   end
 
   def create
     @design = Design.new(design_params)
+    authorize @design
     if @design.save!
       redirect_to @design
     else
@@ -30,10 +36,12 @@ class DesignsController < ApplicationController
   end
 
   def edit
+    authorize @design
   end
 
   def update
     @design.update(design_params)
+    authorize @design
     if @design.save!
       redirect_to @design
     else
@@ -42,7 +50,9 @@ class DesignsController < ApplicationController
   end
 
   def destroy
+    authorize @design
     @design.destroy
+
   end
 
   private
