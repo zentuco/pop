@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration[5.2]
   def change
     create_table :orders do |t|
-      t.string :status, default: 0, null: false
+      t.string :state, default: 0, null: false
       t.string :token_sku, null: false
       t.monetize :amount, currency: { present: false }
       t.jsonb :payment
