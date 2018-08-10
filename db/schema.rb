@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_025057) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "state", default: "0", null: false
+    t.integer "state", default: 0
     t.string "token_sku", null: false
     t.integer "amount_cents", default: 0, null: false
     t.jsonb "payment"
