@@ -1,11 +1,11 @@
 <%= form_tag("/designs", class: "search-form", method: "get") do %>
   <div class="search-category">
-    <%= select_tag "category", options_for_select([["category 1"], ["category 2"], ["category 3"]]), include_blank: "All", class: "form-control" %>
+    <%= select_tag "category", options_for_select(Category.category_name), include_blank: "All", class: "form-control" %>
   </div>
   <div class="search-keyword">
    <%= text_field_tag :designname, nil, placeholder: "Search for a design", class: "form-control" %>
  </div>
   <div class="search-button">
-    <%= submit_tag("Search Now", class: "button")  %>
+    <%= submit_tag("Search Now", class: "button-searchbar")  %>
   </div>
 <% end %>
