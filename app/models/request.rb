@@ -17,4 +17,13 @@ class Request < ApplicationRecord
     end
     tokens_sum
   end
+
+  def created_time_ago
+    ago = ((Time.zone.now - created_at) / 1.day).to_i
+    if ago < 1
+      "• less than a day ago"
+    else
+      "• #{ago} days ago"
+    end
+  end
 end
