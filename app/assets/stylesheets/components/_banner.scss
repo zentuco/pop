@@ -1,8 +1,15 @@
 .banner {
-  height: 80vh;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 
-.banner-content {
+.banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: 0px 200px;
 
   form input.button{
     box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px #FFF;
@@ -12,5 +19,27 @@
     background-color: #FFF;
     color: #333;
     box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-green;
+  }
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  color: #FFF;
+  padding: 0px 300px 100px 0px;
+  text-align: justify;
+  text-shadow: 0px 4px 4px rgba(57,27,178,0.1);
+
+  h1 {
+    font-size: 62px;
+    margin-bottom: 30px;
+    line-height: 80px;
+  }
+
+  p {
+    font-size: 25px;
+    font-weight: lighter;
+    line-height: 45px;
+    opacity: 0.8;
   }
 }
