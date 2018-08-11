@@ -437,3 +437,5 @@ SimpleForm.setup do |config|
   #   time:          :custom_multi_select
   # }
 end
+SimpleForm.browser_validations = true # default is true
+

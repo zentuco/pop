@@ -6,7 +6,7 @@ class ContributionsController < ApplicationController
     @contribution.request = @request
     @contribution.user = current_user
     if @contribution.save!
-      redirect_to dashboard_path
+      redirect_to design_path(@request.design), notice: "Thank you for your contribution"
     else
       redirect_to design_path(@request.design)
     end

@@ -1,6 +1,6 @@
 <%= simple_form_for [request, contribution], url: contributions_path, method: :post do |f| %>
-<%= f.input_field :request, as: :hidden, value: request.id %>
-<%= f.input :tokens %>
-<%= f.submit :submit, class: "button", value: "Contribute" %>
+  <%= f.input_field :request, as: :hidden, value: request.id %>
+  <%= f.input :tokens, required: true %>
+  <%= f.submit :submit, class: "button", value: "Accept" %>
 <% end %>
 
