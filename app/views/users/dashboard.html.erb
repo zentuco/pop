@@ -1,7 +1,7 @@
 <div class="container dashboard-banner">
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-4 col-lg-push-8">
-      Picture of present
+      <%=  image_tag("present-tokens.png") %>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-8 col-lg-pull-4">
       <div class="sharetokens">
@@ -15,27 +15,29 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-lg-6">
+
       <div class="projects">
-        <h2>Your Projects</h2>
+        <h2>Ongoing Projects</h2>
+        <div class="row">
         <% @projects.each do |project| %>
-        <%= project.request.description %>
-        <%= project.status %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= render 'shared/project-card', project: project %>
+
+        </div>
         <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-lg-6">
+
+
       <div class="contributions">
-        <h3>Your Contributions</h3>
+        <h3>Awaiting Designer</h3>
         <% @contributions.first(4).each do |contribution| %>
         <div>Amount: <%= contribution.tokens %></div>
         <%= render 'shared/card', design: contribution.request.design %>
         <% end %>
       </div>
-    </div>
-  </div>
+
+
 
   <div class="orders">
     <h1>Billing History</h1>
