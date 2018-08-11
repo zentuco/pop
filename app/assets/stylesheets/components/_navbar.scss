@@ -24,6 +24,7 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
+  border: 2px solid $pop-green;
 }
 
 /* Right section */
@@ -46,7 +47,7 @@
 }
 
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $pop-green;
   text-decoration: none;
 }
 
@@ -76,7 +77,7 @@
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: black !important;
+  color: $pop-green !important;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
