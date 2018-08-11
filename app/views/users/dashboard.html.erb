@@ -32,7 +32,8 @@
       <div class="contributions">
         <h3>Requests Awaiting Designer</h3>
         <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
-        <h4>Your Contribution: €<%= contribution.tokens/5 %></h4>
+        <h4>Your Contribution: <%= contribution.tokens %> tokens</h4>
+        <div>Change Request: <%= contribution.request.description %></div>
         <%= render 'shared/card', design: contribution.request.design %>
         <% end %>
       </div>
