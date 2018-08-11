@@ -8,13 +8,12 @@
 
   input {
     height: 45px;
-    border-radius: 5px;
   }
 }
 
 .search-category {
   min-width: 13%;
-  font-weight: bolder;
+  font-weight: 700;
   font-family: $body-font;
 
   select {
@@ -27,4 +26,9 @@
 .search-keyword {
   flex: 1 1 auto;
   margin: 0px 5px;
+
+  input {
+    border-radius: 5px;
+    text-indent: 1%;
+  }
 }
