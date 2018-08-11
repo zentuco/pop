@@ -4,7 +4,7 @@ function initUpdateNavbarOnScroll() {
   const navbarLogo = document.querySelector('.navbar-logo-white');
   if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY >= window.innerHeight - 110) {
+      if (window.scrollY >= 110) {
         navbar.classList.add('navbar-wagon-white');
         navbarLogo.classList.remove('navbar-logo-white');
         navbarItem.forEach(function(item) {
