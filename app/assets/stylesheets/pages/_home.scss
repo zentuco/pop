@@ -1,1 +1,126 @@
 // Specific CSS for your home-page
+.benefitsheader {
+  margin-left: 15px;
+  text-align: center;
+}
+
+.benefit {
+  display: flex;
+  display-flex: row;
+}
+
+.benefitswrap {
+  background: linear-gradient(to right, #5433ff, #20bdff, #a5fecb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 35vh;
+  margin-top: 20%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.benefits {
+  display: flex;
+  display-flex: columns;
+  justify-content: space-between;
+  height: 180px;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.benefitsparagraph {
+  font-size: 1.5rem;
+  margin-top: -15px;
+  margin-right: 15px;
+}
+
+.mini-logo-benefits {
+  height: 54px;
+  margin-bottom: 20px;
+}
+
+.benefitsparagraph1 {
+  font-size: 1.5rem;
+  margin-top: -15px;
+  margin-left: 15px;
+}
+
+.benefitsparagraph4 {
+  font-size: 1.5rem;
+  margin-top: -15px;
+  margin-right: 15px;
+}
+
+.image-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.how-section {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #f2f2f2;
+    border-top: 1px solid #f2f2f2;
+}
+
+.how-homepage_title {
+    font-family: "Graphik Web","Helvetica Neue","Helvetica-Neue",Helvetica,Arial,"Nimbus Sans L",sans-serif;
+    margin-bottom: 50px;
+    margin-top: 40px;
+}
+
+.how-paragraph {
+  font-size: 17px;
+}
+
+.how-ho {
+  font-size: 21px;
+}
+
+.how-number {
+    width: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    border: 2px solid #666;
+}
+
+.how-number-container {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.height-100 {
+  height: 100% !important;
+  width: 100vw;
+}
+
+
+.news-card {
+  display: flex;
+  height: 275px;
+  width: 375px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  display-flex: space-between;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-item-1 {
+  flex: 1;
+}
+
+
+
+
