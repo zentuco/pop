@@ -19,6 +19,11 @@
   height: 50px;
 }
 
+.navbar-logo-white {
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+}
+
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 50px;
