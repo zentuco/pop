@@ -1,47 +1,49 @@
-<div class="container dashboard-banner">
+<div class="container dashboard-banner text-center">
   <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-4 col-lg-push-8">
-      Picture of present
+    <div class="col-sm-12 col-md-12 col-lg-4 col-lg-push-8 text-center">
+      <%=  image_tag("present-tokens.png") %>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-8 col-lg-pull-4">
+    <div class="col-sm-12 col-md-12 col-lg-8 col-lg-pull-4 text-center">
       <div class="sharetokens">
         <div class="creation">
           <h2>Choose your next Creation!</h2>
         </div>
         <div class="creation-subtitle">Give your friends 25 tokens to try PoP, and you will also get 10 tokens when they make their first contribution.</div>
+        <%= link_to "Invite Friends", url:"Facebook.com", class: "button" %>
       </div>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-lg-6">
+
       <div class="projects">
-        <h2>Your Projects</h2>
+        <h2>Ongoing Projects</h2>
+        <div class="row">
         <% @projects.each do |project| %>
-        <%= project.request.description %>
-        <%= project.status %>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= render 'shared/project-card', project: project %>
+        </div>
         <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-lg-6">
+
+
       <div class="contributions">
-        <h3>Your Contributions</h3>
+        <h3>Requests Awaiting Designer</h3>
         <% @contributions.first(4).each do |contribution| %>
-        <div>Amount: <%= contribution.tokens %></div>
+        <h4>Your Contribution: €<%= contribution.tokens/5 %></h4>
         <%= render 'shared/card', design: contribution.request.design %>
         <% end %>
       </div>
-    </div>
-  </div>
+
+
 
   <div class="orders">
     <h1>Billing History</h1>
     <% @orders.each do |order| %>
     <div class="order">
-      <div>Order ID: <%= order.id %></div>
+      <div><strong>Order ID: <%= order.id %></strong></div>
       <div>Status: <%= order.state %></div>
       <div>Item: <%= order.token_sku %> Tokens</div>
       <div>Amount: <%= humanized_money_with_symbol(order.amount) %></div>

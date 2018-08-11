@@ -1,0 +1,30 @@
+.project-card {
+  border: 1px solid #EEE;
+  margin-top: 20px;
+}
+
+.project-card-banner {
+  height: 220px;
+  background-size: cover;
+}
+
+.designer-avatar {
+  margin-top: -40px;
+  margin-bottom: -30px;
+  .avatar {
+    height:60px;
+    width:60px;
+    border: 1px solid $pop-black;
+  }
+}
+
+.project-card-content {
+  padding-top: 40px;
+  background: white;
+  padding-bottom: 30px;
+}
+
+.project-card-line {
+  margin: 0 30px;
+}
+
