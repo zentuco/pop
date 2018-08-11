@@ -14,11 +14,17 @@
   .avatar {
     height:60px;
     width:60px;
-    border: 0.5px solid $pop-black;
+    border: 1px solid $pop-black;
   }
 }
 
 .project-card-content {
   padding-top: 40px;
   background: white;
+  padding-bottom: 30px;
 }
+
+.project-card-line {
+  margin: 0 30px;
+}
+

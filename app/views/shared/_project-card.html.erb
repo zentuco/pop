@@ -10,9 +10,19 @@
     <%= image_tag project.user.photo, class: "avatar" %>
   </div>
   <div class="project-card-content text-center">
-    <div class="project-designer"> <%= project.user.username %></div>
+    <div class="project-designer">Designer: <%= project.user.username %></div>
+    <div class="project-card-line"><hr></div>
     <div class="project-name">Project: <%= project.id %></div>
     <div class="project-status">Status: <%= project.status %></div>
-    <div class="project-pool">Total Contributions Raised: <%= project.accepted_price %></div>
+    <div class="project-card-line"><hr></div>
+    <div class="project-link"><%= link_to "See Project Details", project_path(project) %></div>
+    <div class="project-card-line"><hr></div>
+    <div class="project-files">
+      <% if project.file %>
+        <a href="#">Download Files</a>
+      <% else %>
+        Awaiting design files
+      <% end %>
+    </div>
   </div>
 </div>
