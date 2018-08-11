@@ -48,7 +48,7 @@
           <div class="card-pool">
             <!-- Agretated amount of rewards -->
               <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-                <i class="fas fa-money-bill-wave"></i><%= design.requests.first.total_tokens/5 if !design.requests.empty? %> € <i class="fas fa-caret-down"></i>
+                <i class="fas fa-money-bill-wave"></i><%= design.requests.first.total_tokens if !design.requests.empty? %> € <i class="fas fa-caret-down"></i>
               </button>
           </div>
           <div class="card-contributors">
