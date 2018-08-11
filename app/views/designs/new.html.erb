@@ -1,2 +1,17 @@
-<h1>Designs#new</h1>
-<p>Find me in app/views/designs/new.html.erb</p>
+<div class="container new-design-container">
+  <h2>Upload your Design</h2>
+  <div class="row">
+
+    <%= simple_form_for(@design) do |f| %>
+    <div class="col-lg-6">
+
+    </div>
+    <div class="col-lg-6">
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :category, collection: Category.category_name %>
+      <%= f.submit class:"button" %>
+    </div>
+    <% end %>
+  </div>
+</div>

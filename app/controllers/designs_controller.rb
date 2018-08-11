@@ -26,7 +26,10 @@ class DesignsController < ApplicationController
   end
 
   def create
+    @category = Category.find_by(name: params[:design][:category])
     @design = Design.new(design_params)
+    @design.category = @category
+    byebug
     authorize @design
     if @design.save!
       redirect_to @design
@@ -62,6 +65,6 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params.require(:design).permit(:name, :category, :description)
+    params.require(:design).permit(:name, :description)
   end
 end
