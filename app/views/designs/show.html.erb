@@ -23,7 +23,7 @@
               <span><%= request.contributions.size %> contributions</span>
               <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
             </div>
-            <%= render 'shared/contributionform', request:request, contribution:@contribution %>
+            <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
           </div>
         <% end %>
       </div>
