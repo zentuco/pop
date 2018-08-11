@@ -13,3 +13,12 @@
 .alert-warning {
   background: $red;
 }
+
+.alert-fixed {
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  top: 70px;
+  color: $green;
+  border: 0;
+}

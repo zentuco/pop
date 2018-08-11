@@ -3,10 +3,12 @@
   height: 50px;
   width: 50px;
   background-size: cover;
+  box-shadow: rgb(6,214,169) 2px 2px 1px 1px;
 
   &.small {
     height: 25px;
     width: 25px;
+    box-shadow: rgb(6,214,169) 2px 2px 1px 0.1px;
   }
 
   &.large {
