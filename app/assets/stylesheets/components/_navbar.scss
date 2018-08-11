@@ -7,6 +7,7 @@
   justify-content: space-between;
   background-color: transparent;
   transition: 0.5s background-color ease;
+  font-family: $headers-font;
 }
 
 .navbar-wagon-white {
@@ -15,8 +16,21 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  text-decoration: none;
+  color: inherit;
+
+  img {
+    height: 50px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.navbar-logo {
 }
 
 .navbar-logo-white {
@@ -26,10 +40,10 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  border: 2px solid $pop-green;
+  box-shadow: rgb(6,214,169) 2px 2px 1px 1px;
 }
 
 /* Right section */
@@ -62,7 +76,7 @@
 }
 
 .navbar-wagon-link-white:hover {
-  color: #da552f;
+  color: $pop-green;
   text-decoration: none;
 }
 
