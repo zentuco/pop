@@ -11,6 +11,7 @@
         <p><%= @design.description %></p>
         <p><i class="fas fa-heart"></i> <%= @design.likes %></p>
       </div>
+      <%= link_to "Request Improvement on this Design", new_design_request_path(@design), class: "button" %>
     </div>
     <div class="col-sm-12 col-md-6">
       <div class="requests">
