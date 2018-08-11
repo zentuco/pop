@@ -1,10 +1,10 @@
 <div class="project-card">
   <div class="project-card-banner" style="background-image: url(
-    <% if project.file %>
-      <%= image_path project.file %>)
+    <% if project.file.presence %>
+      <%= image_path project.file %>
     <% else %>
-      url("https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg")
-    <% end %>">
+      https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg
+    <% end %>)">
   </div>
   <div class="designer-avatar text-center">
     <%= image_tag project.user.photo, class: "avatar" %>
