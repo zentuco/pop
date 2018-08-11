@@ -30,12 +30,17 @@
   }
 }
 
-.navbar-logo {
-}
-
 .navbar-logo-white {
-  -webkit-filter: grayscale(1) invert(1);
-  filter: grayscale(1) invert(1);
+
+  img {
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
+  }
+
+  span {
+    color: #FFF;
+    font-weight: 300;
+  }
 }
 
 /* User Avatar */
