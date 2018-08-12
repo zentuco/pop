@@ -38,7 +38,7 @@ end
   design.category = Category.all.sample
   design.save!
 end
-100.times do
+10.times do
   files.each do |file|
     attachment = Attachment.new
     attachment.remote_file_url = file

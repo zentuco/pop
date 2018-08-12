@@ -27,7 +27,6 @@ class DesignsController < ApplicationController
  end
 
   def create
-    byebug
    @attachment = Attachment.new(attachment_params)
    @category = Category.find_by(name: params[:design][:category])
    @design = Design.new(design_params)
