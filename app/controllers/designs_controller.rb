@@ -26,7 +26,18 @@ class DesignsController < ApplicationController
    @design = Design.new
    @attachment = Attachment.new
    authorize @design
- end
+  end
+
+  def upvote
+    @design = Design.find(params[:design_id])
+    likes = @design.likes + 1
+    @design.update(likes: likes)
+    authorize @design
+    respond_to do |format|
+        format.html { redirect_to design_path(@design) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+  end
 
   def create
    @attachment = Attachment.new(attachment_params)
