@@ -2,7 +2,6 @@
   <%= render "shared/searchbar" %>
 <% end %>
 
-
 <section class="home-benefits">
   <div class="container">
     <div class="vision-container">
@@ -60,7 +59,7 @@
       <div class="col-xs-12 col-sm-6 col-md-8">
         <div class="howto-header">
           <div class="howto-header-title">
-            <h3>Your platform to collectively fund ready-to-print 3D designs</h3>
+            <h3>The platform that allows you to collectively fund ready-to-print 3D designs</h3>
           </div>
           <div class="howto-header-description">
             <p>PoP is the world's first 3D designs crowdfunding platform. We connect 3D printer owners with common needs so they can find their tested 3D designers to get the job done.</p>
@@ -114,64 +113,84 @@
   </div>
 </section>
 
-
- <h2 class="text-center">New In 3D Printing!</h2>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <%= link_to "https://www.designnews.com/materials-assembly/researcher-s-own-brain-tumor-inspires-new-way-model-patient-data-3d-printing/191058725259102" do %>
-        <div class="article-card">
-          <div class="article-image">
-            <img class="news-card" src="https://www.designnews.com/sites/default/files/3dmodelfoot.jpg">
-          </div>
-          <div class="article-title">
-            <h2>The Researcher’s Own Brain Tumor Inspires New Way to Model Patient Data for 3D Printing</h2>
-          </div>
-          <div class="article-description">
-            <p>Researchers at MIT and Harvard have collaborated on a process for creating complex and accurate 3D models of the human brain and other organs, parts, and systems in the human body for enhanced patient data</p>
-          </div>
-          <div class="article-date">
-            <p>26 of may 2018</p>
-          </div>
-        </div>
-      <% end %>
+<section class="home-populars">
+  <div class="container">
+    <div class="home-populars-title">
+      <h2>Trending now</h2>
     </div>
-       <div class="col-xs-12 col-sm-4">
-      <%= link_to "https://all3dp.com/4/indiana-university-uffizi-gallery-collaborate-3d-scan-ancient-artifacts/" do %>
-        <div class="article-card">
-          <div class="article-image">
-            <img class="news-card" src="https://all3dp.com/app/uploads/2018/08/Screen-Shot-2018-08-09-at-14.40.58-e1533822464815.png">
-          </div>
-          <div class="article-title">
-            <h2>Indiana University and Uffizi Gallery Collaborate to 3D Scan Ancient Artifacts</h2>
-          </div>
-          <div class="article-description">
-            <p>Indiana University and the Uffizi Gallery in Florence, Italy are collaborating to digitize ancient artifacts and sculptures, some of which are now available to view in 3D on a newly launched website.</p>
-          </div>
-          <div class="article-date">
-            <p>26 of may 2018</p>
-          </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="home-popular-container">
+          <%= link_to "https://www.thingiverse.com/thing:2194278", target: :_blank do %>
+            <div class="home-popular-image">
+              <%= image_tag "https://cdn.thingiverse.com/renders/e1/2a/7c/aa/f8/a81bf47f0dfc6a21441c25cfdd5b6302_preview_featured.jpg" %>
+            </div>
+            <div class="home-popular-title">
+              <h4>Modular Mounting System</h4>
+            </div>
+            <div class="home-popular-description">
+              <p>This project is a mounting system for phones and lightweight cameras. With the potential to mount most phones and small cameras onto a wide range of objects...</p>
+            </div>
+            <div class="home-popular-date">
+              <p>19 July 2018</p>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-       <div class="col-xs-12 col-sm-4">
-      <%= link_to "https://all3dp.com/4/air-new-zealand-starts-3d-print-airplane-parts-tools/" do %>
-        <div class="article-card">
-          <div class="article-image">
-            <img class="news-card" src="https://all3dp.com/app/uploads/2018/08/nz-planes-on-tarmac-christchurch-sunset-2100x1050__ScaleMaxWidthWzEwNDBd-e1533813355965.jpg">
-          </div>
-          <div class="article-title">
-            <h2>Air New Zealand Start to 3D Print Airplane Parts and Tools</h2>
-          </div>
-          <div class="article-description">
-            <p>Air New Zealand has partnered with Zenith Tecnica, a company which specializes in 3D printing titanium, and will be using its equipment, such as Arcam's Electron Beam Melting (ERM) process to develop parts and tools.</p>
-          </div>
-          <div class="article-date">
-            <p>26 of may 2018</p>
-          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="home-popular-container">
+          <%= link_to "https://www.thingiverse.com/thing:2014307", target: :_blank do %>
+            <div class="home-popular-image">
+              <%= image_tag "https://cdn.thingiverse.com/renders/ec/0e/f7/36/7b/4347d727daa5d601bdca6fa6e2c4ce16_preview_featured.jpg" %>
+            </div>
+            <div class="home-popular-title">
+              <h4>Baby Groot Action Figure</h4>
+            </div>
+            <div class="home-popular-description">
+              <p>The model resembles the baby groots appearance in the trailers of the movie. I recommend using the high detail version to capture all the details I put on...</p>
+            </div>
+            <div class="home-popular-date">
+              <p>03 August 2018</p>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="home-popular-container">
+          <%= link_to "https://www.thingiverse.com/thing:2864118", target: :_blank do %>
+            <div class="home-popular-image">
+              <%= image_tag "https://cdn.thingiverse.com/renders/ff/e4/db/17/3d/e09bdbd260eb7872667aab80a5331ed5_preview_featured.JPG" %>
+            </div>
+            <div class="home-popular-title">
+              <h4>Original Prusa i3 MK3 Enclosure</h4>
+            </div>
+            <div class="home-popular-description">
+              <p>Maybe you have already seen some of those fancy enclosures people build for their printers. How do they work? And do they work...</p>
+            </div>
+            <div class="home-popular-date">
+              <p>13 August 2018</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="home-popular-container">
+          <%= link_to "https://www.thingiverse.com/thing:2448911", target: :_blank do %>
+            <div class="home-popular-image">
+              <%= image_tag "https://cdn.thingiverse.com/renders/53/1c/15/a6/6b/13f8303b92ae94f89af3d8c489be67ff_preview_featured.jpg" %>
+            </div>
+            <div class="home-popular-title">
+              <h4>Modular Stacking Planter</h4>
+            </div>
+            <div class="home-popular-description">
+              <p>Plantygon is a modular geometric stacking planter. Designed to accommodate my growing collection of succulents, it is based on the truncated octohedron...</p>
+            </div>
+            <div class="home-popular-date">
+              <p>18 August 2018</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
