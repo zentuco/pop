@@ -1,5 +1,5 @@
 .home-benefits {
-  background-color: #EEE;
+
 }
 
 .vision-container {
@@ -58,6 +58,53 @@
   line-height: 30px;
   font-weight: 100;
   opacity: 0.9;
+}
+
+.home-howto {
+  background-color: #FFF;
+}
+
+.howto-header {
+  padding: 100px 0px 30px 120px;
+}
+
+.howto-col-container {
+  display: flex;
+  padding-left: 120px;
+}
+
+.howto-step {
+  padding-bottom: 50px;
+}
+
+.first-step {
+  padding-top: 50px;
+}
+
+.third-step {
+  padding-bottom: 120px;
+}
+
+.step-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.step-header-icon {
+  margin-top: 6px;
+  flex: 0 0 15%;
+
+  img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+.howto-map {
+  background-image: asset-url("map-steps.png");
+  height: 100%;
+  background-size: cover;
+  background-position: center left;
 }
 
 // .benefitsheader {
