@@ -25,7 +25,7 @@
         <div>
           <!-- design image -->
           <% if design.attachments.first.file %>
-          <%= image_tag design.attachments.first.file , class: "card-image" %>
+          <%= cl_image_tag design.attachments.first.file , class: "card-image" %>
           <% else %>
           <img src="http://www.toezonefootwear.com/ToezoneIndonesia/protected/resources/assets/images/300px-No_image_available.png" alt="" class="card-image">
           <% end %>
