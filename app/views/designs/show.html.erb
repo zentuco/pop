@@ -9,7 +9,10 @@
           <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload" style: width 100% >
         <% end %>
         <p><%= @design.description %></p>
-        <p><i class="fas fa-heart"></i> <%= @design.likes %></p>
+        <p ><%= link_to design_upvote_path(@design), method: :post, remote: true do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+          <span id="like-button"><%= @design.likes %></span></p>
       </div>
       <%= link_to "Request Improvement on this Design", new_design_request_path(@design), class: "button" %>
     </div>

@@ -21,6 +21,10 @@ class DesignPolicy < ApplicationPolicy
     create?
   end
 
+  def upvote?
+    user
+  end
+
   def update?
     user && user.admin?
   end
