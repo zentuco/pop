@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'users#dashboard'
   get 'topup', to: 'pages#deals'
   get 'become-designer', to: 'pages#designerlanding'
+  get 'profile', to: 'users#profile'
 end
 
