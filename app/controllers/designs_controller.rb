@@ -21,9 +21,10 @@ class DesignsController < ApplicationController
   end
 
   def new
-    @design = Design.new
-    authorize @design
-  end
+   @design = Design.new
+   @attachment = Attachment.new
+   authorize @design
+ end
 
   def create
     @category = Category.find_by(name: params[:design][:category])

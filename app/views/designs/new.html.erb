@@ -2,7 +2,10 @@
 <div class="container new-design-container">
   <h2>Upload your Design</h2>
   <div class="row">
-
+    <%= simple_form_for @attachment, url: designs_path, method: :post do |f| %>
+    <%= f.input :file %>
+    <%= f.input :file_cache, as: :hidden %>
+    <% end %>
     <%= simple_form_for(@design) do |f| %>
     <div class="col-lg-6">
 
