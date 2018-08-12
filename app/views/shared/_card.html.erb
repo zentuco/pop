@@ -46,7 +46,8 @@
         <% end %>
         <div class="card-footer"> <!-- only if request? -->
           <div class="card-pool">
-            <!-- Agretated amount of rewards -->
+            <!-- Aggregated amount of rewards -->
+            <% if design.requests.presence %>
               <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
                 <i class="fas fa-money-bill-wave"></i><%= design.requests.first.total_tokens if !design.requests.empty? %> € <i class="fas fa-caret-down"></i>
               </button>
@@ -55,6 +56,7 @@
             <!-- number of contributors -->
             <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size if !design.requests.empty? %></span>
           </div>
+          <% end %>
           <div class="card-share">
             <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
             <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
