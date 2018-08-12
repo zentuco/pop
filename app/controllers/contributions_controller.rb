@@ -6,6 +6,8 @@ class ContributionsController < ApplicationController
     @contribution.request = @request
     @contribution.user = current_user
     if @contribution.save!
+      tokens = current_user.wallet.tokens - @contribution.tokens
+      current_user.wallet.update(tokens: tokens)
       redirect_to design_path(@request.design), notice: "Thank you for your contribution"
     else
       redirect_to design_path(@request.design)
