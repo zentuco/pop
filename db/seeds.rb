@@ -19,11 +19,11 @@ User.create(username: "jamesthebrit", email: "pool4@printables.io", password: "j
 
 names = ["High Velocity Jet Boat with Hydroactive Engine", "Pikachu", "Woman's Face", "Smith and Wesson .45 caliber Revolver Replica"]
 categories = ["3D printing", "art", "fashion", "gadgets", "hobby", "models", "toys & games"]
-files = ["https://cdn.thingiverse.com/renders/6e/6a/c6/99/1d/93a2a8c29cb9a45adb59788730067b76_preview_featured.jpg",
-"https://cdn.thingiverse.com/renders/eb/82/1d/68/d3/1ab6e872c41d8bae20498529a5f6f166_preview_featured.jpg",
-"https://cdn.thingiverse.com/renders/52/ca/a7/95/6e/a13f5a922175ce15a5f2f6f7ef4fedb4_preview_featured.jpg",
-"https://cdn.thingiverse.com/renders/73/64/3c/4c/ea/def064c56ca496a660e99446ec1fa4f3_preview_featured.jpg",
-"https://cdn.thingiverse.com/renders/b5/60/d4/44/a5/8e1b1d0f263af0eaef4ee35134bb961b_preview_featured.jpg"]
+files = ["https://static.turbosquid.com/Preview/2014/07/09__20_21_44/r1.jpgcab6992b-4c0d-442b-ba77-217e5b11791fOriginal.jpg",
+"https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1a6c4a35197101.56ed59f658dc9.jpg",
+"https://img-new.cgtrader.com/items/666198/ce720a5f09/themis-printable-3d-model-stl.jpg",
+"https://3dexport.com/items/2014/03/19/371641/82016/guan_yu_statues_sculpture7_3d_model_c4d_max_obj_fbx_ma_lwo_3ds_3dm_stl_941544_o.jpg",
+"https://img2.cgtrader.com/items/278201/bc95e87f5e/large/male-ecorche-human-anatomy-reference-3d-model-stl.jpg"]
 
 categories.each do |category|
   Category.create(name: category)
@@ -38,9 +38,10 @@ end
   design.category = Category.all.sample
   design.save!
 end
-20.times do
+100.times do
   files.each do |file|
-    attachment = Attachment.new(file: file)
+    attachment = Attachment.new
+    attachment.remote_file_url = file
     attachment.design = Design.all.sample
     attachment.save!
   end
