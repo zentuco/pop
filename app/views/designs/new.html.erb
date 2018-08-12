@@ -2,18 +2,20 @@
 <div class="container new-design-container">
   <h2>Upload your Design</h2>
   <div class="row">
-
-    <%= simple_form_for(@design) do |f| %>
+    <%= simple_form_for @attachment, url: designs_path, method: :post do |f| %>
     <div class="col-lg-6">
-
+      <%= f.input :file %>
+      <%= f.input :file_cache, as: :hidden %>
     </div>
     <div class="col-lg-6">
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :category, collection: Category.category_name %>
-      <%= f.submit class:"button" %>
+      <%= simple_fields_for :design do |d| %>
+      <%= d.input :name %>
+      <%= d.input :description %>
+      <%= d.input :category, collection: Category.category_name %>
+      <% end %>
+      <%= f.submit "Upload Design", class: "button" %>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 
