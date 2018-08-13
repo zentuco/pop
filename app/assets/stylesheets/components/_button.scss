@@ -11,10 +11,13 @@
   background-color: $pop-green;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-black;
   color: #fcfcfc;
+  display: inline-block;
 }
 
 .button:hover {
   background-color: $pop-black;
+  color: white;
+  text-decoration: none;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-green;
 }
 
