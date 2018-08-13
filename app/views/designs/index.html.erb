@@ -1,5 +1,6 @@
 <div class="container-fluid marginized">
   <div class="row">
+
     <div class="col-md-2 hidden-sm index-grid-padding">
       <div class="index-categories">
         <% Category.all.each do |category| %>
@@ -11,6 +12,7 @@
         <% end %>
       </div>
     </div>
+
     <div class="col-sm-12 col-md-8 index-grid-padding">
       <div class="cards-container">
         <div class="index-searchbar">
@@ -25,14 +27,15 @@
             <%= link_to "Delete", design_path(design), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
           <% end %>
         <% end %>
-
       </div>
     </div>
+
     <div class="col-md-2 hidden-sm index-grid-padding">
       <div class="index-faqs">
         dsjgfbvf
       </div>
     </div>
+
   </div>
 </div>
 
