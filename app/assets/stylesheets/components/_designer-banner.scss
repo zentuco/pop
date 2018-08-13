@@ -1,0 +1,18 @@
+.designer-banner {
+  position: relative;
+
+}
+
+.designer-banner-content {
+  color: black;
+  padding-bottom: 0px;
+}
+
+.designer-banner-fade {
+  height: 300px;
+  width: 100vw;
+  margin-left: -210px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(-180deg, rgba(247,247,247,0.00) 0%, rgba(247,247,247,0.67) 60%, rgba(247,247,247,0.88) 80%, rgba(247,247,247,1.00) 100%) !important;
+}
