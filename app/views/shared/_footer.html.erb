@@ -1,96 +1,53 @@
 <footer>
   <div class="container ">
-    <div class="row">
-      <div class="col-md-4 footer-list">
-        <div class="footer-header">
-          <b>PoP World</b>
+    <div class="footer-wrapper">
+      <div class="footer-brand">
+        <div class="footer-motto">
+          <h4>The Pool of Printables</h4>
+          <p>The new way to get 3D designs</p>
+          <ul>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-slack-hash"></i></li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <a href="">Who we are</a>
-          </li>
-          <li>
-            <a href="">Work with us</a>
-          </li>
-          <li>
-            <a href="">Affiliate Program</a>
-          </li>
-          <li>
-            <a href="">Our blog</a>
-          </li>
-          <li>
-            <a href="">Register</a>
-          </li>
-          <li>
-            <a href="">Sitemap</a>
-          </li>
-        </ul>
+        <div class="footer-partnership">
+          <p>In partnership with</p>
+          <%= link_to "https://www.tumaker.com" do %>
+            <%= image_tag "tumaker-logo.png" %>
+          <% end %>
+        </div>
       </div>
-      <div class="col-md-4 footer-list">
-        <div class="footer-header">
-          <b>MORE FROM POOL OF PRINTABLES</b>
+      <div class="footer-menu">
+        <div class="footer-menu-section">
+          <h4>About PoP</h4>
+          <ul>
+            <li><%= link_to "Who we are", "#" %></li>
+            <li><%= link_to "Contacts", "#" %></li>
+            <li><%= link_to "Affiliate Program", "#" %></li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <a href="">About PoP</a>
-          </li>
-          <li>
-            <a href="">Advertise with PoP</a>
-          </li>
-          <li>
-            <a href="">Subscribe to eNewsletter</a>
-          </li>
-          <li>
-            <a href="">Terms of Service</a>
-          </li>
-          <li>
-            <a href="">Privacy Policy</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4 footer-list">
-        <div class="footer-header">
-          <b>MORE SITES</b>
+        <div class="footer-menu-section">
+          <h4>Company</h4>
+          <ul>
+            <li><%= link_to "Terms of Service", "#" %></li>
+            <li><%= link_to "Privacy Policy", "#" %></li>
+            <li><%= link_to "Sitemap", "#" %></li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            <a href="https://www.3dhubs.com/">3D Hub</a>
-          </li>
-          <li>
-            <a href="https://www.thingiverse.com/">Thingy Verse</a>
-          </li>
-          <li>
-            <a href="https://www.myminifactory.com/">Mini Factory</a>
-          </li>
-          <li>
-            <a href="https://pinshape.com/">Pin Shape</a>
-          </li>
-          <li>
-            <a href="https://www.manufacturingtomorrow.com/tag/3d-design">Manfacturing Tomorrow</a>
-          </li>
-          <li>
-            <a href="https://www.designnews.com/3d-printing">Design News</a>
-          </li>
-        </ul>
+        <div class="footer-menu-section">
+          <h4>More sites</h4>
+          <ul>
+            <li><%= link_to "Thingiverse", "https://www.thingiverse.com", target: :_blank %></li>
+            <li><%= link_to "3DHubs", "https://www.3dhubs.com", target: :_blank %></li>
+            <li><%= link_to "TuMaker", "https://www.tumaker.com", target: :_blank %></li>
+            <li><%= link_to "h3D", "https://www.h3d.com", target: :_blank %></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer-logo-container">
-    <div class="footer-logo-text">
-      <b>Pool of Printables</b><%= image_tag("logo.png", class: "footer-logo") %>
-      <div>
-        <i class="fab fa-twitter"></i>
-      </div>
-      <div>
-        <i class="fab fa-instagram"></i>
-      </div>
-      <div>
-        <i class="fab fa-facebook"></i>
-      </div>
-      <div>
-        <i class="fab fa-linkedin-in"></i>
-      </div>
+    <div class="footer-copyright">
+      Copyright © 2018 The Pool of Printables
     </div>
   </div>
 </footer>
-

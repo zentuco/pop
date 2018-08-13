@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :contributions
   mount_uploader :photo, PhotoUploader
   after_create :create_wallet
+  has_many :requests
+
 
   def full_name
     first_name + " " + last_name
