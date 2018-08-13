@@ -17,18 +17,19 @@ class UsersController < ApplicationController
 
   end
 
-  def update
+  def update_user_profile
+    @user = current_user
+    authorize @user
     @user.update(item_params)
-    if @user.valid?
-      @user.save
-      redirect_to current_user
+    if @user.save
+      redirect_to profile_path
     else
-    render 'edit'
+    render 'shared/modal_edit_profile'
     end
   end
 
-end
-
   def item_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :photo, :password)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :photo)
   end
+
+end

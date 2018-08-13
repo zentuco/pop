@@ -1,5 +1,4 @@
 <!-- Trigger the modal with a button -->
-<button type="button" class="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -10,61 +9,21 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Edit Profile</h4>
       </div>
+      <%= simple_form_for(@user, as: current_user, url: update_user_profile_path, html: { method: :patch }) do |f| %>
+        <%= f.error_notification %>
       <div class="modal-body">
-        <div class="text-center">
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Upload photo...</label>
-              <div class="col-lg-8">
-                <input type="file" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-3 control-label">First name:</label>
-              <div class="col-lg-8">
-                <input class="form-control" type="text" value=<%= @user.first_name %>>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Last name:</label>
-              <div class="col-lg-8">
-                <input class="form-control" type="text" value=<%= @user.last_name %>>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Email:</label>
-              <div class="col-lg-8">
-                <input class="form-control" type="text" value=<%= @user.email %>>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label">Username:</label>
-              <div class="col-md-8">
-                <input class="form-control" type="text" value=<%= @user.username %>>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label">Password:</label>
-              <div class="col-md-8">
-                <input class="form-control" type="password" value=<%= @user.password %>>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label">Confirm password:</label>
-              <div class="col-md-8">
-                <input class="form-control" type="password" value=<%= @user.password %>>
-              </div>
-            </div>
-            <div>
-              <button type="submit" class="button" value="Save Changes">
-                <span></span>
-              <button type="button" class="button-red" data-dismiss="modal">Cancel</button>
-            </div>
-          </form>
-        </div>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :first_name, value: @user.first_name %>
+        <%= f.input :last_name,value: @user.last_name %>
+        <%= f.input :email, value: @user.email %>
+        <%= f.input :username, value: @user.username %>
+        <%= f.button :submit, "Update", class: "button" %>
+        <span></span>
+        <%= link_to "cancel", profile_path(current_user), class: "button-red" %>
       </div>
+      <% end %>
     </div>
-
   </div>
 </div>
 

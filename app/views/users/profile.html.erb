@@ -5,7 +5,7 @@
     <div class="profile-title"><h1>Your Profile:</h1></div>
     <div class="profile-card-line"><hr></div>
     <div class="profile-avatar text-center">
-      <%= image_tag @user.photo, class: "avatar large" %>
+      <%= cl_image_tag @user.photo, class: "avatar large" %>
     </div>
     <div class="profile-username">Username: <%= @user.username %></div>
     <div class="profile-card-line"><hr></div>
@@ -13,6 +13,8 @@
     <div class="profile-card-line"><hr></div>
     <div class="profile-email">Email: <%= @user.email %></div>
     <div class="profile-card-line"><hr></div>
+    <button type="button" class="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+    <%= link_to "reset password", edit_user_registration_path, class: "button" %>
      <%= render 'shared/modal_edit_profile' %>
   </div>
 </div>
