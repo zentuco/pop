@@ -13,4 +13,22 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def edit
+
+  end
+
+  def update
+    @user.update(item_params)
+    if @user.valid?
+      @user.save
+      redirect_to current_user
+    else
+    render 'edit'
+    end
+  end
+
 end
+
+  def item_params
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :photo, :password)
+  end

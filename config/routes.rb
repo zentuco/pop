@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'topup', to: 'pages#deals'
   get 'become-designer', to: 'pages#designerlanding'
   get 'profile', to: 'users#profile'
+  get 'modal_edit_profile', to: 'users#modal_edit_profile'
 end
 
