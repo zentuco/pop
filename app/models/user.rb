@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   has_one :wallet
   has_many :contributions
+  has_many :requests
 
   def full_name
     first_name + " " + last_name
