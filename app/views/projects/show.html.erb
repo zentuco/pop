@@ -5,7 +5,7 @@
     <div class="col-xs-12 col-sm-6">
       <div>
         <% if @project.file %>
-          <%= image_tag @project.file, class: "project-file" %>
+          <%= cl_image_tag @project.file, class: "project-file" %>
         <% else %>
           <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload" style: width 100% >
           <%= @project.status %>
@@ -20,7 +20,7 @@
       <div>
         <div>
           <p>Designer for this projet is:</p>
-          <%= image_tag @project.user.photo, class: "avatar large" %>
+          <%= cl_image_tag @project.user.photo, class: "avatar large" %>
           <%= @project.user.full_name %>
         </div>
         <div>
@@ -41,7 +41,7 @@
   <div class="row">
     <p>This projet was made possible thanks to:</p>
     <% @project.request.contributions.each do |contribution| %>
-      <%= image_tag contribution.user.photo, class: "avatar" %>
+      <%= cl_image_tag contribution.user.photo, class: "avatar" %>
     <% end %>
   </div>
 </div>
