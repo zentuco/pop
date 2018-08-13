@@ -72,7 +72,3 @@ end
   contribution.user = User.all.sample
   contribution.save!
 end
-
-User.all.each do |user|
-  user.wallet = Wallet.create
-end
