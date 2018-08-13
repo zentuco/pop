@@ -10,10 +10,10 @@ Project.destroy_all
 Contribution.destroy_all
 Request.destroy_all
 User.destroy_all
-User.create(designer: true, username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado", remote_photo_url: "http://kitt.lewagon.com/placeholder/users/zentuco",)
-User.create(admin: true, username: "vananreed", email: "pool2@printables.io", password: "reedvan", printer: "HUGE", first_name: "Reed", last_name: "Van Anrooy", remote_photo_url: "http://kitt.lewagon.com/placeholder/users/vananreed",)
-User.create(username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell", remote_photo_url: "http://kitt.lewagon.com/placeholder/users/lancekrp",)
-User.create(username: "jamesthebrit", email: "pool4@printables.io", password: "jamesrevan", printer: "has lazer beams", first_name: "James", last_name: "Revan", remote_photo_url: "http://kitt.lewagon.com/placeholder/users/jamesrevan",)
+User.create(designer: true, username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado", photo: "https://res.cloudinary.com/lancekrp/image/upload/v1534147692/zentuco.jpg",)
+User.create(admin: true, username: "vananreed", email: "pool2@printables.io", password: "reedvan", printer: "HUGE", first_name: "Reed", last_name: "Van Anrooy", photo: "https://res.cloudinary.com/lancekrp/image/upload/v1534147686/vananreed.png",)
+User.create(username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell", photo: "https://res.cloudinary.com/lancekrp/image/upload/v1534144047/dmypmwzd9xtu3fa22rso.jpg",)
+User.create(username: "jamesthebrit", email: "pool4@printables.io", password: "jamesrevan", printer: "has lazer beams", first_name: "James", last_name: "Revan", photo: "https://res.cloudinary.com/lancekrp/image/upload/v1534147678/jamesrevan.jpg",)
 
 
 
@@ -73,6 +73,3 @@ end
   contribution.save!
 end
 
-User.all.each do |user|
-  user.wallet = Wallet.create
-end
