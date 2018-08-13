@@ -1,4 +1,4 @@
-a## Setup
+## Setup
 
 Ensure you have the following gems in your Rails `Gemfile`
 
