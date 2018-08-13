@@ -10,6 +10,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <div style="min-height: 100vh;">
     <% if controller_name == 'pages' && action_name == "home" %>
       <%= render "shared/transparent-navbar" %>
     <% else %>
@@ -17,7 +18,9 @@
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
