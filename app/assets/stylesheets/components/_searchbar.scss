@@ -1,6 +1,7 @@
 .search-form {
   display: flex;
-  padding: 20px 0px;
+  padding: 0px 0px 20px 0px;
+  min-width: 101%;
 
   select {
     height: 45px;
