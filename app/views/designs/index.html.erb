@@ -1,4 +1,4 @@
-<div class="container-fluid marginized">
+<div class="container-fluid designs-index-container">
   <div class="row">
     <div class="col-md-2 hidden-sm index-grid-padding">
       <div class="index-categories">
@@ -16,16 +16,17 @@
         <div class="index-searchbar">
           <%= render "shared/searchbar" %>
         </div>
-        <% @designs.each do |design|  %>
-          <%= render 'shared/card', design: design %>
-          <% if policy(design).edit? %>
-            <%= link_to "Update", edit_design_path(design), class: "button" %>
+        <div class="index-cards-container">
+          <% @designs.each do |design|  %>
+            <%= render 'shared/card', design: design %>
+            <% if policy(design).edit? %>
+              <%= link_to "Update", edit_design_path(design), class: "button" %>
+            <% end %>
+            <% if policy(design).destroy? %>
+              <%= link_to "Delete", design_path(design), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
+            <% end %>
           <% end %>
-          <% if policy(design).destroy? %>
-            <%= link_to "Delete", design_path(design), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
-          <% end %>
-        <% end %>
-
+        </div>
       </div>
     </div>
     <div class="col-md-2 hidden-sm index-grid-padding">
@@ -33,11 +34,13 @@
         dsjgfbvf
       </div>
     </div>
+
   </div>
+
+
+  <%= render 'shared/modal' %>
+
+  <% if policy(Design).create? %>
+    <%= link_to "New design", new_design_path %>
+  <% end %>
 </div>
-
-<%= render 'shared/modal' %>
-
-<% if policy(Design).create? %>
-  <%= link_to "New design", new_design_path %>
-<% end %>
