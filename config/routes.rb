@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :designs do
     resources :requests, only: [:index, :create, :update, :edit, :destroy, :new]
+    post 'upvote', to: 'designs#upvote'
   end
   resources :contributions, only: [:update, :edit, :destroy, :create]
   resources :projects, only: [:create, :update, :destroy, :show]

@@ -8,10 +8,12 @@ class DesignsController < ApplicationController
     @designs = policy_scope(Design).order(created_at: :desc)
     authorize @designs
 
+    if params[:category].present?
+      @designs = Design.joins(:category).where("categories.name ILIKE :category", category: params[:category])
+    end
+
     if params[:designname].present?
       @designs = Design.where("name ILIKE ? OR description ILIKE ? ", "%#{params[:designname]}%", "%#{params[:designname]}%")
-    else
-      @designs = Design.all
     end
   end
 
@@ -21,19 +23,36 @@ class DesignsController < ApplicationController
   end
 
   def new
-    @design = Design.new
+   @design = Design.new
+   @attachment = Attachment.new
+   authorize @design
+  end
+
+  def upvote
+    @design = Design.find(params[:design_id])
+    likes = @design.likes + 1
+    @design.update(likes: likes)
     authorize @design
+    respond_to do |format|
+        format.html { redirect_to design_path(@design) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
   end
 
   def create
-    @design = Design.new(design_params)
-    authorize @design
-    if @design.save!
-      redirect_to @design
-    else
-      render 'new'
-    end
-  end
+   @attachment = Attachment.new(attachment_params)
+   @category = Category.find_by(name: params[:design][:category])
+   @design = Design.new(design_params)
+   @design.category = @category
+   @attachment.design = @design
+
+   authorize @design
+   if @design.save! && @attachment.save!
+     redirect_to @design
+   else
+     render 'new'
+   end
+ end
 
   def edit
     authorize @design
@@ -62,6 +81,10 @@ class DesignsController < ApplicationController
   end
 
   def design_params
-    params.require(:design).permit(:name, :category, :description)
+    params.require(:design).permit(:name, :description)
+  end
+
+  def attachment_params
+    params.require(:attachment).permit(:file)
   end
 end

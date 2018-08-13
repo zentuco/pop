@@ -24,8 +24,8 @@
       <%= link_to design, class: "card-details-header" do %>
         <div>
           <!-- design image -->
-          <% if design.attachments.first.file %>
-          <%= image_tag design.attachments.first.file , class: "card-image" %>
+          <% if design.attachments.presence %>
+          <%= cl_image_tag design.attachments.first.file , class: "card-image" %>
           <% else %>
           <img src="http://www.toezonefootwear.com/ToezoneIndonesia/protected/resources/assets/images/300px-No_image_available.png" alt="" class="card-image">
           <% end %>
@@ -46,15 +46,21 @@
         <% end %>
         <div class="card-footer"> <!-- only if request? -->
           <div class="card-pool">
-            <!-- Agretated amount of rewards -->
+            <!-- Aggregated amount of rewards -->
+
               <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                <% if design.requests.presence %>
                 <i class="fas fa-money-bill-wave"></i><%= design.requests.first.total_tokens if !design.requests.empty? %> € <i class="fas fa-caret-down"></i>
+                <% end %>
               </button>
           </div>
           <div class="card-contributors">
             <!-- number of contributors -->
+            <% if design.requests.presence %>
             <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size if !design.requests.empty? %></span>
+            <% end %>
           </div>
+
           <div class="card-share">
             <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
             <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>

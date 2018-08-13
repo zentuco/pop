@@ -18,6 +18,8 @@ class PaymentsController < ApplicationController
     )
 
     @order.update(payment: charge.to_json, state: 'paid')
+    tokens = @order.token_sku.to_i + current_user.wallet.tokens
+    current_user.wallet.update(tokens: tokens)
     redirect_to dashboard_path(@order)
 
   rescue Stripe::CardError => e

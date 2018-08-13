@@ -13,12 +13,12 @@
   <!-- Wrapper for carousel items -->
   <div class="carousel-inner">
     <div class="item active">
-      <%= image_tag @design.attachments.first.file %>
+      <%= cl_image_tag @design.attachments.first.file %>
     </div>
     <% if @design.attachments.size > 1 %>
       <% @design.attachments[1..-1].each do |attachment| %>
         <div class="item">
-          <%= image_tag attachment.file %>
+          <%= cl_image_tag attachment.file %>
         </div>
       <% end %>
     <% end %>
