@@ -1,0 +1,38 @@
+.profile-card {
+  border: 1px solid #EEE;
+  margin: 40px;
+  font-size: 20px;
+}
+
+.profile-card h1 {
+  font-size: 26px;
+}
+
+.profile-username {
+  margin-top: 50px;
+}
+
+.project-card-banner {
+  height: 220px;
+  background-size: cover;
+}
+
+.profile-card-content {
+  padding-top: 40px;
+  background: white;
+  padding-bottom: 30px;
+}
+
+.profile-card-line {
+  margin: 0 30px;
+}
+
+.profile-avatar {
+  margin-top: -15px;
+  margin-bottom: -30px;
+  .avatar {
+    height:200px;
+    width:200px;
+    border: 1px solid $pop-black;
+  }
+}

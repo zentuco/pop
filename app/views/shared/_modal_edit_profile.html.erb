@@ -1,0 +1,30 @@
+<!-- Trigger the modal with a button -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Profile</h4>
+      </div>
+      <%= simple_form_for(@user, as: current_user, url: update_user_profile_path, html: { method: :patch }) do |f| %>
+        <%= f.error_notification %>
+      <div class="modal-body">
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :first_name, value: @user.first_name %>
+        <%= f.input :last_name,value: @user.last_name %>
+        <%= f.input :email, value: @user.email %>
+        <%= f.input :username, value: @user.username %>
+        <%= f.button :submit, "Update", class: "button" %>
+        <span></span>
+        <%= link_to "cancel", profile_path(current_user), class: "button-red" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

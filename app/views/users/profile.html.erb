@@ -1,4 +1,20 @@
-<h1>showing profile page</h1>
-<li><%= @user.full_name %></li>
-<li><%= @user.username %></li>
+<div class="profile-card">
 
+
+  <div class="profile-card-content text-center">
+    <div class="profile-title"><h1>Your Profile:</h1></div>
+    <div class="profile-card-line"><hr></div>
+    <div class="profile-avatar text-center">
+      <%= cl_image_tag @user.photo, class: "avatar large" %>
+    </div>
+    <div class="profile-username">Username: <%= @user.username %></div>
+    <div class="profile-card-line"><hr></div>
+    <div class="profile-name">Full name: <%= @user.full_name %></div>
+    <div class="profile-card-line"><hr></div>
+    <div class="profile-email">Email: <%= @user.email %></div>
+    <div class="profile-card-line"><hr></div>
+    <button type="button" class="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+    <%= link_to "reset password", edit_user_registration_path, class: "button" %>
+     <%= render 'shared/modal_edit_profile' %>
+  </div>
+</div>

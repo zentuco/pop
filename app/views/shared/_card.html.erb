@@ -4,7 +4,7 @@
       <div class="card-header">
         <span class="card-avatar">
           <!-- design or request users avatar -->
-            <%= image_tag design.requests.first.user.photo, class: "avatar small" %>
+            <%= cl_image_tag design.requests.first.user.photo, class: "avatar small" %>
         </span>
         <span class="card-name">
           <!-- user-name -->

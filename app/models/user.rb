@@ -8,9 +8,17 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   has_one :wallet
   has_many :contributions
+  mount_uploader :photo, PhotoUploader
+  after_create :create_wallet
   has_many :requests
+
 
   def full_name
     first_name + " " + last_name
   end
+
+  def create_wallet
+    Wallet.create(user: self, tokens: 0)
+  end
+
 end

@@ -7,7 +7,7 @@
     <% end %>)">
   </div>
   <div class="designer-avatar text-center">
-    <%= image_tag project.user.photo, class: "avatar" %>
+    <%= cl_image_tag project.user.photo, class: "avatar" %>
   </div>
   <div class="project-card-content text-center">
     <div class="project-designer">Designer: <%= project.user.username %></div>
