@@ -43,14 +43,28 @@ class DesignsController < ApplicationController
    @attachment = Attachment.new(attachment_params)
    @category = Category.find_by(name: params[:design][:category])
    @design = Design.new(design_params)
-   @design.category = @category
-   @attachment.design = @design
-
    authorize @design
-   if @design.save! && @attachment.save!
-     redirect_to @design
+   @design.category = @category
+   @request = Request.new(request_params)
+   @request.user = current_user
+   @request.kind = :original
+   @contribution = Contribution.new(contribution_params)
+   @contribution.user = current_user
+   if @design.save!
+      @attachment.design = @design
+      @attachment.save!
+      @request.design = @design
+      if @request.save!
+        @contribution.request = @request
+        @contribution.save!
+        redirect_to @design
+      else
+        flash[:alert] = "Request did not save"
+        render 'new'
+      end
    else
-     render 'new'
+    flash[:alert] = "Design did not save"
+    render 'new'
    end
  end
 
@@ -86,5 +100,13 @@ class DesignsController < ApplicationController
 
   def attachment_params
     params.require(:attachment).permit(:file)
+  end
+
+  def contribution_params
+    params.require(:contribution).permit(:tokens)
+  end
+
+  def request_params
+    params.require(:request).permit(:description)
   end
 end

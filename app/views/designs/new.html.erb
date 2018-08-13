@@ -10,8 +10,14 @@
     <div class="col-lg-6">
       <%= simple_fields_for :design do |d| %>
       <%= d.input :name %>
-      <%= d.input :description %>
+      <%= d.input :description, label: "Description of Design" %>
       <%= d.input :category, collection: Category.category_name %>
+      <% end %>
+      <%= simple_fields_for :request do |r| %>
+      <%= r.input :description, label: "What Changes do you want made?" %>
+      <% end %>
+      <%= simple_fields_for :contribution do |c| %>
+      <%= c.input :tokens, required: true %>
       <% end %>
       <%= f.submit "Upload Design", class: "button" %>
       <% end %>
