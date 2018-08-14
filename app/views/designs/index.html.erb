@@ -1,5 +1,5 @@
 <div class="container-fluid designs-index-container">
-  <div class="row">
+  <div class="row desings-page-row-padded">
     <div class="col-md-2 hidden-sm index-grid-padding sticky-container">
       <div class="index-categories">
         <h5>All Categories</h5>
@@ -32,6 +32,11 @@
       </div>
     </div>
     <div class="col-md-2 hidden-sm index-grid-padding sticky-container">
+      <div class="index-button-wrapper">
+        <% if policy(Design).create? %>
+          <%= link_to "Request New Design", new_design_path, class: "button" %>
+        <% end %>
+      </div>
       <div class="index-faqs">
         <h5>New to Pop?</h5>
         <hr>
@@ -43,13 +48,6 @@
         </ul>
       </div>
     </div>
-
   </div>
-
-
   <%= render 'shared/modal' %>
-
-  <% if policy(Design).create? %>
-    <%= link_to "New design", new_design_path %>
-  <% end %>
 </div>

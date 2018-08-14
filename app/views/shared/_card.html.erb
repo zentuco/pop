@@ -19,6 +19,21 @@
           <%= design.requests.first.created_time_ago %>
         </span>
       </div>
+    <% else %>
+      <div class="card-header">
+        <span class="card-avatar">
+          <!-- design or request users avatar -->
+            <%= image_tag "thingiverse-avatar", class: "avatar small" %>
+        </span>
+        <span class="card-name">
+          <!-- user-name -->
+          thingiverse
+        </span>
+        <span class="card-category">
+          <!-- design/request category -->
+          <%= design.category.name %>
+        </span>
+      </div>
     <% end %>
     <div class="card-body">
       <%= link_to design, class: "card-details-header" do %>
@@ -45,26 +60,26 @@
           </div>
         <% end %>
         <div class="card-footer"> <!-- only if request? -->
-          <div class="card-pool">
-            <!-- Aggregated amount of rewards -->
-
-              <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-                <% if design.requests.presence %>
-                <i class="fas fa-money-bill-wave"></i><%= design.requests.first.total_tokens if !design.requests.empty? %> € <i class="fas fa-caret-down"></i>
-                <% end %>
-              </button>
-          </div>
-          <div class="card-contributors">
-            <!-- number of contributors -->
-            <% if design.requests.presence %>
-            <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size if !design.requests.empty? %></span>
-            <% end %>
-          </div>
-
-          <div class="card-share">
-            <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
-            <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
-          </div>
+          <% if design.requests.presence %>
+            <div class="card-pool">
+              <!-- Aggregated amount of rewards -->
+                <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="change it to say that the pool is so much tokens there are and so on">
+                    <i class="fas fa-money-bill-wave"></i> <%= design.requests.first.total_tokens %> € <i class="fas fa-caret-down"></i>
+                </button>
+            </div>
+            <div class="card-contributors">
+              <!-- number of contributors -->
+              <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size %></span>
+            </div>
+            <div class="card-share">
+              <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
+              <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
+            </div>
+          <% else %>
+            <div class="card-footer-alt">
+              <%= link_to "Open a request to improve this design", new_design_request_path(design) %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
