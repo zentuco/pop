@@ -28,6 +28,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = current_user
+    authorize @user
+    if @user.requests.any?
+      redirect_to profile_path, alert: "you must delete all open rquests before deleting your account"
+    else
+      @user.wallet.destroy
+      @user.destroy
+      redirect_to root_path, notice: "GoodBye!"
+    end
+  end
+
   def item_params
     params.require(:user).permit(:first_name, :last_name, :username, :email, :photo)
   end

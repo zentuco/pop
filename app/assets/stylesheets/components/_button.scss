@@ -38,10 +38,10 @@
 }
 
 .button-red:hover {
-  color: #fcfcfc;
+  color: $pop-red;
   text-decoration: none;
-  background-color: $pop-red;
-  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-black;
+  background-color: $pop-black;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-red;
 }
 
 .transparent-button {

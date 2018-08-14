@@ -20,5 +20,4 @@ class User < ApplicationRecord
   def create_wallet
     Wallet.create(user: self, tokens: 0)
   end
-
 end
