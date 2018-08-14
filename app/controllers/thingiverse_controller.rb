@@ -6,11 +6,14 @@ class ThingiverseController < ApplicationController
   before_action :set_tv, only: [:search_thingiverse]
 
   def search_thingiverse
-    byebug
     @designs = @tv.things.search params[:thingname]
-    @things = []
-    @designs.each do |design|
-      @things << @tv.things.find(design["id"])
+    if @designs.code == 200
+      @things = []
+      @designs.each do |design|
+        @things << @tv.things.find(design["id"])
+      end
+    else
+      @things = []
     end
   end
 
