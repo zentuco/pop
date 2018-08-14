@@ -86,6 +86,8 @@ class DesignsController < ApplicationController
     authorize @design
     @design.destroy
 
+    redirect_to designs_path, notice: "The design has been deleted!"
+
   end
 
   private

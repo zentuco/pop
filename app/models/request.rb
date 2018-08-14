@@ -1,8 +1,8 @@
 class Request < ApplicationRecord
   belongs_to :user
   belongs_to :design
-  has_one :project
-  has_many :contributions
+  has_one :project, dependent: :destroy
+  has_many :contributions, dependent: :destroy
   validates :kind, presence: true
   validates :description, presence: true
   validates :user, presence: true
