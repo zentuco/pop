@@ -1,9 +1,11 @@
 <div class="container-fluid designs-index-container">
   <div class="row">
-    <div class="col-md-2 hidden-sm index-grid-padding">
+    <div class="col-md-2 hidden-sm index-grid-padding sticky-container">
       <div class="index-categories">
+        <h5>All Categories</h5>
+        <hr>
         <% Category.all.each do |category| %>
-          <ul class="category-list-index">
+          <ul class="designs-index-list categories">
             <li>
               <%= link_to category.name.capitalize %>
             </li>
@@ -29,9 +31,16 @@
         </div>
       </div>
     </div>
-    <div class="col-md-2 hidden-sm index-grid-padding">
+    <div class="col-md-2 hidden-sm index-grid-padding sticky-container">
       <div class="index-faqs">
-        dsjgfbvf
+        <h5>New to Pop?</h5>
+        <hr>
+        <ul class="designs-index-list">
+          <li><%= link_to "How it works", "#" %></li>
+          <li><%= link_to "P2P economy", "#" %></li>
+          <li><%= link_to "FAQ's", "#" %></li>
+          <li><%= link_to "Top Up", new_user_registration_path %></li>
+        </ul>
       </div>
     </div>
 
