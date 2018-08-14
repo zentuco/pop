@@ -3,4 +3,7 @@ class UserPolicy < ApplicationPolicy
     user == record
   end
 
+  def destroy?
+    true
+  end
 end

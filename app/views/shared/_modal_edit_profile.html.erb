@@ -18,7 +18,7 @@
         <%= f.input :last_name,value: @user.last_name %>
         <%= f.input :email, value: @user.email %>
         <%= f.input :username, value: @user.username %>
-        <%= f.button :submit, "Update", class: "button" %>
+        <%= f.button :submit, "Update", class: "button", redirect_to: profile_path %>
         <span></span>
         <%= link_to "cancel", profile_path(current_user), class: "button-red" %>
       </div>
