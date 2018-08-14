@@ -1,14 +1,18 @@
 .card-wrapper {
   background-color: #FFF;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 6px 6px 0px 0px $pop-green;
+
+  &:last-child {
+    padding-bottom: 10px;
+  }
 }
 
 .card-container {
   padding: 20px;
 
   hr {
-    margin-top: 35px;
-    margin-bottom: -10px;
+    margin-top: 15px;
+    margin-bottom: -20px;
   }
 }
 
@@ -85,7 +89,7 @@
   padding: 4px;
   padding-top: 3px;
   justify-content: space-around;
-  width: 45%;
+  width: 35%;
   font-size: 15px;
   margin-top: 15px;
   align-items: center;
@@ -97,4 +101,19 @@
 
 .hovered:hover {
   color: $pop-green;
+}
+
+.card-footer-alt {
+    position: flex-end;
+
+  a {
+    text-decoration: none;
+    color: $pop-green;
+    transition: 0.1s all ease-in-out;
+
+    &:hover {
+      font-weight: 600;
+      transition: 0.1s all ease-in-out;
+    }
+  }
 }
