@@ -16,14 +16,12 @@
     <div class="col-sm-12 col-md-8 index-grid-padding">
       <div class="cards-container">
         <div class="index-searchbar">
-          <%= render "shared/searchbar" %>
+          <%= render "shared/thingiverse-searchbar" %>
         </div>
         <div class="index-cards-container">
           <h2>Thingiverse Results</h2>
           <% @things.each do |thing| %>
             <%= render 'shared/thingiverse-card', thing: thing %>
-
-
           <% end %>
         </div>
       </div>
