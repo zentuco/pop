@@ -4,9 +4,9 @@
       <div class="design-show-design-details">
         <h1><%= @design.name %></h1>
         <% if !@design.attachments.empty? %>
-        <%= render 'shared/carousel_design_show'  %>
+          <%= render 'shared/slideshow-designs-show' %>
         <% else %>
-        <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload" style: width 100% >
+          <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload">
         <% end %>
         <p><%= @design.description %></p>
         <p ><%= link_to design_upvote_path(@design), method: :post, remote: true do %>
