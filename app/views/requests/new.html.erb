@@ -4,7 +4,7 @@
     <div class="col-md-6">
       <div class="design-details">
         <% if !@design.attachments.empty? %>
-        <%= render 'shared/carousel_design_show'  %>
+          <%= render 'shared/slideshow-designs-show' %>
         <% else %>
         <img src="https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png" alt="no_upload" style: width 100% >
         <% end %>
