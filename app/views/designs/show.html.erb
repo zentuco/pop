@@ -1,62 +1,81 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <div class="design-show-design-details">
-        <h1><%= @design.name %></h1>
-        <% if !@design.attachments.empty? %>
-        <%= render 'shared/carousel_design_show'  %>
-        <% else %>
-        <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload" style: width 100% >
-        <% end %>
-        <p><%= @design.description %></p>
-        <p ><%= link_to design_upvote_path(@design), method: :post, remote: true do %>
-          <i class="fas fa-heart"></i>
-          <% end %>
-          <span id="like-button"><%= @design.likes %></span></p>
+  <div class="design-showpage-wrapper">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="design-show-title-wrapper">
+          <h2><%= @design.name %></h2>
+          <div class="designshow-description">
+            <p><%= @design.description %></p>
+          </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 design-show-requests-container">
-        <h2 class="requests-header">Change Requests</h2>
-        <p>Contribute to your favorite change requests to improve the 3D design community!</p>
-        <div id="accordion">
-          <div class="design-show-requests">
-            <% @design.requests.each do |request| %>
-            <div class="card">
-              <div class="card-header" id="<%= request.description %>">
-                <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" data-target="#<%= request.id %>" aria-expanded="false" aria-controls="<%= request.id %>">
-                    Change Request from <%= request.user.username %>
-                  </button>
-                </h5>
-              </div>
-              <div id="<%= request.id %>" class="collapse" aria-labelledby="<%= request.description %>" data-parent="#accordion">
-                <div class="card-body">
-                  <div class="request">
-                    <div class="request-kind">
-                      <% if request.kind == "original" %>
-                        Request for a <strong>new</strong> design
-                      <% else %>
-                        Request for an improvement on an <strong>existing</strong> design
-                      <% end %>
+      <div class="col-sm-12 col-md-6">
+        <div class="design-show-design-details">
+          <div class="designshow-photos">
+            <% if !@design.attachments.empty? %>
+              <%= render 'shared/slideshow-designs-show' %>
+            <% else %>
+              <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload">
+            <% end %>
+          </div>
+          <div class="like-button-wrapper">
+            <span>
+              <%= link_to design_upvote_path(@design), method: :post, remote: true do %>
+                <i class="fas fa-heart"></i>
+              <% end %>
+            </span>
+            <span id="like-button"><%= @design.likes %></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 design-show-column-container">
+        <div class="requests-show-header">
+          <h2>Change Requests</h2>
+          <p>Contribute to the change requests that best fit your needs and boost the 3D design community!</p>
+        </div>
+        <div class="designshow-request-container">
+          <div id="accordion">
+            <div class="design-show-requests">
+              <% @design.requests.each do |request| %>
+              <div class="card">
+                <div class="card-header" id="<%= request.description %>">
+                  <h5 class="">
+                    <button class="transparent-button" data-toggle="collapse" data-target="#<%= request.id %>" aria-expanded="false" aria-controls="<%= request.id %>">
+                      Change Request from <%= cl_image_tag request.user.photo, class: "avatar small" %> <b><%= request.user.username %></b>
+                    </button>
+                  </h5>
+                </div>
+                <div id="<%= request.id %>" class="collapse" aria-labelledby="<%= request.description %>" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="request">
+                      <div class="request-kind">
+                        <% if request.kind == "original" %>
+                          This is a request for a <b>new</b> design
+                        <% else %>
+                          This is a request for an improvement on an <b>existing</b> design
+                        <% end %>
+                        </div>
+                      <div class="request-description"><b>Description:</b> <%= request.description %></div>
+                      <div class="design-show-contributions-flex">
+                        <div class="contributions">
+                          <span><%= request.contributions.size %> contributions</span>
+                          <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
+                        </div>
+                        <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
                       </div>
-                    <div class="request-description">Description: <%= request.description %></div>
-                    <div class="design-show-contributions-flex">
-                      <div class="contributions">
-                        <span><%= request.contributions.size %> contributions</span>
-                        <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
-                      </div>
-                      <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
                     </div>
                   </div>
                 </div>
               </div>
+              <% end %>
             </div>
-            <% end %>
-          </div>
-          <div class="text-center">
-          <%= link_to "Request Changes to this Design", new_design_request_path(@design), class: "button" %>
+            <div class="designshow-button">
+              <%= link_to "Request Changes to this Design", new_design_request_path(@design), class: "button-red" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+

@@ -1,41 +1,123 @@
-.design-show-requests {
-  margin: 20px;
+.design-showpage-wrapper {
+  padding-bottom: 50px;
+}
+
+.design-show-title-wrapper {
+  margin: 40px 0px;
+  padding: 20px 30px;
+  background-color: #FFF;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   border-radius: 5px;
-  background-color: $light-gray;
+
+  h2 {
+    font-weight: 600;
+  }
+}
+
+.like-button-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  span {
+    color: #FFF;
+    font-size: 10px;
+
+    i {
+      color: #FFF;
+      font-size: 25px;
+
+      &:hover {
+        color: $pop-red;
+        font-size: 27px;
+      }
+    }
+  }
+}
+
+
+.requests-show-header {
+  h2 {
+    font-weight: 600;
+  }
+}
+
+.design-show-requests {
+  margin: 30px 20px;
+  border-radius: 5px;
+  background-color: $purple-gray;
   .request {
     font-size: 16px;
-    margin: 10px;
-    padding: 0 10px;
+    padding: 20px 0px 30px 0px;
+
     .request-kind {
-      margin-bottom: 7px;
+      padding-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
     }
+
     .request-description {
-      margin-bottom: 10px;
+      padding: 10px 0px 30px 0px;
+    }
+  }
+
+  .card {
+    padding: 20px;
+
+    .card-header {
+      margin: 0;
     }
   }
 }
 
-.design-show-requests-container {
-  padding-left: 70px;
-  .requests-header {
-  margin-top: 200px;
-  }
+.design-show-design-details {
+  position: relative;
 }
 
+.design-show-column-container {
+  background-color: #FFF;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  padding: 0px 30px 20px 30px;
 
-
-.design-show-design-details img {
-  width: 100%;
 }
 
 .design-show-contributions-flex {
   display: flex;
   justify-content: space-around;
+
+
   .contributions {
     font-weight: bold;
   }
+  .pool {
+    padding-top: 5px
+  }
+}
+
+.designshow-button {
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.carousel-indicators img {
+  width: 100%;
+  display: block;
 }
 
 
+// for the slider
 
+.mySlides {display:none; width:100%;}
+.demo {cursor:pointer}
+.w3-content{max-width:980px;margin:auto}.w3-rest{overflow:hidden}
+.w3-section,.w3-code{margin-top:16px!important;margin-bottom:16px!important}
+.w3-col.s4{width:33.33333%}
+.w3-row-padding,.w3-row-padding>.w3-half,.w3-row-padding>.w3-third,.w3-row-padding>.w3-twothird,.w3-row-padding>.w3-threequarter,.w3-row-padding>.w3-quarter,.w3-row-padding>.w3-col{padding:0 8px}
+.w3-col,.w3-half,.w3-third,.w3-twothird,.w3-threequarter,.w3-quarter{float:left;width:100%}
+.w3-opacity,.w3-hover-opacity:hover{opacity:0.60}.w3-opacity-off,.w3-hover-opacity-off:hover{opacity:1}
+.w3-opacity-max{opacity:0.25}.w3-opacity-min{opacity:0.75}
 
+// for the slider
