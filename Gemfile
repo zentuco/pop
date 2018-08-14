@@ -21,7 +21,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-
+# gem 'thingiverse', '0.0.1', git: 'https://github.com/rodloboz/thingiverse'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
