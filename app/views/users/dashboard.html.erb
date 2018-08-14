@@ -16,31 +16,51 @@
 </div>
 
 <div class="container">
+  <div class="tabs">
+  <div class="tab active" data-page="#projects">
+    <!-- <a href="#projects"> -->
+    Ongoing Projects
+  <!-- </a> -->
+</div>
+<div class="tab" data-page="#contributions">
+  <!-- <a href="#contributions"> -->
+    Pending Projects
+  <!-- </a> -->
+</div>
+<div class="tab" data-page="#orders">
+  <!-- <a href="#orders"> -->
+    Billing History
+  <!-- </a> -->
+</div>
+  </div>
+</div>
 
-      <div class="projects">
-        <h2>Ongoing Projects</h2>
-        <div class="row">
-        <% @projects.each do |project| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+<div class="container">
+
+  <div id="projects" class="tab-section active">
+    <h2>Ongoing Projects</h2>
+    <div class="row">
+      <% @projects.each do |project| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= render 'shared/project-card', project: project %>
-        </div>
-        <% end %>
-        </div>
       </div>
+      <% end %>
+    </div>
+  </div>
 
 
-      <div class="contributions">
-        <h3>Requests Awaiting Designer</h3>
-        <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
-        <h4>Your Contribution: <%= contribution.tokens %> tokens</h4>
-        <div>Change Request: <%= contribution.request.description %></div>
-        <%= render 'shared/card', design: contribution.request.design %>
-        <% end %>
-      </div>
+  <div id="contributions" class="tab-section">
+    <h3>Requests Awaiting Designer</h3>
+    <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
+    <h4>Your Contribution: <%= contribution.tokens %> tokens</h4>
+    <div>Change Request: <%= contribution.request.description %></div>
+    <%= render 'shared/card', design: contribution.request.design %>
+    <% end %>
+  </div>
 
 
 
-  <div class="orders">
+  <div id="orders" class="tab-section">
     <h1>Billing History</h1>
     <% @orders.each do |order| %>
     <div class="order">
