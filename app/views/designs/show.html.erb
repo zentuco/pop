@@ -4,32 +4,60 @@
       <div class="design-details">
         <h1><%= @design.name %></h1>
         <% if !@design.attachments.empty? %>
-          <%= render 'shared/carousel_design_show'  %>
+        <%= render 'shared/carousel_design_show'  %>
         <% else %>
-          <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload" style: width 100% >
+        <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload" style: width 100% >
         <% end %>
         <p><%= @design.description %></p>
         <p ><%= link_to design_upvote_path(@design), method: :post, remote: true do %>
           <i class="fas fa-heart"></i>
-        <% end %>
+          <% end %>
           <span id="like-button"><%= @design.likes %></span></p>
+        </div>
       </div>
-      <%= link_to "Request Improvement on this Design", new_design_request_path(@design), class: "button" %>
-    </div>
-    <div class="col-sm-12 col-md-6">
-      <div class="requests">
-        <% @design.requests.each do |request| %>
-          <div class="request">
-            <div class="request-kind"><%= request.kind %></div>
-            <div class="request-description"><%= request.description %></div>
-            <div class="contributions">
-              <span><%= request.contributions.size %> contributions</span>
-              <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
+      <div class="col-sm-12 col-md-6 requests-container">
+        <h2 class="requests-header">Change Requests</h2>
+        <p>Contribute to your favorite change requests to improve the 3D design community!</p>
+        <div id="accordion">
+          <div class="requests">
+            <% @design.requests.each do |request| %>
+            <div class="card">
+              <div class="card-header" id="<%= request.description %>">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#<%= request.id %>" aria-expanded="false" aria-controls="<%= request.id %>">
+                    Change Request from <%= request.user.username %>
+                  </button>
+                </h5>
+              </div>
+
+              <div id="<%= request.id %>" class="collapse" aria-labelledby="<%= request.description %>" data-parent="#accordion">
+                <div class="card-body">
+                  <div class="request">
+                    <div class="request-kind">
+                      <% if request.kind == "original" %>
+                        Request for a <strong>new</strong> design
+                      <% else %>
+                        Request for an improvement on an <strong>existing</strong> design
+                      <% end %>
+                      </div>
+                    <div class="request-description">Description: <%= request.description %></div>
+                    <div class="contributions-flex">
+                      <div class="contributions">
+                        <span><%= request.contributions.size %> contributions</span>
+                        <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
+                      </div>
+                      <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
+            <% end %>
           </div>
-        <% end %>
+          <div class="text-center">
+          <%= link_to "Request Changes to this Design", new_design_request_path(@design), class: "button" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>

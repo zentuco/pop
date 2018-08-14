@@ -4,12 +4,36 @@
   background-color: $light-gray;
 }
 
+.requests-container {
+  padding-left: 70px;
+}
+
 .request {
   font-size: 16px;
-
   margin: 10px;
+  padding: 0 10px;
+  .request-kind {
+    margin-bottom: 7px;
+  }
+  .request-description {
+    margin-bottom: 10px;
+  }
 }
 
 .design-details img {
   width: 100%;
 }
+
+.contributions-flex {
+  display: flex;
+  justify-content: space-around;
+  .contributions {
+    font-weight: bold;
+  }
+}
+
+.requests-header {
+  margin-top: 200px;
+}
+
+
