@@ -7,7 +7,7 @@
         <% Category.all.each do |category| %>
           <ul class="designs-index-list categories">
             <li>
-              <%= link_to category.name.capitalize %>
+              <%= link_to category.name.capitalize, designs_path(category: category.name) %>
             </li>
           </ul>
         <% end %>
