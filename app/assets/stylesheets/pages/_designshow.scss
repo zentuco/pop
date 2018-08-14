@@ -1,30 +1,34 @@
-.requests {
+.design-show-requests {
   margin: 20px;
   border-radius: 5px;
   background-color: $light-gray;
+  .request {
+    font-size: 16px;
+    margin: 10px;
+    padding: 0 10px;
+    .request-kind {
+      margin-bottom: 7px;
+    }
+    .request-description {
+      margin-bottom: 10px;
+    }
+  }
 }
 
-.requests-container {
+.design-show-requests-container {
   padding-left: 70px;
-}
-
-.request {
-  font-size: 16px;
-  margin: 10px;
-  padding: 0 10px;
-  .request-kind {
-    margin-bottom: 7px;
-  }
-  .request-description {
-    margin-bottom: 10px;
+  .requests-header {
+  margin-top: 200px;
   }
 }
 
-.design-details img {
+
+
+.design-show-design-details img {
   width: 100%;
 }
 
-.contributions-flex {
+.design-show-contributions-flex {
   display: flex;
   justify-content: space-around;
   .contributions {
@@ -32,8 +36,6 @@
   }
 }
 
-.requests-header {
-  margin-top: 200px;
-}
+
 
 
