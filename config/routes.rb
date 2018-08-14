@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   get 'modal_edit_profile', to: 'users#modal_edit_profile'
   patch 'update_user_profile', to: 'users#update_user_profile', as: 'update_user_profile'
   delete 'destroy_user_profile', to: 'users#destroy', as: 'destroy_user_profile'
+  get 'thingiverse', to: 'thingiverse#search_thingiverse'
 end
 
