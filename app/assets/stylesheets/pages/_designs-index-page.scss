@@ -7,10 +7,20 @@
   padding-right: 10px;
 }
 
+.sticky-container {
+  position: sticky;
+  top: 20px;
+}
+
 .index-categories{
   background-color: #FFF;
   border: 1px solid #EEE;
   padding: 1.5em 2em;
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 45px;
+  }
 }
 
 .cards-container {
@@ -19,14 +29,38 @@
 .index-faqs {
   background-color: #FFF;
   border: 1px solid #EEE;
-  padding: 0px 20px;
+  padding: 1.5em 2em;
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
 }
 
-.category-list-index {
+.designs-index-list {
   list-style: none;
   padding: 0px 20px;
+  font-weight: 300;
 
-  li a {
+  li {
+    padding-bottom: 20px;
+  }
+
+  a {
     text-decoration: none;
+    color: $pop-black;
+
+    &:hover {
+      color: $pop-green;
+    }
+  }
+
+  &.categories {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  &.howto {
+
   }
 }
