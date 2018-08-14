@@ -1,3 +1,9 @@
+require 'thingiverse'
+tv = Thingiverse::Connection.new
+tv.access_token = ENV['THINGIVERSE_APP_TOKEN']
+# tv.things.search "cat"
+
+
 class DesignsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]

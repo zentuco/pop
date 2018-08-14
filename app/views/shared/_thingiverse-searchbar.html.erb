@@ -1,0 +1,8 @@
+<%= form_tag("/thingiverse", class: "search-form", method: "get") do %>
+  <div class="search-keyword">
+   <%= text_field_tag :thingname, nil, placeholder: "Search thingiverse", class: "form-control" %>
+ </div>
+  <div class="search-button">
+    <%= submit_tag("Search Now", class: "button")  %>
+  </div>
+<% end %>

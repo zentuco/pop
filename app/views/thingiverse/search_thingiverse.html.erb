@@ -7,7 +7,7 @@
         <% Category.all.each do |category| %>
           <ul class="designs-index-list categories">
             <li>
-              <%= link_to category.name.capitalize, designs_path(category: category.name) %>
+              <%= link_to category.name.capitalize %>
             </li>
           </ul>
         <% end %>
@@ -16,17 +16,16 @@
     <div class="col-sm-12 col-md-8 index-grid-padding">
       <div class="cards-container">
         <div class="index-searchbar">
-          <%= render "shared/searchbar" %>
+          <%= render "shared/thingiverse-searchbar" %>
         </div>
         <div class="index-cards-container">
-          <% @designs.each do |design|  %>
-            <%= render 'shared/card', design: design %>
-            <% if policy(design).edit? %>
-              <%= link_to "Update", edit_design_path(design), class: "button" %>
+          <h2>Thingiverse Results</h2>
+          <% if @things.presence %>
+            <% @things.each do |thing| %>
+              <%= render 'shared/thingiverse-card', thing: thing %>
             <% end %>
-            <% if policy(design).destroy? %>
-              <%= link_to "Delete", design_path(design), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
-            <% end %>
+          <% else %>
+            <div>No Results found! Try a different search.</div>
           <% end %>
         </div>
       </div>
@@ -50,8 +49,6 @@
     </div>
   </div>
   <%= render 'shared/modal' %>
-  <div class="container">
-    <h3>Can't find what you want?</h3>
-  <%= render 'shared/thingiverse-searchbar' %>
-  </div>
 </div>
+
+
