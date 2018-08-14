@@ -21,11 +21,9 @@
         <div class="index-cards-container">
           <h2>Thingiverse Results</h2>
           <% @things.each do |thing| %>
-            <%= thing.name %>
-            <%= thing.description %>
-            <% thing.images.each do |photo| %>
-              <%= image_tag photo["sizes"][8]["url"] %>
-            <% end %>
+            <%= render 'shared/thingiverse-card', thing: thing %>
+
+
           <% end %>
         </div>
       </div>
