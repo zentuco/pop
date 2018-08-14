@@ -20,7 +20,7 @@
       <div class="projects">
         <h2>Ongoing Projects</h2>
         <div class="row">
-        <% @projects.each do |project| %>
+        <% @projects.uniq.each do |project| %>
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <%= render 'shared/project-card', project: project %>
         </div>

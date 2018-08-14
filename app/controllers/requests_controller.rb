@@ -43,6 +43,6 @@ class RequestsController < ApplicationController
   end
 
   def request_params
-    params.require(:request).permit(:description)
+    params.require(:request).permit(:description, :file)
   end
 end

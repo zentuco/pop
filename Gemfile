@@ -22,7 +22,6 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'httparty'
-# gem 'thingiverse', '0.0.1', git: 'https://github.com/rodloboz/thingiverse'
 
 
 group :development do
