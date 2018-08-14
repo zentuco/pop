@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @user = current_user
     authorize @user
     if @user.requests.any?
-      redirect_to profile_path, alert: "you must delete all open rquests before deleting your account"
+      redirect_to profile_path, alert: "You must delete all open requests before deleting your account"
     else
       @user.wallet.destroy
       @user.destroy
