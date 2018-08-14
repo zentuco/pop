@@ -19,18 +19,30 @@
   color: white;
   text-decoration: none;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-green;
+  transition: 0.1s all ease-in-out;
 }
 
 .button-red {
-
+  font-size: 1.5rem;
+  border-radius: 0;
+  border: none;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s all ease-in-out;
+  padding: 1.2rem 1.9rem;
+  text-transform: none;
+  margin: 0 0.75rem 0 .5rem;
   background-color: $pop-red;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-black;
+  color: #fcfcfc;
+  display: inline-block;
 }
 
 .button-red:hover {
   color: #fcfcfc;
+  text-decoration: none;
   background-color: $pop-red;
-  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 4px 4px 0px 0px $pop-black;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-black;
   transition: 0.1s all ease-in-out;
 }
 
