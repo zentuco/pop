@@ -44,8 +44,8 @@
 
   <div class="row">
     <p>This projet was made possible thanks to:</p>
-    <% @project.request.contributions.each do |contribution| %>
-      <%= cl_image_tag contribution.user.photo, class: "avatar" %>
+    <% @contributors.uniq.each do |contributor| %>
+      <%= cl_image_tag contributor.photo, class: "avatar" %>
     <% end %>
   </div>
 </div>

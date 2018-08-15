@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
+    @contributors = []
+    @project.request.contributions.each do |contribution|
+      @contributors << contribution.user
+    end
     authorize @project
   end
 
