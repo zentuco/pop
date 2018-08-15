@@ -57,6 +57,8 @@ class DesignsController < ApplicationController
       if @request.save!
         @contribution.request = @request
         @contribution.save!
+        tokens = current_user.wallet.tokens - @contribution.tokens
+        current_user.wallet.update(tokens: tokens)
         redirect_to @design
       else
         flash[:alert] = "Request did not save"
