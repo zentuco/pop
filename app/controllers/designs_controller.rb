@@ -56,10 +56,14 @@ class DesignsController < ApplicationController
       @request.design = @design
       if @request.save!
         @contribution.request = @request
-        @contribution.save!
-        tokens = current_user.wallet.tokens - @contribution.tokens
-        current_user.wallet.update(tokens: tokens)
-        redirect_to @design
+        if @contribution.save!
+          tokens = current_user.wallet.tokens - @contribution.tokens
+          current_user.wallet.update(tokens: tokens)
+          redirect_to @design
+        else
+          flash[:alert] = "Contribution invalid."
+          render 'new'
+        end
       else
         flash[:alert] = "Request did not save"
         render 'new'
