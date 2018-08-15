@@ -23,7 +23,6 @@ class ThingiverseController < ApplicationController
   end
 
   def create_design
-    byebug
     @attachment = Attachment.new(remote_file_url: params[:photo])
     @design = Design.new(name: params[:name], description: params[:description])
     @design.category = Category.all.sample
