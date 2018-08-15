@@ -21,5 +21,6 @@ Rails.application.routes.draw do
   get 'thingiverse/:id', to: 'thingiverse#show', as: 'thingiverse-design'
   post 'thingiverse/create-design', to: 'thingiverse#create_design', as: 'create_thingiverse_design'
   devise_for :users, controllers: { sessions: "paths" }
+  get 'users/:id/profile', to: 'users#show', as: 'user_page'
 end
 
