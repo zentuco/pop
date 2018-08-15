@@ -1,22 +1,24 @@
-<div class="profile-card">
-
-
-  <div class="profile-card-content text-center">
-    <div class="profile-title"><h1>Your Profile:</h1></div>
-    <div class="profile-card-line"><hr></div>
-    <div class="profile-avatar text-center">
-      <%= cl_image_tag @user.photo, class: "avatar large" %>
+<div class="container">
+  <div class="profile-card-container">
+    <h2>Your Profile:</h2>
+    <div class="profile-card-layout">
+      <div class="profile-card-line"><hr></div>
+      <div class="profile-avatar text-center">
+        <%= cl_image_tag @user.photo, class: "avatar large" %>
+      </div>
+      <div class="profile-username">Username: <%= @user.username %></div>
+      <div class="profile-card-line"><hr></div>
+      <div class="profile-name">Full name: <%= @user.full_name %></div>
+      <div class="profile-card-line"><hr></div>
+      <div class="profile-email">Email: <%= @user.email %></div>
+      <div class="profile-card-line"><hr></div>
+      <div class="profile-card-actions">
+        <button type="button" class="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
+        <%= link_to "reset password", edit_user_registration_path, class: "button" %>
+        <%= render 'shared/modal_edit_profile' %>
+        <%= link_to "Delete", destroy_user_profile_path, data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "button-red" %>
+      </div>
     </div>
-    <div class="profile-username">Username: <%= @user.username %></div>
-    <div class="profile-card-line"><hr></div>
-    <div class="profile-name">Full name: <%= @user.full_name %></div>
-    <div class="profile-card-line"><hr></div>
-    <div class="profile-email">Email: <%= @user.email %></div>
-    <div class="profile-card-line"><hr></div>
-    <button type="button" class="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
-    <%= link_to "reset password", edit_user_registration_path, class: "button" %>
-    <%= render 'shared/modal_edit_profile' %>
-    <%= link_to "Delete", destroy_user_profile_path, data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "button-red" %>
   </div>
 </div>
 <%= render "shared/topup-sticky" %>
