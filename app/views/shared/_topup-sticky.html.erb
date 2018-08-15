@@ -1,0 +1,6 @@
+<div class="sticky-topup">
+  <%= link_to topup_path, class: "topup-style" do %>
+    <i class="fas fa-coins"></i>
+    <span style="font-weight: 600;"><%= current_user.wallet.tokens %></span>
+  <% end %>
+</div>

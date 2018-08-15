@@ -1,0 +1,22 @@
+.sticky-topup {
+  position: fixed;
+  bottom: 1%;
+  right: 2%;
+  background-color: #FFF;
+  border-radius: 50%;
+  padding: 20px 0px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-shadow: $pop-green 2px 2px 1px 1px;
+}
+
+.topup-style {
+  text-decoration: none;
+  padding: 18px;
+  font-size: 25px;
+}
+
+.topup-style:hover {
+  text-decoration: none;
+}

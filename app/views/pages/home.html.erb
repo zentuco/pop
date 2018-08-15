@@ -1,6 +1,9 @@
 <%= render "shared/banner" do %>
   <%= render "shared/searchbar" %>
 <% end %>
+<% if user_signed_in? %>
+  <%= render "shared/topup-sticky" %>
+<% end %>
 
 <section class="home-benefits">
   <div class="container">
