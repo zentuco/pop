@@ -24,8 +24,11 @@ class ThingiverseController < ApplicationController
 
   def create_design
     @attachment = Attachment.new(remote_file_url: params[:photo])
+    @category = Category.find_by(name: params[:category].downcase)
+    @category = Category.create!(name: params[:category].downcase) unless @category
+    byebug
     @design = Design.new(name: params[:name], description: params[:description])
-    @design.category = Category.all.sample
+    @design.category = @category
     # authorize @design
     @request = Request.new(request_params)
     @request.user = current_user
