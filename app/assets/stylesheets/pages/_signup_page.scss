@@ -1,14 +1,15 @@
 .sign-up-container {
   background-color: #FFF;
-  padding-left: 100px;
-  padding-right: 100px;
-  margin-bottom: 25px;
-  margin-left: 150px;
-  margin-right: 150px;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-bottom: 100px;
+  margin-left: 170px;
+  margin-right: 170px;
   border-radius: 5px;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 4px 4px 0px 0px $pop-green;
   h2 {
     text-align: center;
+    margin-top: 100px;
     padding: 40px 0px;
     font-weight: 600;
   }
@@ -27,6 +28,9 @@
   flex-direction: column;
   color: black;
   text-align: justify;
+  div.form-group {
+    margin-bottom: 5px;
+  }
 }
 
 .sign-up-form-actions {
