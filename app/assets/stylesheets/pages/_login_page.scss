@@ -1,0 +1,39 @@
+.log-in-container {
+  background-color: #FFF;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin-bottom: 25px;
+  margin-left: 250px;
+  margin-right: 250px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 4px 4px 0px 0px $pop-green;
+  h2 {
+    text-align: center;
+    padding-top: 60px;
+    font-size: 45px;
+    padding-bottom: 30px;
+    font-weight: 600;
+    margin-top: 100px;
+  }
+}
+
+.log-in-form {
+  padding: 0px, 100px;
+  display: flex;
+  padding-bottom: 30px;
+  flex-direction: column;
+  justify-content: center;
+  height: 85%;
+}
+
+.log-in-form-inputs {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  text-align: justify;
+}
+
+.log-in-form-actions {
+  color: black;
+  padding-top: 10px;
+}
