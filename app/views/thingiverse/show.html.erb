@@ -17,16 +17,15 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-6 design-show-column-container">
-          <div class="thingiverse-design-information">
-            <h3>Thingiverse Stats</h3>
-            <div>Likes: <%= @thing.like_count %></div>
-            <div>Views: <%= @thing.view_count %></div>
-            <div>Downloads: <%= @thing.download_count %></div>
-          </div>
-          <div class="designshow-button" id="thepowerofajax">
-            <div id="accordion">
+        <div class="thingiverse-design-information">
+          <h3>Thingiverse Stats</h3>
+          <div>Likes: <%= @thing.like_count %></div>
+          <div>Views: <%= @thing.view_count %></div>
+          <div>Downloads: <%= @thing.download_count %></div>
+        </div>
+        <div class="designshow-button" id="thepowerofajax">
+          <div id="accordion">
             <div class="design-show-requests">
-
               <div class="card">
                 <div class="card-header" id="<%= @thing.description %>">
                   <h5 class="">
@@ -52,7 +51,7 @@
               </div>
             </div>
           </div>
-          </div>
+        </div>
           <%= link_to "View this design on Thingiverse", @thing.public_url, target: "_blank" %>
       </div>
     </div>
