@@ -9,10 +9,15 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <%= link_to "Become a Designer", become_designer_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Request New Design", new_design_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% if !user_signed_in? %>
+      <%= link_to "Become a Designer", become_designer_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% else %>
+      <% if !current_user.designer %>
+        <%= link_to "Become a Designer", become_designer_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
+    <% end %>
     <% if user_signed_in? %>
+      <%= link_to "Request New Design", new_design_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to topup_path, class: "navbar-wagon-item navbar-wagon-link" do %>
         <i class="fas fa-coins"></i>
         <span style="font-weight: 600;"><%= current_user.wallet.tokens %></span>
