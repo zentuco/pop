@@ -29,6 +29,9 @@
     text-align: center;
     font-size: 25px;
   }
+  .profile-email-other {
+    padding-bottom: 25px;
+  }
 }
 
 .profile-card-line {
@@ -57,4 +60,10 @@
     line-height: 40px;
     opacity: 0.8;
   }
+}
+
+.profile-card-return-action {
+  justify-content: center;
+  padding-bottom: 20px;
+
 }
