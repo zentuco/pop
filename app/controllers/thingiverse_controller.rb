@@ -19,6 +19,15 @@ class ThingiverseController < ApplicationController
 
   def show
     @thing = @tv.things.find(params[:id].to_i)
+    @request = Request.new
+  end
+
+  def create_design
+    byebug
+    @attachment = Attachment.new(file: params[:photo])
+    @design = Design.new(name: params[:name], description: params[:description])
+    @design.category = Category.all.sample
+
   end
 
 

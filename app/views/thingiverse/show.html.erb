@@ -23,8 +23,36 @@
             <div>Views: <%= @thing.view_count %></div>
             <div>Downloads: <%= @thing.download_count %></div>
           </div>
-          <div class="designshow-button">
-              <%= link_to "Add this design to PoP", designs_path, method: :post, class: "button" %>
+          <div class="designshow-button" id="thepowerofajax">
+            <div id="accordion">
+            <div class="design-show-requests">
+
+              <div class="card">
+                <div class="card-header" id="<%= @thing.description %>">
+                  <h5 class="">
+                    <button class="transparent-button" data-toggle="collapse" data-target="#thingiverse-open-request" aria-expanded="false" aria-controls="thingiverse-open-request">
+                      Request Changes to this Design
+                    </button>
+                  </h5>
+                </div>
+                <div id="thingiverse-open-request" class="collapse" aria-labelledby="<%= @thing.description %>" data-parent="#accordion">
+                  <div class="card-body">
+                    <%= simple_form_for @request, url: create_thingiverse_design_path, method: :post do |f| %>
+                      <%= hidden_field_tag(:name, @thing.name) %>
+                      <%= hidden_field_tag(:description, @thing.description) %>
+                      <%= hidden_field_tag(:photo, @thing.images.first["sizes"][13]["url"]) %>
+                      <%= f.input :description %>
+                      <%= simple_fields_for :contribution do |c|%>
+                        <%= c.input :tokens %>
+                      <% end %>
+                      <%= f.submit "Submit Request", class: "button" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+              <%= link_to "Request Changes to this Design", create_thingiverse_design_path(photo: @thing.images.first["sizes"][13]["url"], name: @thing.name, description: @thing.description), method: :post, class: "button" %>
           </div>
           <%= link_to "View this design on Thingiverse", @thing.public_url, target: "_blank" %>
       </div>
