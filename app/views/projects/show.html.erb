@@ -21,7 +21,7 @@
         <div>
           <p>Designer for this project is:</p>
           <div>
-            <%= link_to user_page_path(design.requests.first.user) do  %>
+            <%= link_to user_page_path(@project.user) do  %>
               <%= cl_image_tag @project.user.photo, class: "avatar large" %>
               <%= @project.user.full_name %>
             <% end %>
