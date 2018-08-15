@@ -24,8 +24,10 @@ class ThingiverseController < ApplicationController
 
   def create_design
     @attachment = Attachment.new(remote_file_url: params[:photo])
+    @category = Category.find_by(name: params[:category].downcase)
+    @category = Category.create!(name: params[:category].downcase) unless @category
     @design = Design.new(name: params[:name], description: params[:description])
-    @design.category = Category.all.sample
+    @design.category = @category
     # authorize @design
     @request = Request.new(request_params)
     @request.user = current_user
@@ -38,8 +40,13 @@ class ThingiverseController < ApplicationController
       @request.design = @design
       if @request.save!
         @contribution.request = @request
-        @contribution.save!
-        redirect_to @design
+        if @contribution.save!
+          tokens = current_user.wallet.tokens - @contribution.tokens
+          current_user.wallet.update(tokens: tokens)
+          redirect_to @design
+        else
+          flash[:alert] = "Contribution invalid."
+        end
       else
         flash[:alert] = "Request did not save"
 

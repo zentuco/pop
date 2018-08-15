@@ -17,7 +17,7 @@
       <%= r.input :description, label: "What Changes do you want made?" %>
       <% end %>
       <%= simple_fields_for :contribution do |c| %>
-      <%= c.input :tokens, required: true %>
+      <%= c.input :tokens, required: true, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens } %>
       <% end %>
       <%= f.submit "Upload Design", class: "button" %>
       <% end %>
