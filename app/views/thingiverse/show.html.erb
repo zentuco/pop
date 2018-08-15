@@ -19,6 +19,7 @@
       <div class="col-sm-12 col-md-6 design-show-column-container">
           <div class="thingiverse-design-information">
             <h3>Thingiverse Stats</h3>
+            <div>Design Category: <%= @thing.categories.first["name"] %></div>
             <div>Likes: <%= @thing.like_count %></div>
             <div>Views: <%= @thing.view_count %></div>
             <div>Downloads: <%= @thing.download_count %></div>
@@ -41,6 +42,7 @@
                       <%= hidden_field_tag(:name, @thing.name) %>
                       <%= hidden_field_tag(:description, @thing.description) %>
                       <%= hidden_field_tag(:photo, @thing.images.first["sizes"][13]["url"]) %>
+                      <%= hidden_field_tag(:category, @thing.categories.first["name"]) %>
                       <%= f.input :description %>
                       <%= simple_fields_for :contribution do |c|%>
                         <%= c.input :tokens %>

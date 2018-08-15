@@ -13,6 +13,7 @@
         <span class="card-category">
           <!-- design/request category -->
           <!-- need to figure out how to grab category from thingiverse -->
+
         </span>
       </div>
     <div class="card-body">
@@ -39,7 +40,7 @@
         <div class="card-footer"> <!-- only if request? -->
 
             <div class="card-footer-alt">
-              <%= link_to "Open a request to improve this design", new_design_request_path(thing) %>
+              <%= link_to "Open a request to improve this design", thingiverse_design_path(id: thing.id) %>
             </div>
 
         </div>
