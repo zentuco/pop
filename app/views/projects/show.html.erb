@@ -1,4 +1,7 @@
-<h1>Project: <%= @project.request.design.name %></h1>
+<div class="container">
+<div class="project-show-header-wrapper">
+  <h2>Project: <%= @project.request.design.name %></h2>
+</div>
 
 <div class="container">
   <div class="row">
@@ -39,15 +42,13 @@
       <% if policy(@project).destroy? %>
         <%= link_to "Delete", project_path(@project), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
       <% end %>
+      <p>This project was made possible thanks to:</p>
+      <% @contributors.uniq.each do |contributor| %>
+        <%= cl_image_tag contributor.photo, class: "avatar" %>
+      <% end %>
     </div>
   </div>
-
-  <div class="row">
-    <p>This projet was made possible thanks to:</p>
-    <% @contributors.uniq.each do |contributor| %>
-      <%= cl_image_tag contributor.photo, class: "avatar" %>
-    <% end %>
-  </div>
+</div>
 </div>
 <% if user_signed_in? %>
   <%= render "shared/topup-sticky" %>
