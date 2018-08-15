@@ -11,31 +11,11 @@
           <div class="deal-price">
             €10
           </div>
-          <%#= form_tag orders_path do %>
-          <%#= hidden_field_tag 'token_amount', @token.amount %>
-          <%#= hidden_field_tag 'token_sku', @token.sku %>
-          <%#= submit_tag 'Purchase', class: 'button' %>
-          <%# end %>
-
-          <% @order = Order.create!(wallet: current_user.wallet, token_sku: @token.amount, amount_cents: @token.amount) %>
-          <h1>Purchase of <%= @order.token_sku %> Tokens</h1>
-          <%= form_tag order_payments_path(@order) do %>
-          <article>
-            <label class="amount">
-              <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-            </label>
-          </article>
-
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Token"
-          data-email="<%= current_user.email %>"
-          data-description="Tokens: <%= @order.token_sku %>"
-          data-amount="<%= @order.amount_cents %>"
-          data-currency="<%= @order.amount.currency %>"></script>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'token_amount', @token.amount %>
+          <%= hidden_field_tag 'token_sku', @token.sku %>
+          <%= submit_tag 'Purchase', class: 'button' %>
           <% end %>
-
-
         </div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
