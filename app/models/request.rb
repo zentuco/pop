@@ -7,6 +7,7 @@ class Request < ApplicationRecord
   validates :description, presence: true
   validates :user, presence: true
   validates :design, presence: true
+  accepts_nested_attributes_for :contributions
 
   enum kind: [:original, :improve]
 

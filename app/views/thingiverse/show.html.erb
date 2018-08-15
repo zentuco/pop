@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="design-showpage-wrapper">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="design-show-title-wrapper">
+          <h2><%= @thing.name %></h2>
+          <div class="designshow-description">
+            <p><%= @thing.description %></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <div class="design-show-design-details">
+          <div class="designshow-photos">
+              <%= render 'shared/thingiverse-slideshow-design-show' %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 design-show-column-container">
+          <div class="thingiverse-design-information">
+            <h3>Thingiverse Stats</h3>
+            <div>Likes: <%= @thing.like_count %></div>
+            <div>Views: <%= @thing.view_count %></div>
+            <div>Downloads: <%= @thing.download_count %></div>
+          </div>
+          <div class="designshow-button" id="thepowerofajax">
+            <div id="accordion">
+            <div class="design-show-requests">
+
+              <div class="card">
+                <div class="card-header" id="<%= @thing.description %>">
+                  <h5 class="">
+                    <button class="transparent-button" data-toggle="collapse" data-target="#thingiverse-open-request" aria-expanded="false" aria-controls="thingiverse-open-request">
+                      Request Changes to this Design
+                    </button>
+                  </h5>
+                </div>
+                <div id="thingiverse-open-request" class="collapse" aria-labelledby="<%= @thing.description %>" data-parent="#accordion">
+                  <div class="card-body">
+                    <%= simple_form_for @request, url: create_thingiverse_design_path, method: :post do |f| %>
+                      <%= hidden_field_tag(:name, @thing.name) %>
+                      <%= hidden_field_tag(:description, @thing.description) %>
+                      <%= hidden_field_tag(:photo, @thing.images.first["sizes"][13]["url"]) %>
+                      <%= f.input :description %>
+                      <%= simple_fields_for :contribution do |c|%>
+                        <%= c.input :tokens %>
+                      <% end %>
+                      <%= f.submit "Submit Request", class: "button" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <%= link_to "View this design on Thingiverse", @thing.public_url, target: "_blank" %>
+      </div>
+    </div>
+  </div>
+</div>
+

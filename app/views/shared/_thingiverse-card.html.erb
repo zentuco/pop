@@ -16,10 +16,10 @@
         </span>
       </div>
     <div class="card-body">
-
+        <%= link_to thingiverse_design_path(id: thing.id), class: "card-details-header" do %>
         <div>
           <!-- design image -->
-          <%= image_tag thing.images.first["sizes"][8]["url"] , class: "card-image" %>
+          <%= image_tag thing.thumbnail , class: "card-image" %>
 
         </div>
         <div class="card-details">
@@ -35,7 +35,7 @@
               </div>
             </div>
           </div>
-
+        <% end %>
         <div class="card-footer"> <!-- only if request? -->
 
             <div class="card-footer-alt">

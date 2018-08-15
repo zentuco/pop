@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   patch 'update_user_profile', to: 'users#update_user_profile', as: 'update_user_profile'
   delete 'destroy_user_profile', to: 'users#destroy', as: 'destroy_user_profile'
   get 'thingiverse', to: 'thingiverse#search_thingiverse'
+  get 'thingiverse/:id', to: 'thingiverse#show', as: 'thingiverse-design'
+  post 'thingiverse/create-design', to: 'thingiverse#create_design', as: 'create_thingiverse_design'
   devise_for :users, controllers: { sessions: "paths" }
 end
 
