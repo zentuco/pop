@@ -55,4 +55,6 @@
   <%= render 'shared/thingiverse-searchbar' %>
   </div>
 </div>
-<%= render "shared/topup-sticky" %>
+<% if user_signed_in? %>
+  <%= render "shared/topup-sticky" %>
+<% end %>
