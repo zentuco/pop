@@ -6,16 +6,24 @@
     <div class="password-reset-card-layout">
       <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= f.error_notification %>
-
         <div class="password-reset-card-form-inputs">
         <%= f.input :email, required: true, autofocus: true %>
         </div>
         <div class="password-reset-card-line"><hr></div>
         <div class="password-reset-card-form-actions">
-        <%= f.button :submit, "Send me reset password instructions" %>
-        </div>
+        <%= f.button :submit, "Send me reset password instructions", class:"button" %>
       <% end %>
-    <%= render "devise/shared/links" %>
+      <div class="password-reset-card-line"><hr></div>
+      <%- if controller_name != 'sessions' %>
+        Already have an account?
+        <%= link_to "Log in", new_session_path(resource_name) %><br />
+      <% end -%>
+      <div class="password-reset-card-line"><hr></div>
+      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+        Already have an account?
+        <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+      <% end -%>
+      </div>
     </div>
   </div>
 </div>
