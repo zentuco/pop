@@ -1,0 +1,54 @@
+.thingiverse-design-information {
+  h2 {
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+}
+
+.thingiverse-design-likes {
+  padding: 10px 5px;
+
+  i {
+    color: $pop-red;
+  }
+}
+
+.thingiverse-design-views {
+  padding: 10px 5px;
+
+  i {
+    color: $pop-green;
+  }
+}
+
+.thingiverse-design-downloads {
+  padding: 10px 5px;
+
+  i {
+    color: $pop-black;
+  }
+}
+
+#thingiverse-open-request {
+  .card-body {
+    form {
+      width: 100%;
+      text-align: left;
+    }
+  }
+}
+
+.design-show-requests {
+  .card {
+    .card-header {
+      h5 {
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.thingiverse-linkto-thing {
+  padding: 20px 0px;
+}
