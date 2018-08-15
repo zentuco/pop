@@ -20,7 +20,7 @@
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      <div>
+      <div class="project-show-project-details-wrapper">
         <div>
           <p>Designer for this project is:</p>
           <div>
@@ -35,17 +35,19 @@
           <%= @project.request.description %>
         </div>
       </div>
-      <p><strong>Pool amount: <%= @project.accepted_price %></strong></p>
-      <% if policy(@project).update? %>
-         <p>upload</p>
-      <% end %>
-      <% if policy(@project).destroy? %>
-        <%= link_to "Delete", project_path(@project), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
-      <% end %>
-      <p>This project was made possible thanks to:</p>
-      <% @contributors.uniq.each do |contributor| %>
-        <%= cl_image_tag contributor.photo, class: "avatar" %>
-      <% end %>
+      <div class="project-show-project-details-project-footer-project">
+        <p><strong>Pool amount: <%= @project.accepted_price %></strong></p>
+        <p>This project was made possible thanks to:</p>
+        <% @contributors.uniq.each do |contributor| %>
+          <%= cl_image_tag contributor.photo, class: "avatar" %>
+        <% end %>
+        <% if policy(@project).update? %>
+           <p>upload</p>
+        <% end %>
+        <% if policy(@project).destroy? %>
+          <%= link_to "Delete", project_path(@project), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
