@@ -3,7 +3,7 @@
     <% if project.file.presence %>
       <%= image_path project.file %>
     <% else %>
-      https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png
+      <%= image_path project.request.design.attachments.first.file %>
     <% end %>)">
   </div>
   <div class="designer-avatar text-center">
@@ -12,7 +12,7 @@
   <div class="project-card-content text-center">
     <div class="project-designer">Designer: <%= project.user.username %></div>
     <div class="project-card-line"><hr></div>
-    <div class="project-name">Project: <%= project.id %></div>
+    <!-- <div class="project-name">Project: <%#= project.id %></div> -->
     <div class="project-status">Status: <%= project.status %></div>
     <div class="project-card-line"><hr></div>
     <div class="project-link"><%= link_to "See Project Details", project_path(project) %></div>

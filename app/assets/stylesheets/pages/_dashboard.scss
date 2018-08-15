@@ -1,23 +1,25 @@
-.creation {
-
-  h2 {
-  font-size: 50px;
-  }
+.dashboard-banner {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px;
 }
 
 .sharetokens {
-  height: 220px;
 }
 
-.dashboard-banner {
-  margin-top: 35px;
-  margin-bottom: 10px;
-}
+.sharetokens-title {
 
-.contributions {
-  h4 {
-    margin-top: 40px;
+  h2.contributions-tab-title {
+  font-size: 40px;
+  padding-bottom: 10px;
   }
+}
+
+.sharetokens-description {
+  width: 80%;
+  padding-bottom: 20px;
 }
 
 .order {
