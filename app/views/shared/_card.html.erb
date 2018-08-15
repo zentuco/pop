@@ -1,84 +1,88 @@
 <div class="card-wrapper">
   <div class="card-container">
     <% if design.requests.present? %>
-      <div class="card-header">
-        <span class="card-avatar">
-          <!-- design or request users avatar -->
+    <div class="card-header">
+      <span class="card-avatar-link">
+        <%= link_to user_page_path(design.requests.first.user) do  %>
+          <span class="card-avatar">
+            <!-- design or request users avatar -->
             <%= cl_image_tag design.requests.first.user.photo, class: "avatar small" %>
-        </span>
-        <span class="card-name">
-          <!-- user-name -->
-          <%= design.requests.first.user.username %>
-        </span>
-        <span class="card-category">
-          <!-- design/request category -->
-          <%= design.category.name %>
-        </span>
-        <span class="card-timespan">
-          <!-- • date_created - date now -->
-          <%= design.requests.first.created_time_ago %>
-        </span>
-      </div>
+          </span>
+          <span class="card-name">
+            <!-- user-name -->
+            <%= design.requests.first.user.username %>
+          </span>
+        <% end %>
+      </span>
+      <span class="card-category">
+        <!-- design/request category -->
+        <%= design.category.name %>
+      </span>
+      <span class="card-timespan">
+        <!-- • date_created - date now -->
+        <%= design.requests.first.created_time_ago %>
+      </span>
+    </div>
     <% else %>
-      <div class="card-header">
-        <span class="card-avatar">
-          <!-- design or request users avatar -->
-            <%= image_tag "thingiverse-avatar.png", class: "avatar small" %>
-        </span>
-        <span class="card-name">
-          <!-- user-name -->
-          thingiverse
-        </span>
-        <span class="card-category">
-          <!-- design/request category -->
-          <%= design.category.name %>
-        </span>
-      </div>
+    <div class="card-header">
+      <span class="card-avatar">
+        <!-- design or request users avatar -->
+        <%= image_tag "thingiverse-avatar.png", class: "avatar small" %>
+      </span>
+      <span class="card-name">
+        <!-- user-name -->
+        thingiverse
+      </span>
+      <span class="card-category">
+        <!-- design/request category -->
+        <%= design.category.name %>
+      </span>
+    </div>
     <% end %>
     <div class="card-body">
       <%= link_to design, class: "card-details-header" do %>
+      <div>
+        <!-- design image -->
+        <% if design.attachments.presence %>
+        <%= cl_image_tag design.attachments.first.file , class: "card-image" %>
+        <% else %>
+        <img src="https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png" alt="" class="card-image">
+        <% end %>
+      </div>
+      <div class="card-details">
         <div>
-          <!-- design image -->
-          <% if design.attachments.presence %>
-          <%= cl_image_tag design.attachments.first.file , class: "card-image" %>
-          <% else %>
-          <img src="https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png" alt="" class="card-image">
-          <% end %>
-        </div>
-        <div class="card-details">
-          <div>
-            <div class="card-title">
-              <!-- Title of Design or Request (new or change) -->
-              <h2><%= design.name %></h2>
-            </div>
-            <div class="card-description">
-              <!-- small description of design or request || We can use truncate method in ruby to put [...] after description -->
-              <div class="card-description-text">
-                <%= design.description %>
-              </div>
+          <div class="card-title">
+            <!-- Title of Design or Request (new or change) -->
+            <h2><%= design.name %></h2>
+          </div>
+          <div class="card-description">
+            <!-- small description of design or request || We can use truncate method in ruby to put [...] after description -->
+            <div class="card-description-text">
+              <%= design.description %>
             </div>
           </div>
+        </div>
         <% end %>
         <div class="card-footer"> <!-- only if request? -->
           <% if design.requests.presence %>
-            <div class="card-pool">
-              <!-- Aggregated amount of rewards -->
-                <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="change it to say that the pool is so much tokens there are and so on">
-                    <i class="fas fa-money-bill-wave"></i> <%= design.requests.first.total_tokens %> € <i class="fas fa-caret-down"></i>
-                </button>
-            </div>
-            <div class="card-contributors">
-              <!-- number of contributors -->
-              <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size %></span>
-            </div>
-            <div class="card-share">
-              <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
-              <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
-            </div>
+          <div class="card-pool">
+            <!-- Aggregated amount of rewards -->
+            <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="change it to say that the pool is so much tokens there are and so on">
+              <i class="fas fa-money-bill-wave"></i> <%= design.requests.first.total_tokens %> € <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+          <div class="card-contributors">
+            <!-- number of contributors -->
+            <span class="hovered"><i class="fas fa-users"></i> <%= design.requests.first.contributions.size %></span>
+          </div>
+          <div class="card-share">
+            <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
+            <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
+          </div>
           <% else %>
-            <div class="card-footer-alt">
-              <%= link_to "Open a request to improve this design", new_design_request_path(design) %>
-            </div>
+          <div class="card-footer-alt">
+            <%= link_to "Open a request to improve this design", new_design_request_path(design) %>
+          </div>
           <% end %>
         </div>
       </div>
