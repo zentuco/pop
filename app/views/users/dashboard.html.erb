@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="dashboard-banner">
-      <div class="col-sm-12 col-md-4 col-md-push-8">
+      <div class="col-sm-12 col-md-4 col-md-push-8 text-center">
         <%= image_tag("present-tokens.png") %>
       </div>
       <div class="col-sm-12 col-md-8 col-md-pull-4">
@@ -11,15 +11,12 @@
           </div>
           <div class="sharetokens-description">
             <p>Give your friends 25 tokens to try PoP, and you will also get 10 tokens when they make their first contribution.</p>
-            <%= link_to "Invite Friends", "www.facebook.com", class: "button" %>
           </div>
+          <%= link_to "Invite Friends", "www.facebook.com", class: "button" %>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="tabs">
     <div class="tab active" data-page="#projects">
       <!-- <a href="#projects"> -->
@@ -37,9 +34,6 @@
       <!-- </a> -->
     </div>
   </div>
-</div>
-
-<div class="container">
   <div id="projects" class="tab-section active">
     <h2>Ongoing Projects</h2>
     <div class="row">
@@ -50,25 +44,30 @@
       <% end %>
     </div>
   </div>
-
   <div id="contributions" class="tab-section">
-    <h3>Requests Awaiting Designer</h3>
+    <h2 class="contributions-tab-title">Requests Awaiting Designer</h2>
     <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
-    <h4>Your Contribution: <%= contribution.tokens %> tokens</h4>
-    <div>Change Request: <%= contribution.request.description %></div>
-    <%= render 'shared/card', design: contribution.request.design %>
+      <h6>Your Contribution: <%= contribution.tokens %> tokens</h6>
+      <div>Change Request: <%= contribution.request.description %></div>
+      <%= render 'shared/card', design: contribution.request.design %>
     <% end %>
   </div>
-
   <div id="orders" class="tab-section">
-    <h1>Billing History</h1>
-    <% @orders.each do |order| %>
-    <div class="order">
-      <div><strong>Order ID: <%= order.id %></strong></div>
-      <div>Status: <%= order.state %></div>
-      <div>Item: <%= order.token_sku %> Tokens</div>
-      <div>Amount: <%= humanized_money_with_symbol(order.amount) %></div>
-    </div>
+    <h2>Billing History</h2>
+    <% if @orders.presence %>
+      <div class="order">
+        <% @orders.each do |order| %>
+          <div><strong>Order ID: <%= order.id %></strong></div>
+          <div>Status: <%= order.state %></div>
+          <div>Item: <%= order.token_sku %> Tokens</div>
+          <div>Amount: <%= humanized_money_with_symbol(order.amount) %></div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="nobilling-history">
+        <h5>You haven't topped up your wallet yet! Get your tokens <%= link_to "here", topup_path %></h5>
+
+      </div>
     <% end %>
   </div>
 </div>
