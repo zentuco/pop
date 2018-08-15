@@ -22,6 +22,8 @@
             <%= link_to "reset password", edit_user_registration_path, class: "button" %>
             <%= render 'shared/modal_edit_profile' %>
             <%= link_to "Delete", destroy_user_profile_path, data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "button-red" %>
+          <% else %>
+            <div class="profile-card-return-action"><%= link_to "Back", :back, class:"button-red" %></div>
           </div>
         <% end %>
     </div>
