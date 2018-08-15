@@ -19,9 +19,9 @@
         <%= link_to "Log in", new_session_path(resource_name) %><br />
       <% end -%>
       <div class="password-reset-card-line"><hr></div>
-      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <p><%- if devise_mapping.registerable? && controller_name != 'registrations' %>
         Already have an account?
-        <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+        <%= link_to "Sign up", new_registration_path(resource_name) %></p>
       <% end -%>
       </div>
     </div>
