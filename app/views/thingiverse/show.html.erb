@@ -52,7 +52,6 @@
               </div>
             </div>
           </div>
-              <%= link_to "Request Changes to this Design", create_thingiverse_design_path(photo: @thing.images.first["sizes"][13]["url"], name: @thing.name, description: @thing.description), method: :post, class: "button" %>
           </div>
           <%= link_to "View this design on Thingiverse", @thing.public_url, target: "_blank" %>
       </div>
