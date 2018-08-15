@@ -28,3 +28,37 @@
   padding: 20px;
   border-radius: 2px;
 }
+
+.contributions-tab-wrapper {
+  display: flex;
+}
+
+.contribution-intab-details {
+  flex: 0 0 30%;
+  background-color: #FFF;
+  margin: 0px 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 170px;
+  max-height: 170px;
+
+  div {
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    // display: -webkit-box;
+    // -webkit-box-orient: vertical;
+    // -webkit-line-clamp: 3;
+    // line-height: 1.7;
+    // max-height: 170px;
+  }
+}
+
+.contribution-designs-card {
+  flex: 0 1 70vw;
+}
+
+.col-tabs-nopadding {
+  padding: 0px;
+}
