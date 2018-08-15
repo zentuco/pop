@@ -1,8 +1,5 @@
 .tabs {
-  background: #53443F;
   display: flex;
-  padding: 10px 10px 0p 10px;
-  border-radius: 10px 10px 10px 10px;
 }
 
 .tabs {
@@ -30,21 +27,14 @@
   text-align: center;
   padding: 20px 0;
   flex-grow: 1;
-  border: 1px solid $pop-black;
+  border: 1px solid #a7b7b47d;
   cursor: pointer;
 }
 
-.tab:first-child {
-  border-radius: 10px 0 0 0;
-}
-
-.tab:last-child {
-  border-radius: 0 10px 0 0;
-}
-
 .tab.active {
-  background: $pop-green;
+  background: $purple-gray;
   color: black;
+  border-bottom: 0;
 }
 
 .tab-section{

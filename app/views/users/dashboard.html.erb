@@ -47,9 +47,19 @@
   <div id="contributions" class="tab-section">
     <h2 class="contributions-tab-title">Requests Awaiting Designer</h2>
     <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
-      <h6>Your Contribution: <%= contribution.tokens %> tokens</h6>
-      <div>Change Request: <%= contribution.request.description %></div>
-      <%= render 'shared/card', design: contribution.request.design %>
+      <div class="row">
+        <div class="col-xs-5 col-tabs-nopadding">
+          <div class="contribution-intab-details">
+            <h6><b>Your Contribution:</b> <%= contribution.tokens %> tokens</h6>
+            <div style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;"><b>Change Request:</b> <%= contribution.request.description %></div>
+          </div>
+        </div>
+        <div class="col-xs-7 col-tabs-nopadding">
+          <div class="contribution-designs-card">
+            <%= render 'shared/card', design: contribution.request.design %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
   <div id="orders" class="tab-section">

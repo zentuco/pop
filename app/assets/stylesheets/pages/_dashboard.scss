@@ -6,9 +6,6 @@
   padding: 100px;
 }
 
-.sharetokens {
-}
-
 .sharetokens-title {
 
   h2.contributions-tab-title {
@@ -27,4 +24,29 @@
   border: 1px solid #EEE;
   padding: 20px;
   border-radius: 2px;
+}
+
+.contributions-tab-wrapper {
+  display: flex;
+}
+
+.contribution-intab-details {
+  flex: 0 0 30%;
+  background-color: #FFF;
+  margin: 0px 10px;
+  padding: 10px 10px 10px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 180px;
+  box-shadow: 0px 6px 0px 0px #06d6a9;
+}
+
+.contribution-designs-card {
+  flex: 0 1 70vw;
+  margin-bottom: 40px;
+}
+
+.col-tabs-nopadding {
+  padding: 0px;
 }
