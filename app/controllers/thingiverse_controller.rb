@@ -3,7 +3,7 @@ require 'thingiverse'
 # tv.things.search "cat"
 
 class ThingiverseController < ApplicationController
-  before_action :set_tv, only: [:search_thingiverse]
+  before_action :set_tv, only: [:show, :search_thingiverse]
 
   def search_thingiverse
     @designs = @tv.things.search params[:thingname]
@@ -15,6 +15,10 @@ class ThingiverseController < ApplicationController
     else
       @things = []
     end
+  end
+
+  def show
+    @thing = @tv.things.find(params[:id].to_i)
   end
 
 
