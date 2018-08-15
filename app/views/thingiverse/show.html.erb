@@ -45,7 +45,7 @@
                       <%= hidden_field_tag(:category, @thing.categories.first["name"]) %>
                       <%= f.input :description %>
                       <%= simple_fields_for :contribution do |c|%>
-                        <%= c.input :tokens %>
+                        <%= c.input :tokens, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens } %>
                       <% end %>
                       <%= f.submit "Submit Request", class: "button" %>
                     <% end %>

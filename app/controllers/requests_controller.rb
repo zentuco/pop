@@ -17,6 +17,8 @@ class RequestsController < ApplicationController
     @contribution.user = current_user
     @contribution.request = @request
     if @request.save! && @contribution.save!
+      tokens = current_user.wallet.tokens - @contribution.tokens
+      current_user.wallet.update(tokens: tokens)
       redirect_to design_path(@design)
     else
       render 'new'
