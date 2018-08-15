@@ -10,12 +10,14 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to "Become a Designer", become_designer_path, class:"navbar-wagon-item navbar-wagon-link-white" %>
-    <%= link_to "Request New Design", new_design_path, class:"navbar-wagon-item navbar-wagon-link-white" %>
     <% if !user_signed_in? %>
       <%= link_to "Sign Up", new_user_registration_path, class:"navbar-wagon-item navbar-wagon-link-white" %>
       <%= link_to "Log In", new_user_session_path, class:"navbar-wagon-item navbar-wagon-link-white" %>
+    <% else %>
+    <%= link_to "Become a Designer", become_designer_path, class:"navbar-wagon-item navbar-wagon-link-white" %>
+    <%= link_to "Request New Design", new_design_path, class:"navbar-wagon-item navbar-wagon-link-white" %>
     <% end %>
+
 
     <!-- Profile picture with dropdown list -->
     <% if user_signed_in? %>

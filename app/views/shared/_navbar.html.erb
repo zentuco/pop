@@ -9,18 +9,18 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <%= link_to "Become a Designer", become_designer_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Request New Design", new_design_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% if !user_signed_in? %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% else %>
+      <%= link_to "Become a Designer", become_designer_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Request New Design", new_design_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
     <% if user_signed_in? %>
       <%= link_to topup_path, class: "navbar-wagon-item navbar-wagon-link" do %>
         <i class="fas fa-coins"></i>
         <span style="font-weight: 600;"><%= current_user.wallet.tokens %></span>
       <% end %>
-    <% end %>
-    <% if !user_signed_in? %>
-      <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
     <!-- Profile picture with dropdown list -->
