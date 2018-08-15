@@ -1,0 +1,77 @@
+.tabs {
+  display: flex;
+}
+
+.tabs {
+
+  a {
+    color: black;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+}
+
+.tab {
+  background: white;
+  flex: 0 0 25%;
+  text-align: center;
+  padding: 20px 0;
+  flex-grow: 1;
+  border: 1px solid #a7b7b47d;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: $purple-gray;
+  color: black;
+  border-bottom: 0;
+}
+
+.tab-section{
+  display: none;
+  transition: all 1.3s ease-in-out;
+}
+
+.tab-section.active {
+  display:block;
+  transition: all 1.3s ease-in-out;
+}
+
+#projects {
+  padding-bottom: 70px;
+
+  h2 {
+    font-weight: 600;
+    padding: 30px 10px;
+  }
+}
+
+#contributions {
+  padding-bottom: 70px;
+  h2 {
+    font-weight: 600;
+    padding: 30px 0px;
+  }
+}
+
+#orders {
+  padding-bottom: 70px;
+  h2 {
+    font-weight: 600;
+    padding: 30px 0px;
+  }
+}
+
+.nobilling-history {
+  font-weight: 300;
+}

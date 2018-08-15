@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
   resources :orders, only: [:create] do
     resources :payments, only: [:new, :create]
@@ -21,5 +20,6 @@ Rails.application.routes.draw do
   get 'thingiverse', to: 'thingiverse#search_thingiverse'
   get 'thingiverse/:id', to: 'thingiverse#show', as: 'thingiverse-design'
   post 'thingiverse/create-design', to: 'thingiverse#create_design', as: 'create_thingiverse_design'
+  devise_for :users, controllers: { sessions: "paths" }
 end
 

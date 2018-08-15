@@ -1,23 +1,22 @@
-.creation {
-
-  h2 {
-  font-size: 50px;
-  }
-}
-
-.sharetokens {
-  height: 220px;
-}
-
 .dashboard-banner {
-  margin-top: 35px;
-  margin-bottom: 10px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px;
 }
 
-.contributions {
-  h4 {
-    margin-top: 40px;
+.sharetokens-title {
+
+  h2.contributions-tab-title {
+  font-size: 40px;
+  padding-bottom: 10px;
   }
+}
+
+.sharetokens-description {
+  width: 80%;
+  padding-bottom: 20px;
 }
 
 .order {
@@ -25,4 +24,29 @@
   border: 1px solid #EEE;
   padding: 20px;
   border-radius: 2px;
+}
+
+.contributions-tab-wrapper {
+  display: flex;
+}
+
+.contribution-intab-details {
+  flex: 0 0 30%;
+  background-color: #FFF;
+  margin: 0px 10px;
+  padding: 10px 10px 10px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 180px;
+  box-shadow: 0px 6px 0px 0px #06d6a9;
+}
+
+.contribution-designs-card {
+  flex: 0 1 70vw;
+  margin-bottom: 40px;
+}
+
+.col-tabs-nopadding {
+  padding: 0px;
 }

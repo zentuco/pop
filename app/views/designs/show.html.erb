@@ -61,7 +61,13 @@
                           <span><%= request.contributions.size %> contributions</span>
                           <div class="pool">Pool: <i class="fas fa-coins"></i> <%= request.total_tokens %></div>
                         </div>
-                        <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
+                        <div>
+                          <% if !user_signed_in? %>
+                            <%= link_to "Log In to contribute", new_user_session_path, class:"button" %>
+                          <% else %>
+                            <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -78,4 +84,6 @@
     </div>
   </div>
 </div>
-
+<% if user_signed_in? %>
+  <%= render "shared/topup-sticky" %>
+<% end %>
