@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controller: {registrations: 'registrations'}
   root to: 'pages#home'
   resources :orders, only: [:create] do
     resources :payments, only: [:new, :create]
@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   delete 'destroy_user_profile', to: 'users#destroy', as: 'destroy_user_profile'
   get 'thingiverse', to: 'thingiverse#search_thingiverse'
   get 'users/:id/profile', to: 'users#show', as: 'user_page'
+  put 'users/designer', to: 'users#designer', as: 'designer'
 end
 

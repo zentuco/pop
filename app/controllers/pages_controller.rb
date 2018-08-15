@@ -8,5 +8,6 @@ class PagesController < ApplicationController
   end
 
   def designerlanding
+    @user = current_user
   end
 end

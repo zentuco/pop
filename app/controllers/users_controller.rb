@@ -13,8 +13,11 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def edit
-
+  def designer
+    @user = current_user
+    @user.designer = true
+    @user.save!
+    authorize @user
   end
 
   def show
@@ -46,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def item_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :photo)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :photo, :designer)
   end
 
 end
