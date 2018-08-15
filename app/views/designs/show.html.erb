@@ -1,12 +1,15 @@
 <div class="container">
   <div class="design-showpage-wrapper">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-show-nopadd">
         <div class="design-show-title-wrapper">
           <h2><%= @design.name %></h2>
           <div class="designshow-description">
             <p><%= @design.description %></p>
           </div>
+        </div>
+        <div class="backto-designindex">
+          <%= link_to "Back to Results", :back %>
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
