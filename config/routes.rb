@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   delete 'destroy_user_profile', to: 'users#destroy', as: 'destroy_user_profile'
   get 'thingiverse', to: 'thingiverse#search_thingiverse'
   devise_for :users, controllers: { sessions: "paths" }
+  get 'users/:id/profile', to: 'users#show', as: 'user_page'
 end
 

@@ -17,6 +17,11 @@ class UsersController < ApplicationController
 
   end
 
+  def show
+    @user = User.find(params[:id])
+    authorize @user
+  end
+
   def update_user_profile
     @user = current_user
     authorize @user
