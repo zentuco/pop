@@ -47,11 +47,13 @@
 .transparent-button {
   background-color: transparent;
   border: none;
+  color: inherit;
 }
 
 .transparent-button:hover {
   color: $pop-green;
   border: none;
+  text-decoration: none;
 }
 
 .transparent-button:focus,.transparent-button:active {

@@ -1,8 +1,9 @@
 import Slider from "bootstrap-slider";
 
 const initRangeSlider = function () {
-  var slider = new Slider("#ex6");
-  if (slider) {
+  const element = document.getElementById("ex6");
+  if (element) {
+    var slider = new Slider("#ex6");
     slider.on("slide", function(slideEvt) {
       $("#ex6SliderVal").text(slideEvt.value);
     });

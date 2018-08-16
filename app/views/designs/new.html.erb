@@ -1,5 +1,5 @@
-<div class="container new-design-container">
-  <div id="newrequest-form-carousel" class="carousel slide" data-ride="carousel">
+<div class="new-design-container">
+  <div id="newrequest-form-carousel" class="carousel slide" data-ride="carousel" data-interval="0">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#newrequest-form-carousel" data-slide-to="0" class="active"></li>
@@ -9,28 +9,42 @@
     <%= simple_form_for @attachment, url: designs_path, method: :post do |f| %>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <h2>Upload your inspiration photo</h2>
-          <%= f.input :file %>
-          <%= f.input :file_cache, as: :hidden %>
-          <a class="" href="#newrequest-form-carousel" role="button" data-slide="next">
-            test next
-          </a>
+          <div class="new-request-first-container">
+            <div class="upload-photo1">
+              <h2>Upload your inspiration photo</h2>
+                <%= f.input :file %>
+                <%= f.input :file_cache, as: :hidden %>
+                <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
+                <hr>
+                <p>Upload a photo of the thing you want it to be designed in 3D. If needed, upload a .zip to include multiple angles, features and other characteristics that will help our designers understand the job to be done.</p>
+            </div>
+            <div class="upload-photo2">
+              <h2>For example</h2>
+              <%= image_tag "upload-photo-example.jpg" %>
+            </div>
+          </div>
         </div>
         <div class="item">
-          <h2>Describe us a little bit what you want</h2>
-          <%= simple_fields_for :design do |d| %>
-            <%= d.input :name %>
-            <%= d.input :description, label: "Description of Design" %>
-            <%= d.input :category, collection: Category.category_name %>
-          <% end %>
-          <a class="" href="#newrequest-form-carousel" role="button" data-slide="next">
-            test next
-          </a>
-          <a class="" href="#newrequest-form-carousel" role="button" data-slide="prev">
-            test previous
-          </a>
+          <div class="new-request-second-container">
+            <div class="request-title1">
+              <h2>Give us some details</h2>
+              <%= simple_fields_for :design do |d| %>
+                <%= d.input :name %>
+                <%= d.input :description, label: "Description of Design" %>
+                <%= d.input :category, collection: Category.category_name %>
+              <% end %>
+              <div class="request-title1-buttons">
+                <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+                <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
+              </div>
+            </div>
+            <div class="request-title-2">
+              <h2>For example</h2>
+              <%= image_tag "upload-photo-example.jpg" %>
+            </div>
+          </div>
         </div>
-         <div class="item">
+        <div class="item">
           <h2>third item man</h2>
           <%= simple_fields_for :request do |r| %>
             <%= r.input :description, label: "What Changes do you want made?" %>

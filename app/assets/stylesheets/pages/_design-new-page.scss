@@ -1,0 +1,111 @@
+.new-design-container {
+  height: calc(100vh - 73px);
+}
+
+.new-request-first-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upload-photo1 {
+  background-color: #FFF;
+  margin-top: 3px;
+  flex: 0 0 50vw;
+  height: calc(100vh - 73px);
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    position: relative;
+    padding-bottom: 50px;
+  }
+
+  a {
+    position: absolute;
+    bottom: 50%;
+    left: 35%;
+  }
+
+  .form-group {
+    padding-bottom: 150px;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
+
+.upload-photo2 {
+  flex: 0 0 50vw;
+  height: 10vh;
+  padding: 50px 0px 50px 50px;
+  text-align: center;
+
+  h2 {
+    padding-bottom: 60px;
+    font-style: italic;
+  }
+  img {
+    width: 480px;
+    height: 361px;
+    box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 6px 6px 0px 0px $pop-green;
+  }
+}
+
+.new-request-second-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.request-title1 {
+  background-color: #FFF;
+  margin-top: 3px;
+  flex: 0 0 50vw;
+  height: calc(100vh - 73px);
+  padding: 100px 50px;
+
+  h2 {
+    padding-bottom: 30px;
+  }
+}
+
+.request-title1-buttons {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
