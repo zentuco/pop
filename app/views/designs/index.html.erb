@@ -32,6 +32,12 @@
           <% else %>
             <div>No Results found! Try a different search.</div>
           <% end %>
+          <section id="thingiverse-searchbar-index">
+            <div class="indexpage-thingiverse-searchbar-wrapper">
+              <h3>Can't find what you want?</h3>
+              <%= render 'shared/thingiverse-searchbar' %>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -40,6 +46,9 @@
         <% if policy(Design).create? %>
           <%= link_to "Request New Design", new_design_path, class: "button" %>
         <% end %>
+      </div>
+      <div class="index-button-searchthingiverse">
+        <%= link_to "Search in Thingiverse", designs_path(anchor: "thingiverse-searchbar-index"), class: "button" %>
       </div>
       <div class="index-faqs">
         <h5>New to Pop?</h5>
@@ -54,10 +63,6 @@
     </div>
   </div>
   <%= render 'shared/modal' %>
-  <div class="container">
-    <h3>Can't find what you want?</h3>
-  <%= render 'shared/thingiverse-searchbar' %>
-  </div>
 </div>
 <% if user_signed_in? %>
   <%= render "shared/topup-sticky" %>
