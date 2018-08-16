@@ -49,9 +49,7 @@
                 <div id="thingiverse-open-request" class="collapse" aria-labelledby="<%= @thing.description %>" data-parent="#accordion">
                   <div class="card-body">
                     <% if !user_signed_in? %>
-
                       <%= link_to "Log In to Request Changes", new_user_session_path, class:"button" %>
-
                     <% else %>
                       <%= simple_form_for @request, url: create_thingiverse_design_path, method: :post do |f| %>
                         <%= hidden_field_tag(:name, @thing.name) %>
