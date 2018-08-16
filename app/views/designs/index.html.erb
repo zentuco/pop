@@ -32,6 +32,10 @@
           <% else %>
             <div>No Results found! Try a different search.</div>
           <% end %>
+          <div class="indexpage-thingiverse-searchbar-wrapper">
+            <h3>Can't find what you want?</h3>
+            <%= render 'shared/thingiverse-searchbar' %>
+          </div>
         </div>
       </div>
     </div>
@@ -54,10 +58,6 @@
     </div>
   </div>
   <%= render 'shared/modal' %>
-  <div class="container">
-    <h3>Can't find what you want?</h3>
-  <%= render 'shared/thingiverse-searchbar' %>
-  </div>
 </div>
 <% if user_signed_in? %>
   <%= render "shared/topup-sticky" %>
