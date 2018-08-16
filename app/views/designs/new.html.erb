@@ -1,28 +1,67 @@
-
-<div class="container new-design-container">
-  <h2>Upload your Design</h2>
-  <div class="row">
+<div class="new-design-container">
+  <div id="newrequest-form-carousel" class="carousel slide" data-ride="carousel" data-interval="0">
     <%= simple_form_for @attachment, url: designs_path, method: :post do |f| %>
-    <div class="col-lg-6">
-      <%= f.input :file %>
-      <%= f.input :file_cache, as: :hidden %>
-    </div>
-    <div class="col-lg-6">
-      <%= simple_fields_for :design do |d| %>
-      <%= d.input :name %>
-      <%= d.input :description, label: "Description of Design" %>
-      <%= d.input :category, collection: Category.category_name %>
-      <% end %>
-      <%= simple_fields_for :request do |r| %>
-      <%= r.input :description, label: "What Changes do you want made?" %>
-      <% end %>
-      <%= simple_fields_for :contribution do |c| %>
-      <%= c.input :tokens, required: true, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens } %>
-      <% end %>
-      <%= f.submit "Upload Design", class: "button" %>
-      <% end %>
-      <%= link_to "Cancel", :back, class: "button-red" %>
-    </div>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="new-request-first-container">
+            <div class="upload-photo1">
+              <h2>Upload your inspiration photo</h2>
+                <%= f.input :file %>
+                <%= f.input :file_cache, as: :hidden %>
+                <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
+                <hr>
+                <p>Upload a photo of the thing you want it to be designed in 3D. If needed, upload a .zip to include multiple angles, features and other characteristics that will help our designers understand the job to be done.</p>
+            </div>
+            <div class="upload-photo2">
+              <h2>For example</h2>
+              <%= image_tag "upload-photo-example.jpg" %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="new-request-second-container">
+            <div class="request-title1">
+              <h2>Give us some details</h2>
+              <%= simple_fields_for :design do |d| %>
+                <%= d.input :name %>
+                <%= d.input :description, as: :text, label: "Description of Design" %>
+                <%= d.input :category, collection: Category.category_name %>
+              <% end %>
+              <div class="request-title1-buttons">
+                <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+                <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
+              </div>
+            </div>
+            <div class="request-title2">
+              <%= image_tag "logo.png" %>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="new-request-third-container">
+            <div class="request-description1">
+              <div class="request-description-buttons2">
+                <%= link_to "Cancel Upload", :back, class: "button-red" %>
+              </div>
+              <h2>Detail the specifications for your design</h2>
+              <%= simple_fields_for :request do |r| %>
+                <%= r.input :description, as: :text, label: "What Changes do you want made?" %>
+              <% end %>
+              <%= simple_fields_for :contribution do |c| %>
+                <%= c.input :tokens, required: true, input_html: { type: :text, id: "ex6", data: { slider_min: '0', slider_step: '1', slider_max: current_user.wallet.tokens, slider_value: "0" } } %>
+              <% end %>
+              <p>Try to be as specific as possible. Include any technical, aesthetic, mechanical, or functional detail. This is your chance to get the design exactly as you want it!</p>
+              <div class="request-description-buttons">
+                <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+                <%= f.submit "Upload Design", class: "button" %>
+              </div>
+            </div>
+            <div class="request-description2">
+              <%= image_tag "new-request-description-background.png" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
