@@ -85,7 +85,7 @@ attachment.remote_file_url = files[0]
 attachment.design = beast
 attachment.save!
 request = Request.new(
-    kind: :improvement,
+    kind: :improve,
     description: "I want the fingers to be less sharp so that my kid will not hurt himself while playing with this toy"
   )
 request.design = beast
@@ -100,7 +100,7 @@ contribution.save!
 
 project = Project.new(accepted_price: rand(1000))
 project.user = User.where(designer: true).sample
-r = Request.new(kind: :improvement, description: "I would like the same model in a female version.")
+r = Request.new(kind: :improve, description: "I would like the same model in a female version.")
 r.design = beast
 r.user = User.where(designer: false).sample
 project.request = r
