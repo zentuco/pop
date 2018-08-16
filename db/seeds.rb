@@ -56,6 +56,14 @@ contribution.request = request
 contribution.user = request.user
 contribution.save!
 
+project = Project.new(accepted_price: rand(1000))
+project.user = User.where(designer: true).sample
+r = Request.new(kind: :original, description: "I would like this same design but without Donald Trump's toupee")
+r.design = dtrump
+r.user = User.where(designer: false).sample
+project.request = r
+project.save!
+
 
 
 20.times do
