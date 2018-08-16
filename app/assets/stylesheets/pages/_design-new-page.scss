@@ -12,13 +12,13 @@
   margin-top: 3px;
   flex: 0 0 50vw;
   height: calc(100vh - 73px);
-  padding: 50px 50px;
+  padding: 80px 50px;
   display: flex;
   flex-direction: column;
 
   h2 {
     position: relative;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
   }
 
   a {
@@ -38,12 +38,12 @@
 
 .upload-photo2 {
   flex: 0 0 50vw;
-  height: 10vh;
-  padding: 50px 0px 50px 50px;
+  height: 100vh;
+  padding: 80px 0px 50px 50px;
   text-align: center;
 
   h2 {
-    padding-bottom: 60px;
+    padding-bottom: 50px;
     font-style: italic;
   }
   img {
@@ -63,10 +63,10 @@
   margin-top: 3px;
   flex: 0 0 50vw;
   height: calc(100vh - 73px);
-  padding: 100px 50px;
+  padding: 80px;
 
   h2 {
-    padding-bottom: 30px;
+    padding-bottom: 50px;
   }
 }
 
@@ -76,10 +76,46 @@
   justify-content: space-between;
 }
 
+.request-title2 {
+  flex: 0 0 50vw;
+  height: 100vh;
+  padding: 80px 0px 50px 50px;
+  text-align: center;
 
+  img {
+    padding-top: 50px;
+  }
+}
 
+.new-request-third-container {
+  display: flex;
+  justify-content: space-between;
+}
 
+.request-description1 {
+  background-color: #FFF;
+  margin-top: 3px;
+  flex: 0 0 50vw;
+  height: calc(100vh - 73px);
+  padding: 80px;
 
+  h2 {
+    padding-bottom: 50px;
+  }
+}
+
+.request-description2 {
+  flex: 0 0 50vw;
+  height: 100vh;
+  padding: 80px 0px 50px 50px;
+  text-align: center;
+
+  img {
+    padding-top: 50px;
+    width: 400px;
+    height: 400px;
+  }
+}
 
 
 

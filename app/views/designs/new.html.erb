@@ -1,11 +1,5 @@
 <div class="new-design-container">
   <div id="newrequest-form-carousel" class="carousel slide" data-ride="carousel" data-interval="0">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#newrequest-form-carousel" data-slide-to="0" class="active"></li>
-      <li data-target="#newrequest-form-carousel" data-slide-to="1"></li>
-      <li data-target="#newrequest-form-carousel" data-slide-to="2"></li>
-    </ol>
     <%= simple_form_for @attachment, url: designs_path, method: :post do |f| %>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -30,7 +24,7 @@
               <h2>Give us some details</h2>
               <%= simple_fields_for :design do |d| %>
                 <%= d.input :name %>
-                <%= d.input :description, label: "Description of Design" %>
+                <%= d.input :description, as: :text, label: "Description of Design" %>
                 <%= d.input :category, collection: Category.category_name %>
               <% end %>
               <div class="request-title1-buttons">
@@ -38,25 +32,29 @@
                 <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
               </div>
             </div>
-            <div class="request-title-2">
-              <h2>For example</h2>
-              <%= image_tag "upload-photo-example.jpg" %>
+            <div class="request-title2">
+              <%= image_tag "logo.png" %>
             </div>
           </div>
         </div>
         <div class="item">
-          <h2>third item man</h2>
-          <%= simple_fields_for :request do |r| %>
-            <%= r.input :description, label: "What Changes do you want made?" %>
-          <% end %>
-          <%= simple_fields_for :contribution do |c| %>
-            <%= c.input :tokens, required: true, input_html: { type: :text, id: "ex6", data: { slider_min: '0', slider_step: '1', slider_max: current_user.wallet.tokens, slider_value: "0" } } %>
-          <% end %>
-          <%= f.submit "Upload Design", class: "button" %>
-          <%= link_to "Cancel", :back, class: "button-red" %>
-          <a class="" href="#newrequest-form-carousel" role="button" data-slide="prev">
-            test previous
-          </a>
+          <div class="new-request-third-container">
+            <div class="request-description1">
+              <h2>third item man</h2>
+              <%= simple_fields_for :request do |r| %>
+                <%= r.input :description, as: :text, label: "What Changes do you want made?" %>
+              <% end %>
+              <%= simple_fields_for :contribution do |c| %>
+                <%= c.input :tokens, required: true, input_html: { type: :text, id: "ex6", data: { slider_min: '0', slider_step: '1', slider_max: current_user.wallet.tokens, slider_value: "0" } } %>
+              <% end %>
+              <%= f.submit "Upload Design", class: "button" %>
+              <%= link_to "Cancel", :back, class: "button-red" %>
+              <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+            </div>
+            <div class="request-description2">
+              <%= image_tag "new-request-description-background.png" %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
