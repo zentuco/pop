@@ -1,4 +1,11 @@
-var slider = new Slider("#ex6");
-slider.on("slide", function(sliderValue) {
-  document.getElementById("ex6SliderVal").textContent = sliderValue;
-});
+import Slider from "bootstrap-slider";
+
+const initRangeSlider = function () {
+  var slider = new Slider("#ex6");
+  console.log('slider');
+  slider.on("slide", function(slideEvt) {
+    $("#ex6SliderVal").text(slideEvt.value);
+  });
+}
+
+export { initRangeSlider };
