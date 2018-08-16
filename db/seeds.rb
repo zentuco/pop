@@ -38,7 +38,23 @@ dtrump = Design.new(
   )
 dtrump.category = Category.find_by(name: "3D printing")
 dtrump.save!
-
+attachment = Attachment.new
+attachment.remote_file_url = files[1]
+attachment.design = dtrump
+attachment.save!
+request = Request.new(
+    kind: :original,
+    description: "I need a Donald Trump Bust that shows his shoulders as well. I would like him to be wearing his classic suit and tie."
+  )
+request.design = dtrump
+request.user = User.all.sample
+request.save!
+contribution = Contribution.new(
+    tokens: rand(1000)
+  )
+contribution.request = request
+contribution.user = request.user
+contribution.save!
 
 
 
