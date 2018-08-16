@@ -1,6 +1,6 @@
 <%= simple_form_for [request, contribution], url: contributions_path, method: :post do |f| %>
   <%= f.input_field :request, as: :hidden, value: request.id %>
-  <%= f.input :tokens, required: true, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens, title: "blablabla" } %>
+  <%= f.input :tokens, required: true, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens } %>
   <%= f.submit :submit, class: "button", value: "Accept" %>
   <% if controller_name == "requests"%>
     <%= link_to "cancel", :back, class: "button-red" %>
