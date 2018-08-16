@@ -22,7 +22,7 @@
             <% end %>
           </div>
           <div class="like-button-wrapper">
-            <span>
+            <span class="like-button-request">
               <%= link_to design_upvote_path(@design), method: :post, remote: true do %>
                 <i class="fas fa-heart"></i>
               <% end %>
@@ -79,7 +79,7 @@
               <% end %>
             </div>
             <div class="designshow-button">
-              <%= link_to "Request Changes to this Design", new_design_request_path(@design), class: "button-red" %>
+              <%= link_to "Request Changes to this Design", new_design_request_path(@design), class: "button" %>
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ class ProjectPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || user.designer?
+    user.admin? || record.user == user && user.designer?
   end
 
   def destroy?

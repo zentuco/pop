@@ -1,12 +1,16 @@
 <div class="container">
   <div class="design-showpage-wrapper">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-show-nopadd">
         <div class="design-show-title-wrapper">
           <h2><%= @thing.name %></h2>
+          <h5><b>Category: <%= @thing.categories.first["name"] %></h5></b>
           <div class="designshow-description">
-            <p><%= @thing.description %></p>
+            <p style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;text-align: justify"><%= @thing.description %></p>
           </div>
+        </div>
+        <div class="backto-designindex">
+          <%= link_to "Back to Results", :back %>
         </div>
       </div>
       <div class="col-sm-12 col-md-6">
@@ -16,46 +20,58 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-6 design-show-column-container">
-          <div class="thingiverse-design-information">
-            <h3>Thingiverse Stats</h3>
-            <div>Design Category: <%= @thing.categories.first["name"] %></div>
-            <div>Likes: <%= @thing.like_count %></div>
-            <div>Views: <%= @thing.view_count %></div>
-            <div>Downloads: <%= @thing.download_count %></div>
+      <div class="col-sm-12 col-md-6 design-show-column-container thingiverse-sticky-col">
+        <div class="thingiverse-design-information">
+          <h2>Thingiverse Stats</h2>
+          <div class="thingiverse-design-info">
+            <div class="thingiverse-design-likes">
+              <i class="fas fa-heart"></i> Likes: <%= @thing.like_count %>
+            </div>
+            <div class="thingiverse-design-views">
+              <i class="far fa-eye"></i> Views: <%= @thing.view_count %>
+            </div>
+            <div class="thingiverse-design-downloads">
+              <i class="fas fa-download"></i> Downloads: <%= @thing.download_count %>
+            </div>
           </div>
-          <div class="designshow-button" id="thepowerofajax">
-            <div id="accordion">
+        </div>
+        <div class="designshow-button" id="thepowerofajax">
+          <div id="accordion">
             <div class="design-show-requests">
-
               <div class="card">
                 <div class="card-header" id="<%= @thing.description %>">
                   <h5 class="">
                     <button class="transparent-button" data-toggle="collapse" data-target="#thingiverse-open-request" aria-expanded="false" aria-controls="thingiverse-open-request">
-                      Request Changes to this Design
+                      Request Changes to this Design <i class="fas fa-angle-down"></i>
                     </button>
                   </h5>
                 </div>
                 <div id="thingiverse-open-request" class="collapse" aria-labelledby="<%= @thing.description %>" data-parent="#accordion">
                   <div class="card-body">
-                    <%= simple_form_for @request, url: create_thingiverse_design_path, method: :post do |f| %>
-                      <%= hidden_field_tag(:name, @thing.name) %>
-                      <%= hidden_field_tag(:description, @thing.description) %>
-                      <%= hidden_field_tag(:photo, @thing.images.first["sizes"][13]["url"]) %>
-                      <%= hidden_field_tag(:category, @thing.categories.first["name"]) %>
-                      <%= f.input :description %>
-                      <%= simple_fields_for :contribution do |c|%>
-                        <%= c.input :tokens, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens } %>
+                    <% if !user_signed_in? %>
+                      <%= link_to "Log In to Request Changes", new_user_session_path, class:"button" %>
+                    <% else %>
+                      <%= simple_form_for @request, url: create_thingiverse_design_path, method: :post do |f| %>
+                        <%= hidden_field_tag(:name, @thing.name) %>
+                        <%= hidden_field_tag(:description, @thing.description) %>
+                        <%= hidden_field_tag(:photo, @thing.images.first["sizes"][13]["url"]) %>
+                        <%= hidden_field_tag(:category, @thing.categories.first["name"]) %>
+                        <%= f.input :description %>
+                        <%= simple_fields_for :contribution do |c|%>
+                          <%= c.input :tokens, input_html: { min: '1', step: 'any', max: current_user.wallet.tokens } %>
+                        <% end %>
+                        <%= f.submit "Submit Request", class: "button" %>
                       <% end %>
-                      <%= f.submit "Submit Request", class: "button" %>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
+        </div>
+        <div class="thingiverse-linkto-thing">
           <%= link_to "View this design on Thingiverse", @thing.public_url, target: "_blank" %>
+        </div>
       </div>
     </div>
   </div>

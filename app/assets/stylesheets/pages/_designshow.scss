@@ -55,6 +55,16 @@
   }
 }
 
+.like-button-request {
+
+  &.active {
+
+    i {
+      color: $pop-red;
+    }
+  }
+}
+
 .col-show-nopadd {
   padding-right: 0;
 }
