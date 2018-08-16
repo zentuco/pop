@@ -19,3 +19,7 @@ a:focus{
   color: $pop-black;
   text-decoration: none;
 }
+
+button:focus {
+  outline: 0 !important;
+}
