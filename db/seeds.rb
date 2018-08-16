@@ -5,6 +5,7 @@ Contribution.destroy_all
 Request.destroy_all
 User.destroy_all
 
+##keep this
 u =User.new(designer: true, username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado")
 u.remote_photo_url= "https://res.cloudinary.com/lancekrp/image/upload/v1534147692/zentuco.jpg"
 u.save
@@ -30,6 +31,7 @@ files = ["https://static.turbosquid.com/Preview/2014/07/09__20_21_44/r1.jpgcab69
 categories.each do |category|
   Category.create(name: category)
 end
+##
 
 #
 # need to repeat this section to create another unique project
@@ -139,6 +141,7 @@ end
   project.save!
 end
 
+## keep this
 100.times do
   contribution = Contribution.new(
     tokens: rand(1000)
@@ -147,4 +150,4 @@ end
   contribution.user = User.all.sample
   contribution.save!
 end
-
+##
