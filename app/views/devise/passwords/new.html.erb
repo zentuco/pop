@@ -15,16 +15,6 @@
       <% end %>
       <div class="password-reset-card-line"><hr></div>
       <%= link_to "Back", :back, class:"password-reset-return button" %>
-      <div class="password-reset-card-line"><hr></div>
-      <p><%- if controller_name != 'sessions' %>
-        Already have an account?
-        <%= link_to "Log in", new_session_path(resource_name), class: "button" %><br />
-      <% end -%></p>
-      <br>
-      <p><%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-        Already have an account?
-        <%= link_to "Sign up", new_registration_path(resource_name), class: "button" %>
-      <% end -%></p>
       </div>
     </div>
   </div>
