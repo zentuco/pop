@@ -16,6 +16,8 @@
       </div>
       <div class="sign-up-form-actions">
         <%= f.button :submit, "Sign up", class:"button" %>
+        <span></span>
+        <%= link_to "Cancel", :back, class:"button-red" %>
         <p><%= render "devise/shared/links" %></p>
       </div>
     <% end %>
