@@ -109,11 +109,11 @@
     margin: 0;
     padding: 1.2rem 1.5rem;
     background-color: #248bfb;
-    box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-green;
+    box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-black;
 
     &:hover {
       background-color: $pop-green;
-      box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-black;
+      box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px #248bfb;
     }
   }
 }
