@@ -10,14 +10,16 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
     </div>
+    <div class="payment-card-line"><hr></div>
     <div>
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     </div>
+    <div class="payment-card-line"><hr></div>
     <div>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
     </div>
-  </div>
+  </div><div class="payment-card-line"><hr></div>
 
   <div class="form-actions">
     <%= f.button :submit, "Update", class: "button" %>
