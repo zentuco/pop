@@ -98,10 +98,17 @@
   flex: 0 0 50vw;
   height: calc(100vh - 73px);
   padding: 80px;
+  position: relative;
 
   h2 {
     padding-bottom: 50px;
   }
+}
+
+.request-description-buttons2 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .request-description2 {
@@ -115,33 +122,14 @@
     width: 500px;
     height: 500px;
   }
+
+  p {
+    padding-top: 50px;
+  }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.request-description-buttons {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
