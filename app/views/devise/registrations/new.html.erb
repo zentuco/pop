@@ -19,7 +19,7 @@
         <span></span>
         <%= link_to "Cancel", :back, class:"button-red" %>
         <p><%- if controller_name != 'sessions' %>
-          Already have an account? <%= link_to "Log in", new_session_path(resource_name) %><br />
+          Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: "button" %><br />
           <% end -%></p>
       </div>
     <% end %>
