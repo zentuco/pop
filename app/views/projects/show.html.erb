@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container project-show-container">
 <div class="project-show-header-wrapper">
   <h2>Project: <%= @project.request.design.name %></h2>
 </div>
@@ -14,6 +14,16 @@
           <%= @project.status %>
         <% end %>
       </div>
+      <% if policy(@project).update? && !@project.file %>
+        <div class="project-show-upload-area">
+        <h3>Your contributors are waiting!</h3>
+        <form method="POST" action="" enctype="multipart/form-data">
+        <strong>Upload file:</strong>
+        <input type="file" name="file" />
+        <input type="submit" value="Upload" class="button" />
+        </form>
+      </div>
+      <% end %>
       <% if @project.request.kind == :improve %>
         <%= link_to "See original design", design_path(@project.request.design.id), class: "button" %>
       <% end %>
@@ -41,9 +51,7 @@
         <% @contributors.uniq.each do |contributor| %>
           <%= cl_image_tag contributor.photo, class: "avatar" %>
         <% end %>
-        <% if policy(@project).update? %>
-           <p>upload</p>
-        <% end %>
+
         <% if policy(@project).destroy? %>
           <%= link_to "Delete", project_path(@project), class: "button button-red", method: :delete, data: {confirm: "Are you sure?" } %>
         <% end %>
