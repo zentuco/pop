@@ -31,6 +31,9 @@ categories.each do |category|
   Category.create(name: category)
 end
 
+#
+# need to repeat this section to create another unique project
+#
 dtrump = Design.new(
     name: "Donald Trump's head",
     description: "This design is perfect for bobble heads and other memorabilia.",
@@ -64,7 +67,9 @@ r.user = User.where(designer: false).sample
 project.request = r
 project.save!
 
-
+#
+#
+#
 
 20.times do
   design = Design.new(
