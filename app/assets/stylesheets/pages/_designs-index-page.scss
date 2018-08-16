@@ -96,3 +96,24 @@
     min-width: 100.5%;
   }
 }
+
+.index-button-searchthingiverse {
+  background-color: #FFF;
+  border: 1px solid #EEE;
+  padding: 1.5em 1.5em;
+  margin-bottom: 20px;
+
+  .button {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 1.2rem 1.5rem;
+    background-color: #248bfb;
+    box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 2px 2px 0px 0px $pop-green;
+
+    &:hover {
+      background-color: $pop-green;
+      box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 3px 3px 0px 0px $pop-black;
+    }
+  }
+}
