@@ -1,12 +1,10 @@
 .application-container {
   background-color: #FFF;
-  padding-left: 80px;
-  padding-right: 80px;
-  margin-bottom: 100px;
-  margin-left: 170px;
-  margin-right: 170px;
+  margin: 30px auto;
   border-radius: 5px;
   box-shadow: 0px 0px 0px 0 rgba(0, 0, 0, 0), 4px 4px 0px 0px $pop-green;
+  width: 55%;
+  justify-content: center;
   h2 {
     text-align: center;
     margin-top: 100px;
@@ -15,15 +13,21 @@
   }
 }
 
-.sign-up-form {
+.form-design-container{
+  display:flex;
+  justify-content: center
+}
+
+.application-form {
   padding: 0px, 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 85%;
+  margin: 15px 0px;
 }
 
-.sign-up-form-inputs {
+.form-control {
   display: flex;
   flex-direction: column;
   color: black;
@@ -33,13 +37,7 @@
   }
 }
 
-.sign-up-form-actions {
-  color: black;
-  padding-top: 10px;
-  p {
-    font-size: 20px;
-    padding-top: 30px;
-    line-height: 40px;
-    opacity: 0.8;
-  }
+.app-button {
+  margin: 15px 75px;
+
 }
