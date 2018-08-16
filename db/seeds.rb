@@ -71,6 +71,39 @@ project.save!
 #
 #
 
+beast = Design.new(
+    name: "Gargoyle action figure",
+    description: "This design makes a perfect toy for the young kid.",
+    likes: rand(1000),
+  )
+beast.category = Category.find_by(name: "toys & games")
+beast.save!
+attachment = Attachment.new
+attachment.remote_file_url = files[0]
+attachment.design = beast
+attachment.save!
+request = Request.new(
+    kind: :improvement,
+    description: "I want the fingers to be less sharp so that my kid will not hurt himself while playing with this toy"
+  )
+request.design = beast
+request.user = User.all.sample
+request.save!
+contribution = Contribution.new(
+    tokens: rand(1000)
+  )
+contribution.request = request
+contribution.user = request.user
+contribution.save!
+
+project = Project.new(accepted_price: rand(1000))
+project.user = User.where(designer: true).sample
+r = Request.new(kind: :improvement, description: "I would like the same model in a female version.")
+r.design = beast
+r.user = User.where(designer: false).sample
+project.request = r
+project.save!
+
 20.times do
   design = Design.new(
     name: names.sample,
