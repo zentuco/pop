@@ -16,6 +16,10 @@
 
 
 a:focus{
-  color: white;
+  color: $pop-black;
   text-decoration: none;
+}
+
+button:focus {
+  outline: 0 !important;
 }
