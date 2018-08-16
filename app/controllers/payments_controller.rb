@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
     @order.update(payment: charge.to_json, state: 'paid')
     tokens = @order.token_sku.to_i + current_user.wallet.tokens
     current_user.wallet.update(tokens: tokens)
-    redirect_to dashboard_path(@order)
+    redirect_to session[:topup_redirect]
 
   rescue Stripe::CardError => e
     flash[:alert] = e.message
