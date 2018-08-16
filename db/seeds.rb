@@ -31,6 +31,17 @@ categories.each do |category|
   Category.create(name: category)
 end
 
+dtrump = Design.new(
+    name: "Donald Trump's head",
+    description: "This design is perfect for bobble heads and other memorabilia.",
+    likes: rand(1000),
+  )
+dtrump.category = Category.find_by(name: "3D printing")
+dtrump.save!
+
+
+
+
 20.times do
   design = Design.new(
     name: names.sample,
