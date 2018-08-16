@@ -1,6 +1,9 @@
-<div class="container">
+<div class="container requests-show-container">
   <div class="row">
+    <div class="request-new-title-wrapper">
     <h1>Request Changes to <%= @design.name %></h1>
+    Design description: <%= @design.description %>
+    </div>
     <div class="col-md-6">
       <div class="design-details">
         <% if !@design.attachments.empty? %>
@@ -8,16 +11,17 @@
         <% else %>
         <img src="https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png" alt="no_upload" style: width 100% >
         <% end %>
-        <p><%= @design.description %></p>
       </div>
     </div>
     <div class="col-md-6">
-      <%= simple_form_for [@design, @request] do |f|%>
-      <%= f.input :description, label: "Description of Changes" %>
-      <%=  f.hint "What do you want improved about this design? Be as specific as possible so you will attract fellow contributors and designers."%>
-      <br>
-      <%= render 'shared/contributionform', request:@request, contribution:@contribution %>
-      <% end %>
+      <div class="change-request-form-wrapper">
+        <%= simple_form_for [@design, @request] do |f|%>
+        <%= f.input :description, label: "Description of Changes" %>
+        <%=  f.hint "What do you want improved about this design? Be as specific as possible so you will attract fellow contributors and designers."%>
+        <br>
+        <%= render 'shared/contributionform', request:@request, contribution:@contribution %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
