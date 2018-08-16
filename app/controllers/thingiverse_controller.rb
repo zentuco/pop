@@ -4,6 +4,7 @@ require 'thingiverse'
 
 class ThingiverseController < ApplicationController
   before_action :set_tv, only: [:show, :search_thingiverse]
+  skip_before_action :authenticate_user!, only: [:search_thingiverse, :show]
 
   def search_thingiverse
     @designs = @tv.things.search params[:thingname]

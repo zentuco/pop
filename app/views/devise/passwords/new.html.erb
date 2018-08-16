@@ -14,17 +14,7 @@
         <%= f.button :submit, "Send me reset password instructions", class:"button" %>
       <% end %>
       <div class="password-reset-card-line"><hr></div>
-      <%- if controller_name != 'sessions' %>
-        Already have an account?
-        <%= link_to "Log in", new_session_path(resource_name) %><br />
-      <% end -%>
-      <br>
-      <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-        Already have an account?
-        <%= link_to "Sign up", new_registration_path(resource_name) %>
-      <% end -%>
-      <div class="password-reset-card-line"><hr></div>
-      <p><%= link_to "Back", :back, class:"password-reset-return button-red" %></p>
+      <%= link_to "Back", :back, class:"password-reset-return button" %>
       </div>
     </div>
   </div>
