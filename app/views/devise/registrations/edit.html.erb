@@ -1,31 +1,31 @@
 <div class="container">
-<div class="password-reset-card-container">
-<h2>Update <%= resource_name.to_s.humanize %> password</h2>
-<div class="password-reset-card-form-inputs">
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-    <%#= f.input :email, required: true, autofocus: true %>
-    <div>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-    </div>
-    <div class="payment-card-line"><hr></div>
-    <div>
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    </div>
-    <div class="payment-card-line"><hr></div>
-    <div>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    </div>
-  </div><div class="payment-card-line"><hr></div>
+  <div class="password-reset-card-container">
+    <h2>Update <%= resource_name.to_s.humanize %> password</h2>
+    <div class="password-reset-card-form-inputs">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <%#= f.input :email, required: true, autofocus: true %>
+        <div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+        </div>
+        <div class="payment-card-line"><hr></div>
+        <div>
+        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+        <%= f.input :password_confirmation, required: false %>
+        </div>
+        <div class="payment-card-line"><hr></div>
+        <div>
+        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        </div>
+        </div><div class="payment-card-line"><hr></div>
 
-  <div class="password-reset-card-form-actions">
-    <%= f.button :submit, "Update", class: "button" %>
-    <%= link_to "Back", :back, class: "button" %>
+        <div class="password-reset-card-form-actions">
+          <%= f.button :submit, "Update", class: "button" %>
+          <%= link_to "Back", :back, class: "button" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-</div>
-</div>
 </div>
