@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def deals
+    session[:topup_redirect] = request.referrer
   end
 
   def designerlanding
