@@ -55,7 +55,7 @@ request.design = dtrump
 request.user = User.all.sample
 request.save!
 contribution = Contribution.new(
-    tokens: rand(100)
+    tokens: rand(100) + 1
   )
 contribution.request = request
 contribution.user = request.user
@@ -92,7 +92,7 @@ request.design = beast
 request.user = User.all.sample
 request.save!
 contribution = Contribution.new(
-    tokens: rand(100)
+    tokens: rand(100) + 1
   )
 contribution.request = request
 contribution.user = request.user
@@ -144,7 +144,7 @@ project.save!
 ## keep this
 100.times do
   contribution = Contribution.new(
-    tokens: rand(10)
+    tokens: rand(10) + 1
   )
   contribution.request = Request.all.sample
   contribution.user = User.all.sample
