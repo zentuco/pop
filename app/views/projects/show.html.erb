@@ -10,8 +10,9 @@
         <% if @project.file %>
           <%= cl_image_tag @project.file, class: "project-file" %>
         <% else %>
+        <div class="project-status-project-show">Project Status: <%= @project.status %></div>
           <img src="https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png" alt="no_upload" style: width 100% >
-          <span style="margin-left: 20px;">Project Status: <%= @project.status %></span>
+
         <% end %>
       </div>
       <% if policy(@project).update? && !@project.file %>
