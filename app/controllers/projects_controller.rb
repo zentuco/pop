@@ -26,6 +26,9 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
+    @project = Project.find(params[:id])
     authorize @project
+    @project.destroy
+    redirect_to dashboard_path
   end
 end
