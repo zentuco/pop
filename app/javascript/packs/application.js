@@ -6,6 +6,7 @@ import { initFlash } from '../components/flash';
 import { initTabs } from '../components/tabs';
 import { initRangeSlider } from '../components/rangeslider';
 import { initActivateLikeButton } from '../components/likebutton';
+import { initProgressbar } from '../components/progressbar';
 
 
 initToolTip();
@@ -15,3 +16,4 @@ initFlash();
 initTabs();
 initActivateLikeButton();
 initRangeSlider();
+initProgressbar();
