@@ -106,15 +106,15 @@ r.user = User.where(designer: false).sample
 project.request = r
 project.save!
 
-20.times do
-  design = Design.new(
-    name: names.sample,
-    description: "An Amazing 3D printing design that will wow you beyond yout wildest dreams and send you offline wishing you had downloaded more files of this amazing product.",
-    likes: rand(1000),
-  )
-  design.category = Category.all.sample
-  design.save!
-end
+# 20.times do
+#   design = Design.new(
+#     name: names.sample,
+#     description: "An Amazing 3D printing design that will wow you beyond yout wildest dreams and send you offline wishing you had downloaded more files of this amazing product.",
+#     likes: rand(1000),
+#   )
+#   design.category = Category.all.sample
+#   design.save!
+# end
 10.times do
   files.each do |file|
     attachment = Attachment.new
