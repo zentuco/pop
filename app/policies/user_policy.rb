@@ -10,4 +10,8 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def designer?
+    true
+  end
 end
