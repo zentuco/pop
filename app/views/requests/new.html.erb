@@ -19,7 +19,11 @@
         <%= f.input :description, label: "Description of Changes" %>
         <%=  f.hint "What do you want improved about this design? Be as specific as possible so you will attract fellow contributors and designers."%>
         <br>
-        <%= render 'shared/contributionform', request:@request, contribution:@contribution %>
+          <% if current_user.wallet.tokens > 0 %>
+          <%= render 'shared/contributionform', request:@request, contribution:@contribution %>
+          <% else %>
+            please TopUp if you wish to contribute
+          <% end %>
         <% end %>
       </div>
     </div>
