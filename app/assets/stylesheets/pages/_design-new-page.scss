@@ -13,7 +13,7 @@
   margin-top: 3px;
   flex: 0 0 50vw;
   height: calc(100vh - 73px);
-  padding: 80px 50px;
+  padding: 100px 50px;
   display: flex;
   flex-direction: column;
 
@@ -40,7 +40,7 @@
 .upload-photo2 {
   flex: 0 0 50vw;
   height: 100vh;
-  padding: 80px 0px 50px 50px;
+  padding: 100px 0px 50px 50px;
   text-align: center;
 
   h2 {
@@ -64,7 +64,7 @@
   margin-top: 3px;
   flex: 0 0 50vw;
   height: calc(100vh - 73px);
-  padding: 80px;
+  padding: 100px 80px;
 
   h2 {
     padding-bottom: 50px;
@@ -80,7 +80,7 @@
 .request-title2 {
   flex: 0 0 50vw;
   height: 100vh;
-  padding: 80px 0px 50px 50px;
+  padding: 100px 0px 50px 50px;
   text-align: center;
 
   img {
@@ -98,7 +98,7 @@
   margin-top: 3px;
   flex: 0 0 50vw;
   height: calc(100vh - 73px);
-  padding: 80px;
+  padding: 100px;
   position: relative;
 
   h2 {
@@ -115,13 +115,13 @@
 .request-description2 {
   flex: 0 0 50vw;
   height: 100vh;
-  padding: 80px 0px 50px 50px;
+  padding: 150px 0px 50px 50px;
   text-align: center;
 
   img {
     padding-top: 50px;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
   }
 
   p {
