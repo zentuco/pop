@@ -22,7 +22,9 @@
           <% if current_user.wallet.tokens > 0 %>
           <%= render 'shared/contributionform', request:@request, contribution:@contribution %>
           <% else %>
-            please TopUp if you wish to contribute
+          <div class="text-center"><hr>
+            Uh Oh! No tokens... Top Up to contribute <%= link_to "Top Up", topup_path, class:"button" %>
+          </div>
           <% end %>
         <% end %>
       </div>
