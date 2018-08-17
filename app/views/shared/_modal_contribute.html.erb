@@ -8,7 +8,13 @@
       <div class="modal-body">
         <p>Would you like to contribute to this design?</p>
         <p>Please enter the amount of tokens you would like to contribute:</p>
-        <%= render 'shared/contributionform', request:request, contribution:contribution %>
+        <% if current_user.wallet.tokens > 0 %>
+          <%= render 'shared/contributionform', request:@request, contribution:@contribution %>
+          <% else %>
+          <div><hr>
+            Uh Oh! No tokens... Top Up to contribute <%= link_to "Top Up", topup_path, class:"button" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
