@@ -66,7 +66,7 @@
           <% if design.requests.presence %>
           <div class="card-pool">
             <!-- Aggregated amount of rewards -->
-            <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Approximately <%= design.requests.first.total_tokens/5 %> Euros">
+            <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Approximately €<%= design.requests.first.total_tokens/5 %>">
                <%= design.requests.first.total_tokens %> <i class="fas fa-coins"></i> <i class="fas fa-caret-down"></i>
             </button>
           </div>
