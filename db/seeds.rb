@@ -106,40 +106,40 @@ r.user = User.where(designer: false).sample
 project.request = r
 project.save!
 
-20.times do
-  design = Design.new(
-    name: names.sample,
-    description: "An Amazing 3D printing design that will wow you beyond yout wildest dreams and send you offline wishing you had downloaded more files of this amazing product.",
-    likes: rand(1000),
-  )
-  design.category = Category.all.sample
-  design.save!
-end
-10.times do
-  files.each do |file|
-    attachment = Attachment.new
-    attachment.remote_file_url = file
-    attachment.design = Design.all.sample
-    attachment.save!
-  end
-end
+# 20.times do
+#   design = Design.new(
+#     name: names.sample,
+#     description: "An Amazing 3D printing design that will wow you beyond yout wildest dreams and send you offline wishing you had downloaded more files of this amazing product.",
+#     likes: rand(1000),
+#   )
+#   design.category = Category.all.sample
+#   design.save!
+# end
+# 10.times do
+#   files.each do |file|
+#     attachment = Attachment.new
+#     attachment.remote_file_url = file
+#     attachment.design = Design.all.sample
+#     attachment.save!
+#   end
+# end
 
-20.times do
-  request = Request.new(
-    kind: rand(1),
-    description: "I want this model to be at least three times bigger than this and have a hook on the top so I can hang it from the chandelier over my bed."
-  )
-  request.design = Design.all.sample
-  request.user = User.all.sample
-  request.save!
-end
+# 20.times do
+#   request = Request.new(
+#     kind: rand(1),
+#     description: "I want this model to be at least three times bigger than this and have a hook on the top so I can hang it from the chandelier over my bed."
+#   )
+#   request.design = Design.all.sample
+#   request.user = User.all.sample
+#   request.save!
+# end
 
-5.times do
-  project = Project.new(accepted_price: rand(1000), file: files.sample)
-  project.user = User.all.sample
-  project.request = Request.all.sample
-  project.save!
-end
+# 5.times do
+#   project = Project.new(accepted_price: rand(1000), file: files.sample)
+#   project.user = User.all.sample
+#   project.request = Request.all.sample
+#   project.save!
+# end
 
 ## keep this
 100.times do
