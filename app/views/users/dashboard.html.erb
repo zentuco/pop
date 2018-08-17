@@ -36,30 +36,38 @@
   </div>
   <div id="projects" class="tab-section active">
     <h2>Ongoing Projects</h2>
-    <div class="row">
-      <% @projects.uniq.each do |project| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= render 'shared/project-card', project: project %>
+    <% if @projects.uniq.presence %>
+      <div class="row">
+        <% @projects.uniq.each do |project| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= render 'shared/project-card', project: project %>
+        </div>
+        <% end %>
       </div>
-      <% end %>
-    </div>
+    <% else %>
+      <h5>You have no ongoing projects! Search for a design and start creating your new projects <%= link_to "here", designs_path %></h5>
+    <% end %>
   </div>
   <div id="contributions" class="tab-section">
     <h2 class="contributions-tab-title">Requests Awaiting Designer</h2>
-    <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
-      <div class="row">
-        <div class="col-xs-5 col-tabs-nopadding">
-          <div class="contribution-intab-details">
-            <h6><b>Your Contribution:</b> <%= contribution.tokens %> tokens</h6>
-            <div style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;"><b>Change Request:</b> <%= contribution.request.description %></div>
+    <% if @contributions.order(created_at: :desc).first(10).presence %>
+      <% @contributions.order(created_at: :desc).first(10).each do |contribution| %>
+        <div class="row">
+          <div class="col-xs-5 col-tabs-nopadding">
+            <div class="contribution-intab-details">
+              <h6><b>Your Contribution:</b> <%= contribution.tokens %> tokens</h6>
+              <div style="overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;"><b>Change Request:</b> <%= contribution.request.description %></div>
+            </div>
+          </div>
+          <div class="col-xs-7 col-tabs-nopadding">
+            <div class="contribution-designs-card">
+              <%= render 'shared/card', design: contribution.request.design %>
+            </div>
           </div>
         </div>
-        <div class="col-xs-7 col-tabs-nopadding">
-          <div class="contribution-designs-card">
-            <%= render 'shared/card', design: contribution.request.design %>
-          </div>
-        </div>
-      </div>
+      <% end %>
+    <% else %>
+      <h5>You have no pending projects! Search for a design and start creating your new projects <%= link_to "here", designs_path %></h5>
     <% end %>
   </div>
   <div id="orders" class="tab-section">
