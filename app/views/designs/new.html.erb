@@ -1,4 +1,9 @@
 <div class="new-design-container">
+  <ul id="progressbar">
+    <li class="active" data-step="1">Design Photo</li>
+    <li data-step="2">Design Details</li>
+    <li data-step="3">Design Specifications</li>
+  </ul>
   <div id="newrequest-form-carousel" class="carousel slide" data-ride="carousel" data-interval="0">
     <%= simple_form_for @attachment, url: designs_path, method: :post do |f| %>
       <div class="carousel-inner" role="listbox">
@@ -8,7 +13,7 @@
               <h2>Upload your inspiration photo</h2>
                 <%= f.input :file %>
                 <%= f.input :file_cache, as: :hidden %>
-                <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
+                <a class="next-btn button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
                 <hr>
                 <p>Upload a photo of the thing you want it to be designed in 3D. If needed, upload a .zip to include multiple angles, features and other characteristics that will help our designers understand the job to be done.</p>
             </div>
@@ -28,8 +33,8 @@
                 <%= d.input :category, collection: Category.category_name %>
               <% end %>
               <div class="request-title1-buttons">
-                <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
-                <a class="button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
+                <a class="prev-btn button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+                <a class="next-btn button" href="#newrequest-form-carousel" role="button" data-slide="next">NEXT</a>
               </div>
             </div>
             <div class="request-title2">
@@ -49,7 +54,7 @@
               <% end %>
               <p>Try to be as specific as possible. Include any technical, aesthetic, mechanical, or functional detail. This is your chance to get the design exactly as you want it!</p>
               <div class="request-description-buttons">
-                <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+                <a class="prev-btn button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
                 <%= link_to "Cancel", :back, class: "button-red" %>
                 <%= f.submit "Upload Design", class: "button" %>
               </div>
