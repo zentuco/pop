@@ -22,12 +22,14 @@
             <% end %>
           </div>
           <div class="like-button-wrapper">
+          <% if user_signed_in? %>
             <span class="like-button-request">
               <%= link_to design_upvote_path(@design), method: :post, remote: true do %>
                 <i class="fas fa-heart"></i>
               <% end %>
             </span>
             <span id="like-button"><%= @design.likes %></span>
+            <% end %>
           </div>
         </div>
       </div>
