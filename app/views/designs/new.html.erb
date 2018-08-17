@@ -40,9 +40,6 @@
         <div class="item">
           <div class="new-request-third-container">
             <div class="request-description1">
-              <div class="request-description-buttons2">
-                <%= link_to "Cancel Upload", :back, class: "button-red" %>
-              </div>
               <h2>Detail the specifications for your design</h2>
               <%= simple_fields_for :request do |r| %>
                 <%= r.input :description, as: :text, label: "What Changes do you want made?" %>
@@ -53,6 +50,7 @@
               <p>Try to be as specific as possible. Include any technical, aesthetic, mechanical, or functional detail. This is your chance to get the design exactly as you want it!</p>
               <div class="request-description-buttons">
                 <a class="button-red" href="#newrequest-form-carousel" role="button" data-slide="prev">PREVIOUS</a>
+                <%= link_to "Cancel", :back, class: "button-red" %>
                 <%= f.submit "Upload Design", class: "button" %>
               </div>
             </div>
