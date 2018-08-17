@@ -71,9 +71,10 @@
                             <%= render 'shared/modal_contribute', request: request, contribution: @contribution %>
                           <% end %>
                         </div>
-                        <% if current_user.admin %>
+                        <% if user_signed_in? && current_user.admin %>
                         <div class="create-project-button">
                           <%= link_to "Create Project", projects_path(request: request), method: :post, class: "button" %>
+                        <%=  %>
                         </div>
                         <% end %>
                       </div>
