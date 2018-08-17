@@ -6,13 +6,13 @@ Request.destroy_all
 User.destroy_all
 
 ##keep this
-u =User.new(designer: true, username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado")
+u =User.new(username: "zentuco", email: "pool@printables.io", password: "hugocollado", printer: "prusa", first_name: "Hugo", last_name: "Collado")
 u.remote_photo_url= "https://res.cloudinary.com/lancekrp/image/upload/v1534147692/zentuco.jpg"
 u.save
 u =User.new(admin: true, username: "vananreed", email: "pool2@printables.io", password: "reedvan", printer: "HUGE", first_name: "Reed", last_name: "Van Anrooy")
 u.remote_photo_url=  "https://res.cloudinary.com/lancekrp/image/upload/v1534147686/vananreed.png"
 u.save
-u =User.new(username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell")
+u =User.new(designer: true, username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell")
 u.remote_photo_url=  "https://res.cloudinary.com/lancekrp/image/upload/v1534144047/dmypmwzd9xtu3fa22rso.jpg"
 u.save
 u =User.new(username: "jamesthebrit", email: "pool4@printables.io", password: "jamesrevan", printer: "has lazer beams", first_name: "James", last_name: "Revan")
