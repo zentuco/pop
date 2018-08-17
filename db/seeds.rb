@@ -115,24 +115,24 @@ project.save!
 #   design.category = Category.all.sample
 #   design.save!
 # end
-10.times do
-  files.each do |file|
-    attachment = Attachment.new
-    attachment.remote_file_url = file
-    attachment.design = Design.all.sample
-    attachment.save!
-  end
-end
+# 10.times do
+#   files.each do |file|
+#     attachment = Attachment.new
+#     attachment.remote_file_url = file
+#     attachment.design = Design.all.sample
+#     attachment.save!
+#   end
+# end
 
-20.times do
-  request = Request.new(
-    kind: rand(1),
-    description: "I want this model to be at least three times bigger than this and have a hook on the top so I can hang it from the chandelier over my bed."
-  )
-  request.design = Design.all.sample
-  request.user = User.all.sample
-  request.save!
-end
+# 20.times do
+#   request = Request.new(
+#     kind: rand(1),
+#     description: "I want this model to be at least three times bigger than this and have a hook on the top so I can hang it from the chandelier over my bed."
+#   )
+#   request.design = Design.all.sample
+#   request.user = User.all.sample
+#   request.save!
+# end
 
 5.times do
   project = Project.new(accepted_price: rand(1000), file: files.sample)
