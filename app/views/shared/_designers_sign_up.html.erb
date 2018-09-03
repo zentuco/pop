@@ -15,6 +15,7 @@
 <%= f.input :linkdin, label: "Linkedin" %>
 <% if !user_signed_in? %>
 <%= simple_fields_for :user do |u| %>
+<%= u.input :username, label: "Create a PoP username" %>
 <%= u.input :password, label: "Create a password", required: true %>
 <%= u.input :password_confirmation, required: true %>
 <% end %>
