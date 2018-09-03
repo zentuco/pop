@@ -15,7 +15,8 @@ class DesignersController < ApplicationController
     @designer = Designer.new(designer_params)
     @designer.user = @user
     if @designer.save!
-      redirect_to root_path #will change to requests#index when view is created
+      #render flash[:notice] = "Application submitted" # need to make a better alert
+      redirect_to root_path
     else
       render 'new'
     end
