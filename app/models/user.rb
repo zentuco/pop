@@ -11,6 +11,7 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   after_create :create_wallet
   has_many :requests
+  has_one :designer
 
 
   def full_name

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_10_025057) do
+ActiveRecord::Schema.define(version: 2018_09_03_063428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 2018_08_10_025057) do
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_contributions_on_request_id"
     t.index ["user_id"], name: "index_contributions_on_user_id"
+  end
+
+  create_table "designers", force: :cascade do |t|
+    t.text "description"
+    t.text "experience"
+    t.string "website"
+    t.string "thingiverse_username"
+    t.string "linkdin"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_designers_on_user_id"
   end
 
   create_table "designs", force: :cascade do |t|
@@ -126,6 +138,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_025057) do
   add_foreign_key "attachments", "designs"
   add_foreign_key "contributions", "requests"
   add_foreign_key "contributions", "users"
+  add_foreign_key "designers", "users"
   add_foreign_key "designs", "categories"
   add_foreign_key "orders", "wallets"
   add_foreign_key "projects", "requests"

@@ -1,0 +1,17 @@
+<%= simple_form_for @designer do |f| %>
+<% if user_signed_in? %>
+<div>Already have a PoP account?</div>
+<%= link_to "Sign in", new_user_session_path %>
+<%= simple_fields_for :user do |u| %>
+<%= u.input :first_name %>
+<%= u.input :last_name %>
+<%= u.input :email %>
+<% end %>
+<% end %>
+<%= f.input :description, label: "Describe yourself" %>
+<%= simple_fields_for :user do |u| %>
+<%= u.input :password %>
+<%= u.input :password_confirmation %>
+<% end %>
+<%= f.submit %>
+<% end %>
