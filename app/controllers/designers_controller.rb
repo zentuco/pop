@@ -6,7 +6,6 @@ class DesignersController < ApplicationController
   end
 
   def create
-    byebug
     if user_signed_in?
       @user = current_user
     else
@@ -27,7 +26,6 @@ class DesignersController < ApplicationController
   end
 
   def approve
-    byebug
     @user = Designer.find(params[:designer].to_i).user
     @user.update(is_designer: true)
     redirect_to designers_path
