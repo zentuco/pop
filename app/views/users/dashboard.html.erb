@@ -89,6 +89,9 @@
     <% end %>
   </div>
 </div>
+ <% if current_user.admin? %>
+    <%= link_to "See PoP Designers", designers_path, class: "button" %>
+<% end %>
 <% if user_signed_in? %>
   <%= render "shared/topup-sticky" %>
 <% end %>

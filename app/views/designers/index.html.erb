@@ -1,0 +1,20 @@
+<div class="container">
+<h3>PoP Designers</h3>
+<% @designers.each do |designer| %>
+  <div>Name: <%= designer.user.full_name %></div>
+  <div>Summary: <%= designer.description %></div>
+  <div>Design Experience: <%= designer.experience %></div>
+  <div>Website: <%= designer.website %></div>
+  <div>Thingiverse username: <%= designer.thingiverse_username %></div>
+  <div>LinkedIn: <%= designer.linkdin %></div>
+  <%= link_to "PoP user Profile", user_page_path(designer.user) %>
+  <div class="designer-approval-button">
+  <% if designer.user.is_designer %>
+    This designer is Approved
+  <% else %>
+    <%= link_to "Approve Designer", approve_path(designer: designer), method: :post %>
+  <% end %>
+  </div>
+  <hr>
+<% end %>
+</div>
