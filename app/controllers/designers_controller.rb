@@ -26,6 +26,13 @@ class DesignersController < ApplicationController
     @designers = Designer.all
   end
 
+  def approve
+    byebug
+    @user = Designer.find(params[:designer].to_i).user
+    @user.update(is_designer: true)
+    redirect_to designers_path
+  end
+
   private
 
   def user_params
