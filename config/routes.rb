@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "paths" }
   get 'users/:id/profile', to: 'users#show', as: 'user_page'
   put 'users/designer', to: 'users#designer', as: 'designer'
-  resources :designers, only: [:new, :index]
+  resources :designers, only: [:new, :create, :index]
 end
 

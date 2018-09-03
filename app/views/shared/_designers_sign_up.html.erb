@@ -10,12 +10,14 @@
 <% end %>
 <%= f.input :description, label: "Describe yourself", required: true %>
 <%= f.input :experience, label: "Tell us about your Design Experience", required: true %>
-<%= f.input :website %>
+<%= f.input :website, label: "Website/Portfolio" %>
 <%= f.input :thingiverse_username %>
-<%= f.input :linkdin %>
+<%= f.input :linkdin, label: "Linkedin" %>
+<% if !user_signed_in? %>
 <%= simple_fields_for :user do |u| %>
 <%= u.input :password, label: "Create a password", required: true %>
 <%= u.input :password_confirmation, required: true %>
+<% end %>
 <% end %>
 <%= f.submit "Submit Application", class: "button" %>
 <% end %>
