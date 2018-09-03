@@ -1,0 +1,21 @@
+<%= simple_form_for @designer do |f| %>
+<% if !user_signed_in? %>
+<div>Already have a PoP account?</div>
+<%= link_to "Sign in", new_user_session_path %>
+<%= simple_fields_for :user do |u| %>
+<%= u.input :first_name, required: true %>
+<%= u.input :last_name, required: true %>
+<%= u.input :email, required: true %>
+<% end %>
+<% end %>
+<%= f.input :description, label: "Describe yourself", required: true %>
+<%= f.input :experience, label: "Tell us about your Design Experience", required: true %>
+<%= f.input :website %>
+<%= f.input :thingiverse_username %>
+<%= f.input :linkdin %>
+<%= simple_fields_for :user do |u| %>
+<%= u.input :password, label: "Create a password", required: true %>
+<%= u.input :password_confirmation, required: true %>
+<% end %>
+<%= f.submit "Submit Application", class: "button" %>
+<% end %>
