@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: [:edit, :update, :destroy]
+  before_action :set_request, only: [:show, :edit, :update, :destroy]
 
   def new
     @request = Request.new
@@ -27,6 +27,9 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.all
+  end
+
+  def show
   end
 
   def edit

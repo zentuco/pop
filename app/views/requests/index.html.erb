@@ -1,0 +1,46 @@
+<div class="container-fluid designs-index-container">
+  <div class="row desings-page-row-padded">
+    <div class="col-md-2 hidden-sm index-grid-padding sticky-container">
+      <div class="index-categories">
+        <h5>All Categories</h5>
+        <hr>
+        <% Category.all.each do |category| %>
+          <ul class="designs-index-list categories">
+            <li>
+              <%= link_to category.name.capitalize, requests_path(category: category.name) %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 index-grid-padding">
+      <div class="cards-container">
+        <div class="index-searchbar">
+          <%= render "shared/searchbar" %>
+        </div>
+        <div class="index-cards-container">
+          <% if @requests.presence %>
+            <% @requests.each do |request|  %>
+              <%= render 'shared/request-card', request: request %>
+            <% end %>
+          <% else %>
+            <div>No Results found! Try a different search.</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 hidden-sm index-grid-padding sticky-container">
+      <div class="index-faqs">
+        <h5>New to Pop?</h5>
+        <hr>
+        <ul class="designs-index-list">
+          <li><%= link_to "How it works", "#" %></li>
+          <li><%= link_to "P2P economy", "#" %></li>
+          <li><%= link_to "FAQ's", "#" %></li>
+          <li><%= link_to "Compensation", "#" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/modal' %>
+</div>
