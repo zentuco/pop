@@ -12,7 +12,7 @@ u.save
 u =User.new(admin: true, username: "vananreed", email: "pool2@printables.io", password: "reedvan", printer: "HUGE", first_name: "Reed", last_name: "Van Anrooy")
 u.remote_photo_url=  "https://res.cloudinary.com/lancekrp/image/upload/v1534147686/vananreed.png"
 u.save
-u =User.new(designer: true, username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell")
+u =User.new(is_designer: true, username: "lancekrp", email: "pool3@printables.io", password: "lancepurnell", printer: "Expensive", first_name: "Lance", last_name: "Purnell")
 u.remote_photo_url=  "https://res.cloudinary.com/lancekrp/image/upload/v1534144047/dmypmwzd9xtu3fa22rso.jpg"
 u.save
 u =User.new(username: "jamesthebrit", email: "pool4@printables.io", password: "jamesrevan", printer: "has lazer beams", first_name: "James", last_name: "Revan")
@@ -62,10 +62,10 @@ contribution.user = request.user
 contribution.save!
 
 project = Project.new(accepted_price: rand(1000))
-project.user = User.where(designer: true).sample
+project.user = User.where(is_designer: true).sample
 r = Request.new(kind: :original, description: "I would like this same design but without Donald Trump's toupee")
 r.design = dtrump
-r.user = User.where(designer: false).sample
+r.user = User.where(is_designer: false).sample
 project.request = r
 project.save!
 
@@ -99,10 +99,10 @@ contribution.user = request.user
 contribution.save!
 
 project = Project.new(accepted_price: rand(1000))
-project.user = User.where(designer: true).sample
+project.user = User.where(is_designer: true).sample
 r = Request.new(kind: :improve, description: "I would like the same model in a female version.")
 r.design = beast
-r.user = User.where(designer: false).sample
+r.user = User.where(is_designer: false).sample
 project.request = r
 project.save!
 
