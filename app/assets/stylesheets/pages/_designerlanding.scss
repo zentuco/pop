@@ -67,7 +67,6 @@
   background-size: cover;
 }
 
-
 .how-to-be-number {
     font-size: 108px;
     margin-top: -15px;
@@ -77,16 +76,25 @@
     position: flex-start;
 }
 
-.designer-steps-container {
-  margin: 20px 0;
+#c2a-designer {
+  background-image: asset-url("c2a-designer-banner.jpg");
+  height: 60vh;
 }
 
-.designer-landing-image {
-  width: 417px;
-  height: auto;
+.c2a-designer-container {
+  padding: 100px 0px 0px 200px;
 }
 
-#become-a-designer {
-  margin-top: 30px;
+.c2a-designer-content {
+  color: #FFF;
+  width: 40%;
+
+  h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
 }
+
+
 
