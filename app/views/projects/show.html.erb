@@ -35,9 +35,9 @@
         <div>
           <p>Designer for this project is:</p>
           <div>
-            <%= link_to user_page_path(@project.user) do  %>
-              <%= cl_image_tag @project.user.photo, class: "avatar large" %>
-              <%= @project.user.full_name %>
+            <%= link_to user_page_path(@project.designer.user) do  %>
+              <%= cl_image_tag @project.designer.user.photo, class: "avatar large" %>
+              <%= @project.designer.user.full_name %>
             <% end %>
           </div>
         </div>

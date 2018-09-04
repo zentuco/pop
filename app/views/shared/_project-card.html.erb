@@ -7,10 +7,10 @@
     <% end %>)">
   </div>
   <div class="designer-avatar text-center">
-    <%= cl_image_tag project.user.photo, class: "avatar" %>
+    <%= cl_image_tag project.designer.user.photo, class: "avatar" %>
   </div>
   <div class="project-card-content text-center">
-    <div class="project-designer">Designer: <%= project.user.username %></div>
+    <div class="project-designer">Designer: <%= project.designer.user.username %></div>
     <div class="project-card-line"><hr></div>
     <!-- <div class="project-name">Project: <%#= project.id %></div> -->
     <div class="project-status">Status: <%= project.status %></div>

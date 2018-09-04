@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   def create
     @request = Request.find(params[:request].to_i)
     @project = Project.new(accepted_price: @request.total_tokens)
-    @project.user = User.where(designer: true).sample
+    @project.designer = current_user.designer
     @project.request = @request
     authorize @project
     if @project.save!
