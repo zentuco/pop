@@ -17,13 +17,6 @@ class UsersController < ApplicationController
 
   end
 
-  def designer
-    @user = current_user
-    @user.designer = true
-    @user.save!
-    authorize @user
-  end
-
   def show
     @user = User.find(params[:id])
     authorize @user
