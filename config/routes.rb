@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :requests, only: [:index, :create, :update, :edit, :destroy, :new]
     post 'upvote', to: 'designs#upvote'
   end
+  resources :requests, only: [:index, :show]
   resources :contributions, only: [:update, :edit, :destroy, :create]
   resources :projects, only: [:create, :update, :destroy, :show]
   get 'dashboard', to: 'users#dashboard'

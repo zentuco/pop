@@ -1,0 +1,72 @@
+<div class="request-card-wrapper">
+  <div class="request-card-container">
+
+    <div class="request-card-header">
+      <span class="request-card-avatar-link">
+        <%= link_to user_page_path(request.user) do  %>
+        <span class="request-card-avatar">
+          <!-- design or request users avatar -->
+          <%= cl_image_tag request.user.photo, class: "avatar small" %>
+        </span>
+        <span class="request-card-name">
+          <!-- user-name -->
+          <%= request.user.username %>
+        </span>
+        <% end %>
+      </span>
+      <span class="request-card-category">
+        <!-- design/request category -->
+        <%= request.design.category.name %>
+      </span>
+      <span class="request-card-timespan">
+        <!-- • date_created - date now -->
+        <%= request.created_time_ago %>
+      </span>
+    </div>
+
+    <div class="request-card-body">
+      <%= link_to request, class: "request-card-details-header" do %>
+      <div>
+        <!-- design image -->
+        <% if request.design.attachments.presence %>
+        <%= cl_image_tag request.design.attachments.first.file , class: "request-card-image" %>
+        <% else %>
+        <img src="https://res.cloudinary.com/lancekrp/image/upload/v1534162640/no_image.png" alt="" class="request-card-image">
+        <% end %>
+      </div>
+      <div class="request-card-details">
+        <div>
+          <div class="request-card-title">
+            <!-- Title of Design or Request (new or change) -->
+            <h3><%= request.design.name %></h3>
+          </div>
+          <div class="request-card-description">
+            <div class="request-card-description-text">
+              <%= request.description %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <div class="request-card-footer">
+
+          <div class="request-card-pool">
+            <!-- Aggregated amount of rewards -->
+            <button type="button"  class="transparent-button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Approximately €<%= request.total_tokens/5 %>">
+               <%= request.total_tokens %> <i class="fas fa-coins"></i> <i class="fas fa-caret-down"></i>
+            </button>
+          </div>
+          <div class="request-card-contributors">
+            <!-- number of contributors -->
+            <span class="hovered"><i class="fas fa-users"></i> <%= request.contributions.size %></span>
+          </div>
+          <div class="request-card-share">
+            <!-- button to share in FB/Twitter to power visibility, make modal or dropdown to share -->
+            <button type="" class="transparent-button" data-toggle="modal" data-target="#shareModal"><i class="fas fa-share-square"></i></button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

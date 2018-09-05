@@ -1,8 +1,8 @@
 class Project < ApplicationRecord
   belongs_to :request
-  belongs_to :user
+  belongs_to :designer
 
-  validates :user, presence: true
+  validates :designer, presence: true
   validates :request, presence: true
   validates :accepted_price, presence: true
 
