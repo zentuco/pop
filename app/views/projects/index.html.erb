@@ -1,0 +1,14 @@
+<div class="container">
+  <h3>Your Projects</h3>
+  <% if @projects.presence %>
+  <div class="row">
+    <% @projects.each do |project| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= render 'shared/project-card', project: project %>
+    </div>
+    <% end %>
+  </div>
+  <% else %>
+  <h5>You don't have any projects yet! Search open requests and get paid for your creations <%= link_to "here", requests_path %></h5>
+  <% end %>
+</div>
