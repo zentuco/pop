@@ -19,7 +19,8 @@
             <div class="profile-card-line"><hr></div>
             <div><%= @user.designer.experience %></div>
             <div class="profile-card-line"><hr></div>
-            <div><%= @user.designer.website %></div>
+            <div>Website:</div>
+            <div><%= link_to @user.designer.website, "#{@user.designer.website}", target: "_blank" %></div>
         <% else %>
           <div>Contributions: <%= @user.contributions.size %></div>
           <% if @user.printer.presence %>
