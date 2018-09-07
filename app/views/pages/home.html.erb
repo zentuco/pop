@@ -122,78 +122,11 @@
       <h2>Trending now</h2>
     </div>
     <div class="row">
+      <% @designs.first(4).each do |design| %>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="home-popular-container">
-          <%= link_to "https://www.thingiverse.com/thing:2194278", target: :_blank do %>
-            <div class="home-popular-image">
-              <%= image_tag "https://cdn.thingiverse.com/renders/e1/2a/7c/aa/f8/a81bf47f0dfc6a21441c25cfdd5b6302_preview_featured.jpg" %>
-            </div>
-            <div class="home-popular-title">
-              <h4>Modular Mounting System</h4>
-            </div>
-            <div class="home-popular-description">
-              <p>This project is a mounting system for phones and lightweight cameras. With the potential to mount most phones and small cameras onto a wide range of objects...</p>
-            </div>
-            <div class="home-popular-date">
-              <p>19 July 2018</p>
-            </div>
-          <% end %>
-        </div>
+        <%= render 'shared/home_page_popular_card', design: design %>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="home-popular-container">
-          <%= link_to "https://www.thingiverse.com/thing:2014307", target: :_blank do %>
-            <div class="home-popular-image">
-              <%= image_tag "https://cdn.thingiverse.com/renders/ec/0e/f7/36/7b/4347d727daa5d601bdca6fa6e2c4ce16_preview_featured.jpg" %>
-            </div>
-            <div class="home-popular-title">
-              <h4>Baby Groot Action Figure</h4>
-            </div>
-            <div class="home-popular-description">
-              <p>The model resembles the baby groots appearance in the trailers of the movie. I recommend using the high detail version to capture all the details I put on...</p>
-            </div>
-            <div class="home-popular-date">
-              <p>03 August 2018</p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="home-popular-container">
-          <%= link_to "https://www.thingiverse.com/thing:2864118", target: :_blank do %>
-            <div class="home-popular-image">
-              <%= image_tag "https://cdn.thingiverse.com/renders/ff/e4/db/17/3d/e09bdbd260eb7872667aab80a5331ed5_preview_featured.JPG" %>
-            </div>
-            <div class="home-popular-title">
-              <h4>Original Prusa i3 MK3 Enclosure</h4>
-            </div>
-            <div class="home-popular-description">
-              <p>Maybe you have already seen some of those fancy enclosures people build for their printers. How do they work? And do they work...</p>
-            </div>
-            <div class="home-popular-date">
-              <p>13 August 2018</p>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="home-popular-container">
-          <%= link_to "https://www.thingiverse.com/thing:2448911", target: :_blank do %>
-            <div class="home-popular-image">
-              <%= image_tag "https://cdn.thingiverse.com/renders/53/1c/15/a6/6b/13f8303b92ae94f89af3d8c489be67ff_preview_featured.jpg" %>
-            </div>
-            <div class="home-popular-title">
-              <h4>Modular Stacking Planter</h4>
-            </div>
-            <div class="home-popular-description">
-              <p>Plantygon is a modular geometric stacking planter. Designed to accommodate my growing collection of succulents, it is based on the truncated octohedron...</p>
-            </div>
-            <div class="home-popular-date">
-              <p>18 August 2018</p>
-            </div>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>

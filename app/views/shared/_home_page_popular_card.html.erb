@@ -1,0 +1,20 @@
+<div class="home-popular-container">
+  <%= link_to design_path(design) do %>
+  <div class="home-popular-image">
+    <% if design.attachments.presence %>
+    <%= cl_image_tag design.attachments.first.file %>
+    <% else %>
+      <img src="https://szempatiaoptika.hu/UserFiles/Image/no-image-icon.jpg" alt="no_upload">
+    <% end %>
+  </div>
+  <div class="home-popular-title">
+    <h4><%= design.name %></h4>
+  </div>
+  <div class="home-popular-description">
+    <p><%= design.description %></p>
+  </div>
+  <div class="home-popular-date">
+    <p><%= design.requests.first.created_time_ago %></p>
+  </div>
+  <% end %>
+</div>
