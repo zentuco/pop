@@ -9,12 +9,16 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    user.is_designer?
+  end
+
   def create?
-    user.admin? || user.designer?
+    user.admin? || user.is_designer?
   end
 
   def update?
-    user.admin? || record.user == user && user.designer?
+    user.admin? || record.user == user && user.is_designer?
   end
 
   def destroy?

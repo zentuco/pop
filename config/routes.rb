@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :requests, only: [:index, :show]
   resources :contributions, only: [:update, :edit, :destroy, :create]
-  resources :projects, only: [:create, :update, :destroy, :show]
+  resources :projects, only: [:create, :update, :destroy, :show, :index]
   get 'dashboard', to: 'users#dashboard'
   get 'topup', to: 'pages#deals'
   get 'become-designer', to: 'pages#designerlanding'

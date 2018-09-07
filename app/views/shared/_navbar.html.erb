@@ -15,7 +15,22 @@
       <% if !current_user.designer %>
         <%= link_to "Become a Designer", become_designer_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
-        <%= link_to "Accept Projects", requests_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <div class="navbar-wagon-item navbar-wagon-link">
+      <div class="dropdown">
+        <div class="dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">Designers</div>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Profile", profile_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Your Projects", projects_path(designer: current_user.designer) %></li>
+          <li><%= link_to "Accept New Project", requests_path, class: "navbar-wagon-item navbar-wagon-link-white" %></li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
       <% end %>
     <% end %>
     <% if user_signed_in? %>
@@ -38,6 +53,9 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li><%= link_to "Profile", profile_path %></li>
             <li><%= link_to "Dashboard", dashboard_path %></li>
+            <% if current_user.is_designer %>
+            <li><%= link_to "Your Projects", projects_path(designer: current_user.designer) %></li>
+            <% end %>
             <li><%= link_to "Browse Designs", designs_path %></li>
             <li><%= link_to "Request New Design", new_design_path %></li>
             <li><%= link_to "Top Up Wallet", topup_path %></li>
