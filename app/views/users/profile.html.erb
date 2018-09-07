@@ -12,6 +12,10 @@
       <div class="profile-card-line"><hr></div>
       <div class="profile-email">Email: <%= @user.email %></div>
       <div class="profile-card-line"><hr></div>
+      <div>Contributions: <%= @user.contributions.size %></div>
+      <div class="profile-card-line"><hr></div>
+      <div>3D printer: <%= @user.printer %></div>
+      <div class="profile-card-line"><hr></div>
       <div class="profile-card-actions">
         <button type="button" class="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
         <%= link_to "reset password", edit_user_registration_path, class: "button" %>

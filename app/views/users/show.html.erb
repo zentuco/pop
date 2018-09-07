@@ -14,7 +14,20 @@
         <div class="profile-card-line"><hr></div>
         <div class="profile-name"><%= @user.full_name %></div>
         <div class="profile-card-line"><hr></div>
-        <div class="profile-email-other"><%= @user.email %></div>
+        <% if @user.designer %>
+            <div><%= @user.designer.description %></div>
+            <div class="profile-card-line"><hr></div>
+            <div><%= @user.designer.experience %></div>
+            <div class="profile-card-line"><hr></div>
+            <div>Website:</div>
+            <div><%= link_to @user.designer.website, "#{@user.designer.website}", target: "_blank" %></div>
+        <% else %>
+          <div>Contributions: <%= @user.contributions.size %></div>
+          <% if @user.printer.presence %>
+          <div class="profile-card-line"><hr></div>
+          <div class="profile-email-other">3D Printer: <%= @user.printer %></div>
+          <% end %>
+        <% end %>
         <% if current_user == @user %>
           <div class="profile-card-line"><hr></div>
           <div class="profile-card-actions">
