@@ -2,6 +2,7 @@ class DesignersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create]
 
   def new
+    redirect_to root_path if current_user.is_designer
     @designer = Designer.new
   end
 
